@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Stargrave/static/css/main.42df436b.chunk.css",
+    "main.css": "/Stargrave/static/css/main.e566819f.chunk.css",
     "main.js": "/Stargrave/static/js/main.7aa50642.chunk.js",
     "main.js.map": "/Stargrave/static/js/main.7aa50642.chunk.js.map",
     "runtime-main.js": "/Stargrave/static/js/runtime-main.120ced82.js",
@@ -8,7 +8,7 @@
     "static/js/2.ab78f596.chunk.js": "/Stargrave/static/js/2.ab78f596.chunk.js",
     "static/js/2.ab78f596.chunk.js.map": "/Stargrave/static/js/2.ab78f596.chunk.js.map",
     "index.html": "/Stargrave/index.html",
-    "static/css/main.42df436b.chunk.css.map": "/Stargrave/static/css/main.42df436b.chunk.css.map",
+    "static/css/main.e566819f.chunk.css.map": "/Stargrave/static/css/main.e566819f.chunk.css.map",
     "static/js/2.ab78f596.chunk.js.LICENSE.txt": "/Stargrave/static/js/2.ab78f596.chunk.js.LICENSE.txt",
     "static/media/Add.94030173.png": "/Stargrave/static/media/Add.94030173.png",
     "static/media/Biomorph.30852fce.png": "/Stargrave/static/media/Biomorph.30852fce.png",
@@ -31,7 +31,7 @@
   "entrypoints": [
     "static/js/runtime-main.120ced82.js",
     "static/js/2.ab78f596.chunk.js",
-    "static/css/main.42df436b.chunk.css",
+    "static/css/main.e566819f.chunk.css",
     "static/js/main.7aa50642.chunk.js"
   ]
 }
