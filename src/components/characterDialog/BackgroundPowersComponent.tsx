@@ -73,6 +73,7 @@ export const BackgroundPowersComponent = (
                             updateBackgroundCallback({ ...background, powers: [...background.powers, { ...power, activationValue: power.activationValue + (isCaptain ? 2 : 4) }] });
                         }
                     }}
+                    onMouseOver={() => setPreviewPower(power)}
                     className={isPowerSelected(power) ? "background-power-selection selected" : maxNonCorePowersSelected(background, isCaptain) ? "background-power-selection disabled" : "background-power-selection"}
                     key={`add_dialog_x_stat_${power.name}`}>
                     <div>{power.name}</div>
