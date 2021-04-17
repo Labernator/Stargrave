@@ -1,0 +1,19 @@
+{
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "[typescriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "tslint.configFile": "C:\\Users\\D037083\\Private\\Github\\Stargrave\\tslint.json",
+    "typescript.preferences.importModuleSpecifierEnding": "minimal",
+    "typescript.tsdk": "node_modules\\typescript\\lib"
+}

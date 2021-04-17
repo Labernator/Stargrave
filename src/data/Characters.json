@@ -1,0 +1,28 @@
+{
+    "Captain": {
+        "stats": {
+            "Move": 6,
+            "Fight": 3,
+            "Shoot": 2,
+            "Armour": 9,
+            "Will": 3,
+            "Health": 16
+        },
+        "level": 15,
+        "gearSlots": 6,
+        "type": "Captain"
+    },
+    "FirstMate": {
+        "stats": {
+            "Move": 6,
+            "Fight": 2,
+            "Shoot": 2,
+            "Armour": 9,
+            "Will": 2,
+            "Health": 14
+        },
+        "level": 0,
+        "gearSlots": 5,
+        "type": "FirstMate"
+    }
+}

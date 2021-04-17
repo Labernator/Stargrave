@@ -1,0 +1,116 @@
+
+{
+    "extends": [
+        "tslint:all"
+    ],
+    "rules": {
+        "cyclomatic-complexity": true,
+        "increment-decrement": false,
+        "newline-before-return": false,
+        "no-parameter-properties": true,
+        "no-parameter-reassignment": true,
+        "no-unused-variable": true,
+        "typedef": false,
+        "object-literal-key-quotes": false,
+        "comment-format": {
+            "options": [
+                "check-space"
+            ]
+        },
+        "member-access": true,
+        "only-arrow-functions": {
+            "options": [
+                "allow-declarations",
+                "allow-named-functions"
+            ]
+        },
+        "ordered-imports": true,
+        "no-implicit-dependencies": [
+            true,
+            "dev"
+        ],
+        "completed-docs": false,
+        "no-any": false,
+        "no-magic-numbers": false,
+        "no-non-null-assertion": false,
+        "no-null-keyword": false,
+        "no-require-imports": false,
+        "no-unbound-method": false,
+        "no-unnecessary-qualifier": false,
+        "no-use-before-declare": false,
+        "no-void-expression": false,
+        "prefer-function-over-method": false,
+        "strict-type-predicates": false,
+        "triple-equals": {
+            "options": [
+                "allow-undefined-check"
+            ]
+        },
+        "ban": {
+            "options": [
+                [
+                    "describe",
+                    "only"
+                ],
+                [
+                    "it",
+                    "only"
+                ]
+            ]
+        },
+        "interface-name": false,
+        "max-classes-per-file": false,
+        "member-ordering": {
+            "options": {
+                "order": "statics-first"
+            }
+        },
+        "no-console": {
+            "options": [
+                "log"
+            ]
+        },
+        "match-default-export-name": false,
+        "no-default-import": false,
+        "no-switch-case-fall-through": true,
+        "strict-boolean-expressions": false,
+        "switch-default": false,
+        "variable-name": {
+            "options": [
+                "ban-keywords",
+                "check-format",
+                "allow-leading-underscore",
+                "allow-pascal-case"
+            ]
+        },
+        "linebreak-style": false,
+        "max-line-length": [
+            true,
+            250
+        ],
+        "return-undefined": false,
+        "no-import-side-effect": false,
+        "no-unsafe-any": false,
+        "no-submodule-imports": false,
+        "newline-per-chained-call": false,
+        "align": false,
+        "object-literal-sort-keys": false,
+        "no-unused-expression": true,
+        "file-name-casing": [false, "camel-case"],
+        "trailing-comma": [
+            true,
+            {
+                "singleline": "never",
+                "multiline": {
+                    "objects": "always",
+                    "arrays": "always",
+                    "functions": "never",
+                    "typeLiterals": "ignore"
+                }
+            }
+        ]
+    },
+    "include": [
+        "src"
+    ]
+}

@@ -1,0 +1,210 @@
+{
+    "backgrounds": [
+        {
+            "name": "Biomorph",
+            "statModifications": {
+                "mandatory": {
+                    "Health": 1
+                },
+                "optional": {
+                    "Move": 1,
+                    "Fight": 1,
+                    "Shoot": 1
+                },
+                "chooseOptionals": 2
+            },
+            "corePowers": [
+                "Adrenaline Surge",
+                "Armour Plates",
+                "Camouflage",
+                "Fling",
+                "Regenerate",
+                "Restructure Body",
+                "Toxic Claws",
+                "Toxic Secretion"
+            ],
+            "description": "When the old empires fell, so did their laws limiting ‘genetic enhancement’. A few scientists seized this opportunity to engage in radical experimentation. This involved both the genetic manipulation of naturally born individuals and the creation of wholly new ‘tankborn’ individuals. In either case, those that survived these experiments often had unique abilities to control their own bodies, such as realigning their skeletal structure, growing new limbs, changing their skin tones, or even growing additional organs to deal with toxic substances or alien environments. Unfortunately, many biomorphs were also left psychically scarred by their modifications. While the worst of these tend to destroy themselves quickly, almost all carry some form of phobia, psychosis, or other mental impairment.\n\nDepending on the abilities of a biomorph, they tend to dress in loose, or very stretchy outfits, or have specialized suits of armour made that take into account their abilities. More than any other background, biomorphs tend to form independent crews because they are on the run – either from those that created them or want to do further experiments on them, or to escape the consequences of some crime (often unintended)."
+        },
+        {
+            "name": "Cyborg",
+            "statModifications": {
+                "mandatory": {
+                    "Health": 1
+                },
+                "optional": {
+                    "Move": 1,
+                    "Fight": 1,
+                    "Shoot": 1
+                },
+                "chooseOptionals": 2
+            },
+            "corePowers": [
+                "Camouflage",
+                "Control Robot",
+                "Data Knock",
+                "Energy Shield",
+                "Power Spike",
+                "Quick Step",
+                "Target Lock",
+                "Temporary Upgrade"
+            ],
+            "description": "A fusion of man and machine, cyborgs have been a constant, if rare, feature of every war for the past several centuries. Specialist cyborgs have been created to fulfil nearly every military role including infiltration, stealth, reconnaissance, or just straight-up combat. Despite their obvious advantages, cyborgs are rarely cost effective and thus were never produced in great numbers.\n\nWith the end of the Last War, many cyborgs attempted to ‘retire’, but most found that it requires huge sums of money to keep their bodies working. For that reason, many have gone into business for themselves, working as mercenaries, bounty hunters, private investigators, or retrieval specialists.\n\nCyborgs vary greatly in appearance. Some are indistinguishable from humans, some look like humans with obvious robotic parts, and a few look completely robotic and only feature a human brain or nervous system."
+        },
+        {
+            "name": "Mystic",
+            "statModifications": {
+                "mandatory": {
+                    "Health": 1,
+                    "Will": 2
+                },
+                "optional": {
+                    "Move": 1,
+                    "Fight": 1,
+                    "Shoot": 1
+                },
+                "chooseOptionals": 1
+            },
+            "corePowers": [
+                "Control Animal",
+                "Dark Energy",
+                "Heal",
+                "Life Leach",
+                "Mystic Trance",
+                "Puppet Master",
+                "Suggestion",
+                "Void Blade"
+            ],
+            "description": "As the galaxy exploded during the Last War, many people turned to religion to try to find solace. The first, and most obvious, expression of this was the doomsday cults. Some of these grew out of ancient orders that could trace their origins back for millennia; others seemed to spontaneously germinate from the apocalyptic death-tolls. Most of these cults were quickly exterminated or destroyed themselves, but a few survived and even thrived. By mixing mysticism, alien technology, and ‘dark science’, these surviving cults developed strange and deadly powers. While not all of them are ‘evil’, most people look upon these cultists as witches and warlocks and they are rarely welcome. These cult mystics tend to travel between the stars searching for various things: ancient mystical texts, alien technology, or new secrets of dark science.\n\nThere was also a quieter reaction to the war, the flourishing of monastic orders. While these orders have wildly differing foci, from healing to research, historical preservation, even military prowess, they all believe in the establishment and maintenance of order. It is not unusual for a monastery to take the surrounding towns and villages under their protection, and because of this, these areas have often become havens in this dark time.\n\nIn order to join one of these orders, an aspirant must demonstrate a deep connectedness to the universe around them. It is unknown if this is the result of some physiological attribute or simply an open-mindedness to the possibilities beyond sight. Either way, it has allowed these mystics to develop abilities that seem to go beyond the normal bounds of physics.\n\nWhether a cultist, monk, or even knight, these mystics generally wear loose, nondescript clothing, often robes. While armour is worn by a few of the more military focused monastic orders, it seems to interfere with the abilities of most mystics."
+        },
+        {
+            "name": "RoboticsExpert",
+            "statModifications": {
+                "mandatory": {
+                    "Will": 1
+                },
+                "optional": {
+                    "Move": 1,
+                    "Fight": 1,
+                    "Shoot": 1,
+                    "Health": 1
+                },
+                "chooseOptionals": 2
+            },
+            "corePowers": [
+                "Control Robot",
+                "Create Robot",
+                "Drone",
+                "Electromagnetic Pulse",
+                "Remote Firing",
+                "Remote Guidance",
+                "Repair Robot",
+                "Re-wire Robot"
+            ],
+            "description": "Few people truly understand robots. Even those who build and repair them rarely grasp the nuances of how they think and what motivates them beyond their basic programming. The exceptions are known as Robotics Experts. These people, who are often socially awkward with their own kind, seem to share an empathy, or a fluency, with these constructs.\n\nRobotics Experts are generally master craftsmen, building the best, most capable, and most intelligent robots. Not only that, but they are able to network these robots together in ways that other people can’t even begin to understand. It is not unusual for a robotics expert captain to have more robots than people in their crew, and such crews tend to operate together with a high degree of efficiency.\n\nRobotics Experts are always looking for new technology, and more funds, to improve their robots and push the bounds of what is possible. This leads many to become mercenaries and smugglers. Robotics Experts tend to focus on their work and are unconcerned with their appearance. They generally carry a lot of tools and spare parts for their ‘children’."
+        },
+        {
+            "name": "Rogue",
+            "statModifications": {
+                "mandatory": {
+                    "Health": 1,
+                    "Will": 1
+                },
+                "optional": {
+                    "Move": 1,
+                    "Fight": 1,
+                    "Shoot": 1
+                },
+                "chooseOptionals": 2
+            },
+            "corePowers": [
+                "Bait and Switch",
+                "Bribe",
+                "Cancel Power",
+                "Concealed Firearm",
+                "Data Jump",
+                "Fortune",
+                "Haggle",
+                "Quick Step"
+            ],
+            "description": "While law and order has broken down across most of the galaxy, rogues never paid it much attention anyway. Their only law was the law of not getting caught. This background includes such shifty characters as smugglers, gamblers, fixers, shady merchants, drug dealers, etc.\n\nRogues have learned to survive the horrors of the galaxy through a combination of wit, brains, and luck. While they generally don’t have any mystical powers or bodily enhancements, they know when to press their luck and when to scarper when a deal goes sour. While rogues rarely appear like the most dangerous of individuals, they almost always  have several back-up plans, a lucky coin in their pocket, and a powerful firearm concealed up their sleeve.\n\nRogues travel between the stars always searching for the deal that will make them rich."
+        },
+        {
+            "name": "Psionicist",
+            "statModifications": {
+                "mandatory": {
+                    "Health": 1,
+                    "Will": 2
+                },
+                "optional": {
+                    "Move": 1,
+                    "Fight": 1,
+                    "Shoot": 1
+                },
+                "chooseOptionals": 1
+            },
+            "corePowers": [
+                "Break Lock",
+                "Destroy Weapon",
+                "Lift",
+                "Psionic Fire",
+                "Psychic Shield",
+                "Pull",
+                "Suggestion",
+                "Wall of Force"
+            ],
+            "description": "Over the last few centuries, psionics – the ability to shape and affect reality with nothing more than the mind – has become an accepted, if extremely rare, branch of science. While most of the institutions and schools set up to promote, train, and study psionically gifted individuals were deliberately targeted and destroyed in the Last War, many of the students survived.\n\nPsionicists vary wildly in their abilities. Some can move objects or conjure fire, while others can enter people’s minds and potentially control their bodies. Because of their rare abilities, psionicists are actively recruited by the pirate fleets, and those that will not join up willingly are often kidnapped. Thus, the life of a psionicist is inherently dangerous, leading many to live a life on the run, forming their own independent crews to fight against, or at least stay one step ahead of, the pirate fleets.\n\nPsionicists tend to keep a low-profile and thus wear ‘normal clothes’. That said, many shave their heads as their hair becomes itchy when using their powers. Many also feel compelled to sketch very specific, unique tattoos on their bodies, though the reasons for this have never been understood. Psionicists rarely wear armour as it can impair their abilities."
+        },
+        {
+            "name": "Tekker",
+            "statModifications": {
+                "mandatory": {
+                    "Will": 2
+                },
+                "optional": {
+                    "Move": 1,
+                    "Fight": 1,
+                    "Shoot": 1,
+                    "Health": 1
+                },
+                "chooseOptionals": 1
+            },
+            "corePowers": [
+                "Anti-gravity Projection",
+                "Data Jump",
+                "Data Knock",
+                "Data Skip",
+                "Drone",
+                "Electromagnetic Pulse",
+                "Holographic Wall",
+                "Transport"
+            ],
+            "description": "Considering the size of the galaxy, it is inevitable that technology advances much faster in some corners than in others. Even with modern star travel, the spread of such technology can be slow. When the Last War destroyed most of the great civilizations of the galaxy, the average level of technology in the galaxy dropped precipitately, essentially creating a dark age in most places.\n\nAlthough the means to construct most of the highest-level technology was destroyed, many examples of those technologies still exist, and a few people still have the skills to repair it. Such individuals earn a reputation as ‘Tekkers’, as they always seem to be fiddling with some strange and wonderful device.\n\nWhile Tekkers run the gamut in terms of appearance, they all tend to carry lots of hightech equipment and individualized tool kits."
+        },
+        {
+            "name": "Veteran",
+            "statModifications": {
+                "mandatory": {
+                    "Fight": 1,
+                    "Health": 1
+                },
+                "optional": {
+                    "Move": 1,
+                    "Fight": 1,
+                    "Shoot": 1
+                },
+                "chooseOptionals": 1
+            },
+            "corePowers": [
+                "Armoury",
+                "Command",
+                "Coordinated Fire",
+                "Energy Shield",
+                "Fortune",
+                "Power Spike",
+                "Remote Firing",
+                "Target Designation"
+            ],
+            "description": "The Last War saw more people take up arms than at any point in the history of the galaxy. While trillions lost their lives in the countless horrific battles, many survived to see the desolate aftermath. When the central governments of the two great empires collapsed, most of these veterans were left to their own devices. Most attempted to return home and pick up the pieces of their old lives, but many found their homes destroyed and their loved ones gone. Others knew that war had changed them so badly that they could never go home again.\n\nIn the early days after the war, it was not uncommon for veterans to band together into small armies, but most of these were wiped out by the pirate fleets. Most of the veterans that survived did so by hiding, or forming their own, small, independent crews that could move around without drawing too much attention.\n\nMany veterans continue to fight for some lost cause: their empire, their planet, or just a sense of justice. Others have abandoned any hope of a sane galaxy and have become mercenaries, bounty-hunters, and raiders. Some are just looking for a way to use the skills they have to feed their families.\n\nVeterans have been trained to fight and have come to realize that their survival depends on a combination of skill, luck, and good equipment. Veterans always wear the best armour and carry the best weapons they can find."
+        }
+    ]
+}
