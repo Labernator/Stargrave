@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/Stargrave/static/css/main.af651cd2.chunk.css",
+    "main.js": "/Stargrave/static/js/main.7aa50642.chunk.js",
+    "main.js.map": "/Stargrave/static/js/main.7aa50642.chunk.js.map",
+    "runtime-main.js": "/Stargrave/static/js/runtime-main.120ced82.js",
+    "runtime-main.js.map": "/Stargrave/static/js/runtime-main.120ced82.js.map",
+    "static/js/2.ab78f596.chunk.js": "/Stargrave/static/js/2.ab78f596.chunk.js",
+    "static/js/2.ab78f596.chunk.js.map": "/Stargrave/static/js/2.ab78f596.chunk.js.map",
+    "index.html": "/Stargrave/index.html",
+    "static/css/main.af651cd2.chunk.css.map": "/Stargrave/static/css/main.af651cd2.chunk.css.map",
+    "static/js/2.ab78f596.chunk.js.LICENSE.txt": "/Stargrave/static/js/2.ab78f596.chunk.js.LICENSE.txt",
+    "static/media/Add.94030173.png": "/Stargrave/static/media/Add.94030173.png",
+    "static/media/Biomorph.30852fce.png": "/Stargrave/static/media/Biomorph.30852fce.png",
+    "static/media/Captain.95237b5a.png": "/Stargrave/static/media/Captain.95237b5a.png",
+    "static/media/CreateCrew.aa96e00e.png": "/Stargrave/static/media/CreateCrew.aa96e00e.png",
+    "static/media/Crew.517fe591.png": "/Stargrave/static/media/Crew.517fe591.png",
+    "static/media/Cyborg.1d6e41d1.png": "/Stargrave/static/media/Cyborg.1d6e41d1.png",
+    "static/media/Delete.17e835d8.png": "/Stargrave/static/media/Delete.17e835d8.png",
+    "static/media/ImportCrew.e5abae4c.png": "/Stargrave/static/media/ImportCrew.e5abae4c.png",
+    "static/media/Mystic.41443507.png": "/Stargrave/static/media/Mystic.41443507.png",
+    "static/media/Psionicist.3e8db9d2.png": "/Stargrave/static/media/Psionicist.3e8db9d2.png",
+    "static/media/RoboticsExpert.62afca10.png": "/Stargrave/static/media/RoboticsExpert.62afca10.png",
+    "static/media/Rogue.67294730.png": "/Stargrave/static/media/Rogue.67294730.png",
+    "static/media/Tekker.9c3b86f0.png": "/Stargrave/static/media/Tekker.9c3b86f0.png",
+    "static/media/Treasury.94a0facb.png": "/Stargrave/static/media/Treasury.94a0facb.png",
+    "static/media/Unknown.c12505bd.png": "/Stargrave/static/media/Unknown.c12505bd.png",
+    "static/media/UseSample.3dd4980b.png": "/Stargrave/static/media/UseSample.3dd4980b.png",
+    "static/media/Veteran.9d33839f.png": "/Stargrave/static/media/Veteran.9d33839f.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.120ced82.js",
+    "static/js/2.ab78f596.chunk.js",
+    "static/css/main.af651cd2.chunk.css",
+    "static/js/main.7aa50642.chunk.js"
+  ]
+}
