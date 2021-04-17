@@ -241,7 +241,7 @@ table > thead > tr > td:first-child {
   border: 1px solid grey;
   z-index: 1;
   width: calc(100% - 0.1rem);
-  height: calc(100% - 3rem);
+  height: calc(100% - 0.1rem);
 }
 
 .modal-header {
@@ -482,7 +482,7 @@ font-size: 1.3rem;
   }
 
   .background-power-selection {
-    padding: 0.5rem;
+    padding: 0.3rem 0.5rem;
     min-width: 5rem;
     border: 0.15rem solid;
     margin: 0.2rem;
@@ -527,7 +527,7 @@ font-size: 1.3rem;
   border-radius: 0.5rem;
   width: calc(100% - 1.6rem);
   float: left;
-  height: 5rem;
+  height: 5.5rem;
 }
 
 .power-preview-name {
