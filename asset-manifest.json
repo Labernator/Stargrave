@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Stargrave/static/css/main.e566819f.chunk.css",
-    "main.js": "/Stargrave/static/js/main.7aa50642.chunk.js",
-    "main.js.map": "/Stargrave/static/js/main.7aa50642.chunk.js.map",
+    "main.css": "/Stargrave/static/css/main.981f9aca.chunk.css",
+    "main.js": "/Stargrave/static/js/main.306ca2cb.chunk.js",
+    "main.js.map": "/Stargrave/static/js/main.306ca2cb.chunk.js.map",
     "runtime-main.js": "/Stargrave/static/js/runtime-main.120ced82.js",
     "runtime-main.js.map": "/Stargrave/static/js/runtime-main.120ced82.js.map",
-    "static/js/2.ab78f596.chunk.js": "/Stargrave/static/js/2.ab78f596.chunk.js",
-    "static/js/2.ab78f596.chunk.js.map": "/Stargrave/static/js/2.ab78f596.chunk.js.map",
+    "static/js/2.545bf33f.chunk.js": "/Stargrave/static/js/2.545bf33f.chunk.js",
+    "static/js/2.545bf33f.chunk.js.map": "/Stargrave/static/js/2.545bf33f.chunk.js.map",
     "index.html": "/Stargrave/index.html",
-    "static/css/main.e566819f.chunk.css.map": "/Stargrave/static/css/main.e566819f.chunk.css.map",
-    "static/js/2.ab78f596.chunk.js.LICENSE.txt": "/Stargrave/static/js/2.ab78f596.chunk.js.LICENSE.txt",
+    "static/css/main.981f9aca.chunk.css.map": "/Stargrave/static/css/main.981f9aca.chunk.css.map",
+    "static/js/2.545bf33f.chunk.js.LICENSE.txt": "/Stargrave/static/js/2.545bf33f.chunk.js.LICENSE.txt",
     "static/media/Add.94030173.png": "/Stargrave/static/media/Add.94030173.png",
     "static/media/Biomorph.30852fce.png": "/Stargrave/static/media/Biomorph.30852fce.png",
     "static/media/Captain.95237b5a.png": "/Stargrave/static/media/Captain.95237b5a.png",
@@ -17,6 +17,7 @@
     "static/media/Crew.517fe591.png": "/Stargrave/static/media/Crew.517fe591.png",
     "static/media/Cyborg.1d6e41d1.png": "/Stargrave/static/media/Cyborg.1d6e41d1.png",
     "static/media/Delete.17e835d8.png": "/Stargrave/static/media/Delete.17e835d8.png",
+    "static/media/Firefly.7581a460.sg": "/Stargrave/static/media/Firefly.7581a460.sg",
     "static/media/ImportCrew.e5abae4c.png": "/Stargrave/static/media/ImportCrew.e5abae4c.png",
     "static/media/Mystic.41443507.png": "/Stargrave/static/media/Mystic.41443507.png",
     "static/media/Psionicist.3e8db9d2.png": "/Stargrave/static/media/Psionicist.3e8db9d2.png",
@@ -30,8 +31,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.120ced82.js",
-    "static/js/2.ab78f596.chunk.js",
-    "static/css/main.e566819f.chunk.css",
-    "static/js/main.7aa50642.chunk.js"
+    "static/js/2.545bf33f.chunk.js",
+    "static/css/main.981f9aca.chunk.css",
+    "static/js/main.306ca2cb.chunk.js"
   ]
 }
