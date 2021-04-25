@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import * as Crew from "../data/Samples/Firefly.json";
+import * as Crew from "../data/Samples/Firefly.sg";
 import { CreateCrewIcon, ImportCrewIcon, UseSampleIcon } from "../images";
 import { SET_CREW } from "../redux/actions";
-import { CrewState } from '../types/State';
+import { CrewState } from "../types/State";
 
 export const LandingPage = () => {
 
@@ -18,13 +18,13 @@ export const LandingPage = () => {
                 <input
                     id="file-uploader"
                     type="file"
-                    accept=".json"
+                    accept=".sg"
                     style={{ display: "none" }}
                     onChange={() => {
                         const reader = new FileReader();
                         reader.onload = (ev: ProgressEvent<FileReader>) => {
                             dispatch({ type: SET_CREW, payload: JSON.parse(ev.target?.result as string) });
-                            history.push("/Builder");
+                            history.push("/NewCrew");
                         };
                         reader.readAsText((document.querySelector("#file-uploader") as HTMLInputElement)?.files?.item(0) as File);
                     }}

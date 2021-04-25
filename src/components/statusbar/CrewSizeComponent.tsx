@@ -1,9 +1,7 @@
-import { store } from "../..";
 import { CrewIcon } from "../../images";
 import { numberOfCrewMembers } from "../../Utils";
 
 export const CrewSizeComponent = () => {
-    const state = store.getState();
 
     const openHireMenu = () => {
         console.error("HireMenu - Implementation missing");

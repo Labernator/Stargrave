@@ -65,6 +65,7 @@ export const SelectPowers = (
             <div className="dialog-sub-header">Choose 1 - 2 non-core Powers</div>
             <div className="section-div" >
                 {background ? getNonCorePowers(background.name).map((power) => <div
+                    onMouseOver={() => setPreviewPower(power)}
                     onClick={() => {
                         setPreviewPower({ ...power, activationValue: power.activationValue + (isCaptain ? 2 : 4) });
                         if (isPowerSelected(power)) {

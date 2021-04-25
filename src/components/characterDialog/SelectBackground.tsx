@@ -22,7 +22,7 @@ export const SelectBackground = ({ character, selectedBackground, updateAndConti
                     powers: [],
                 }
         )}>
-        <img className="add-character-background-icons" src={getBackgroundImage(bg)} />
+        <img className="add-character-background-icons" src={getBackgroundImage(bg)} alt={`add-character-${bg}-icon`} />
         <div className="add-character-background-text">{`${bg}`}</div>
     </div>;
 

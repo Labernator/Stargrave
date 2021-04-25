@@ -55,7 +55,7 @@
   grid-area: 1/1/1/auto;
   height: 4.5rem;
   display: inline-grid;
-  grid-template-columns: auto  9rem 9rem;
+  grid-template-columns: auto 6rem 9rem 10rem;
 }
 
 .statusbar-tiles {
@@ -276,10 +276,14 @@ table > thead > tr > td:first-child {
   padding-bottom: 1rem;
 }
 .add-soldier-list-item {
-  float: left;
+  max-width: 17rem;
   clear: both;
-  padding: 0.3rem;
   grid-area: auto/ 1;
+  cursor: pointer;
+}
+
+.add-soldier-list-item:hover {
+  background: #e18a07;
 }
 
 .add_dialog_icons {

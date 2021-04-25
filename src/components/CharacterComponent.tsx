@@ -41,7 +41,7 @@ export const CharacterComponent = ({ isCaptain }: { isCaptain: boolean }) => {
         <div className="character-title">Background</div>
         <div>
             <div style={{ float: "left" }}>
-                <img className="background-image-tile" src={getBackgroundImage(character.background?.name)} />
+                <img className="background-image-tile" src={getBackgroundImage(character.background?.name)} alt={`${id}_tile-${character.name}-bg-icon`} />
                 <div className="background-title">{character.background?.name}</div>
             </div>
             <table className="power-table">

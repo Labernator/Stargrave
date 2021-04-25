@@ -13,7 +13,7 @@ export const SelectStatsImprovements = ({ background, updateStatsCallback, updat
         const parts: Partial<Stats> = {};
         const merged: Partial<Stats> = Object.assign(parts, ...selections);
         updateStatsCallback(Object.fromEntries([...Object.entries(mand), ...Object.entries(merged)].reduce((acc, [key, value]) => acc.set(key, (acc.get(key) || 0) + (value || 0)), new Map<string, number | undefined>())));
-    }, [selections]);
+    });
     const isStatSelected = (statName: string) => selections.find((stat) => stat[statName as StatsEnum] !== undefined);
     const statModificationsForBackground = getBackgroundInfos(background.name).statModifications;
     const maxStatsReached = () => selections.length === statModificationsForBackground.chooseOptionals;

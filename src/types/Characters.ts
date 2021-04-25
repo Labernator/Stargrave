@@ -13,10 +13,6 @@ export interface Power {
     effect: string;
 }
 
-interface Stat {
-    [key: string]: number;
-}
-
 export interface Character {
     name: string;
     stats: Stats;

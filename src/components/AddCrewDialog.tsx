@@ -13,8 +13,6 @@ import { InputComponent } from "./InputControl";
 const listOfSoldiers = SoldierList.Soldiers as SoldierMetadata[];
 
 export const AddCrewDialog = ({ soldiersState, credits, callback }: { soldiersState: Soldier[]; credits: number; callback(value: React.SetStateAction<boolean>): void }) => {
-    const position = document.getElementById("root")?.getBoundingClientRect();
-    const cssProperties = { top: (position?.top || 0) + 5, left: (position?.left || 0) + 5, width: (position?.width || 0) - 10, height: (position?.height || 0) - 10 };
     const [soldiers, setSoldiers] = useState<Soldier[]>([]);
     const updateName = (name: string, id: number) => {
         const idx = soldiers.findIndex((soldier) => soldier.id === id);
@@ -32,9 +30,9 @@ export const AddCrewDialog = ({ soldiersState, credits, callback }: { soldiersSt
             {list.map((soldier, idx) =>
                 <div
                     style={idx >= half ? { gridArea: `${(idx - half) + 2} / 2` } : {}}
-                    className="add-soldier-list-item"
-                    onClick={() => setSoldiers([...soldiers, { ...soldier, name: "", gearSlots: 1, id: soldiers.length + 1 }])}>
-                    <img className="add_dialog_icons" src={AddIcon} />
+                    className="background-power-selection add-soldier-list-item"
+                    onClick={() => setSoldiers([...soldiers, { ...soldier, name: `${soldier.type} #${soldiers.filter((sol) => sol.type === soldier.type).length + 1}`, gearSlots: 1, id: soldiers.length + 1 }])}>
+                    <img className="add_dialog_icons" src={AddIcon} alt="addIcon" />
                     <div className="add_dialog_soldier_selection">{`${soldier.type} ( ${soldier.cost} \xA5 )`}</div>
                 </div>
             )}
@@ -44,8 +42,17 @@ export const AddCrewDialog = ({ soldiersState, credits, callback }: { soldiersSt
     return (
         ReactDOM.createPortal(
             <div className="block-background">
-                <div style={cssProperties} className="modal">
-                    <div className="modal-header">Hire new crew members</div>
+                <div className="modal">
+                    <img
+                        className="close-dialog"
+                        src={DeleteItemIcon}
+                        alt="deleteIcon"
+                        onClick={(e) => {
+                            callback(false);
+                            e.preventDefault();
+                            e.stopPropagation();
+                        }} />
+                    <div className="modal-header" style={{ marginTop: "0" }}>Hire new crew members</div>
                     {soldierSelection(false)}
                     {soldierSelection(true)}
                     <table className="character-table">
@@ -65,10 +72,10 @@ export const AddCrewDialog = ({ soldiersState, credits, callback }: { soldiersSt
                                 </td>
                                 <td key={`add_dialog_type_${soldier.type}`}>{soldier.type}</td>
                                 {getStatStrings(soldier.stats).map((stat) => <td key={`add_dialog_${soldier.name}_stat_${Object.keys(stat)[0]}`}>{stat[Object.keys(stat)[0]]}</td>)}
-                                {soldier.gear.length > 0 ? soldier.gear.map((gear) => <div key={`add_dialog_gear_${soldier.name}_${gear}`} className="gear-div">{gear}</div>) : <td>-</td>}
+                                <td>{soldier.gear.length > 0 ? `${soldier.gear.join(", ")}` : "-"}</td>
                                 <td key={`add_dialog_cost_${soldier.cost}`}>{`${soldier.cost} \xA5`}</td>
                                 <td onClick={() => setSoldiers(soldiers.filter((sold) => sold.id !== soldier.id))}>
-                                    <img className="add_dialog_icons" src={DeleteItemIcon} />
+                                    <img className="add_dialog_icons" src={DeleteItemIcon} alt="deleteIcon" />
                                 </td>
                             </tr>)}
                             <tr style={{ fontSize: "1.1rem" }}>
@@ -94,16 +101,8 @@ export const AddCrewDialog = ({ soldiersState, credits, callback }: { soldiersSt
                             e.preventDefault();
                             e.stopPropagation();
                         }}
-                        className={canSubmit() ? "button-enabled" : "button-disabled"}>
-                        Hired!</button>
-                    <button
-                        onClick={(e) => {
-                            callback(false);
-                            e.preventDefault();
-                            e.stopPropagation();
-                        }}
-                        className="button-cancel">
-                        Cancel</button>
+                        className={canSubmit() ? "power-btn" : "power-btn disabled"}>
+                        Confirm Staffing</button>
                 </div>
             </div>,
             document.getElementById("crewRoster") as HTMLElement

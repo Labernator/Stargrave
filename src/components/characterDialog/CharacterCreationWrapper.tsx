@@ -44,6 +44,7 @@ export const CharacterCreationDialog = ({ baseCharacter, callback }: { baseChara
                     <img
                         className="close-dialog"
                         src={DeleteItemIcon}
+                        alt="deleteIcon"
                         onClick={(e) => {
                             callback(false);
                             e.preventDefault();

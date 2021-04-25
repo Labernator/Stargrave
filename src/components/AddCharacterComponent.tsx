@@ -12,7 +12,7 @@ export const AddCharacterComponent = ({ isCaptain }: { isCaptain: boolean }) => 
         {showDialog ? <CharacterCreationDialog baseCharacter={isCaptain ? { ...baseCaptain, name: "" } : { ...baseFirstMate, name: "" }} callback={setDialogShown} /> : undefined}
         <div>
             <div style={{ float: "left" }}>
-                <img className="background-image add-image" src={AddIcon} />
+                <img className="background-image add-image" src={AddIcon} alt="addIcon" />
                 <div className="background-title add-title">{`Click here to add a ${isCaptain ? "Captain" : "First Mate"} to your crew`}</div>
             </div>
         </div>

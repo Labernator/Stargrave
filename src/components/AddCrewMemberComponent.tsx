@@ -8,7 +8,7 @@ export const AddCrewMemberComponent = () => {
         {showDialog ? <AddCrewDialogComponent callback={setDialogShown} /> : undefined}
         <div>
             <div style={{ float: "left" }}>
-                <img className="background-image add-image" src={AddIcon} />
+                <img className="background-image add-image" src={AddIcon} alt="addIcon" />
                 <div className="background-title add-title">{"Click here to hire a new crew member"}</div>
             </div>
         </div>
