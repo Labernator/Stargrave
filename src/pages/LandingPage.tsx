@@ -1,10 +1,9 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as Crew from "../data/Samples/Firefly.sg";
 import { CreateCrewIcon, ImportCrewIcon, UseSampleIcon } from "../images";
 import { SET_CREW } from "../redux/actions";
-import { CrewState } from "../types/State";
+import { CrewState, InitialCrewState } from "../types/State";
 
 export const LandingPage = () => {
 
@@ -32,7 +31,10 @@ export const LandingPage = () => {
                 <div style={{ gridArea: "1/1" }} className="landing-page-column-header">Load an existing crew from file</div>
                 <img style={{ gridArea: "2/1" }} alt="ImportWarband" className="landing-page-column-icon" src={ImportCrewIcon} />
             </label>
-            <div className="landing-page-columns" style={{ gridArea: "2/2" }} onClick={() => history.push("/NewCrew")}>
+            <div className="landing-page-columns" style={{ gridArea: "2/2" }} onClick={() => {
+                dispatch({ type: SET_CREW, payload: InitialCrewState });
+                history.push("/NewCrew");
+            }}>
                 <div className="landing-page-column-header">Create a new crew</div>
                 <img alt="CreateWarband" className="landing-page-column-icon" src={CreateCrewIcon} />
             </div>

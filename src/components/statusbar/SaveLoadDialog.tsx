@@ -5,7 +5,7 @@ import { DeleteItemIcon } from "../../images";
 import { CrewState } from "../../types/State";
 
 export const SaveLoadComponent = ({ state, closeCallback }: { state: CrewState; closeCallback(): void }) => {
-    const [fileName, setFileName] = useState<string>(`${state.Title}-Level-${state.Captain?.level}`);
+    const [fileName, setFileName] = useState<string>(`${state.Title || "Unnamed_Crew"}-Level-${state.Captain?.level || 15}`);
     const [validFileName, setFileNameValidity] = useState<boolean>(true);
     useEffect(() => {
         document.getElementById("NameInput")?.focus();
@@ -51,11 +51,7 @@ export const SaveLoadComponent = ({ state, closeCallback }: { state: CrewState; 
                         className={validFileName ? "input-field" : "input-field input-error"}
                         onChange={onInput}
                         value={fileName} />
-                    {!validFileName ?
-                        <div className="save-warband-error-text">
-                            This is not a valid file name. Valid filenames contain only letters, numbers, dashes, underscores and dots.
-                    </div> :
-                        undefined}
+                    {!validFileName ? <div className="save-warband-error-text">This is not a valid file name. Valid filenames contain only letters, numbers, dashes, underscores and dots.</div> : undefined}
                     <button
                         style={{ gridArea: "8" }}
                         className={validFileName ? "power-btn" : "power-btn disabled"}

@@ -2,7 +2,7 @@ import React from "react";
 import * as ReactDOM from "react-dom";
 import { connect, Provider } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { createStore } from "redux";
+import { compose, createStore } from "redux";
 import "./App.css";
 import { CrewPage } from "./pages/CrewPage";
 import { LandingPage } from "./pages/LandingPage";
@@ -14,14 +14,17 @@ const App = () =>
       <Switch>
         {/* <Route path="/SampleWarbands" component={SampleWarbandsPage} /> */}
         <Route path="/NewCrew" component={CrewPage} />
-        {/* <Route path="/Builder" component={BuilderPage} /> */}
         <Route path="/" component={LandingPage} />
       </Switch>
     </div>
   </BrowserRouter>;
 
 export const AppContainer = connect()(App);
-export const store = createStore(stateReducer);
+export const store = createStore(stateReducer, compose(typeof window === "object" &&
+  typeof (window as any).devToolsExtension !== "undefined" ?
+  (window as any).devToolsExtension() :
+  (f: any) => f
+));
 
 ReactDOM.render(
   <React.StrictMode>

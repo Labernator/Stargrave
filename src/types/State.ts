@@ -12,6 +12,5 @@ export interface CrewState {
 export const InitialCrewState: CrewState = {
     Credits: 400,
     Soldiers: [],
-    Title: "Firefly",
-    // Title: "",
+    Title: "",
 };
