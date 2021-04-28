@@ -15,7 +15,7 @@ export const CrewNameComponent = () => {
         dispatch({ type: SET_CREWNAME, payload: name });
     };
 
-    return <div className="statusbar-tiles" style={{ minWidth: "18rem" }}>
+    return <div className="statusbar-tiles" style={{ minWidth: "14rem" }}>
         <div className="toolbar-two-column-header-text small-text" onClick={openHistory}>Crew Name</div>
         <InputComponent callback={setCrewName} currentState={state.Title} tooltip="Your crew needs a name" cssClass="input-field" />
     </div>;

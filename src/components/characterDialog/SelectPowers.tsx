@@ -89,7 +89,7 @@ export const SelectPowers = (
             </div>
         </div>
         <button
-            onClick={() => maxPowersSelected() ? updatePowers(selectedPowers) : undefined}
+            onClick={() => maxPowersSelected() ? updatePowers(selectedPowers.sort((a, b) => (a.name.localeCompare(b.name)))) : undefined}
             className={maxPowersSelected() ? "power-btn" : "power-btn disabled"}
         >{`${isCaptain ? "Confirm Powers selection" : "Confirm Powers selection and finish creation"}`}</button>
     </React.Fragment>;

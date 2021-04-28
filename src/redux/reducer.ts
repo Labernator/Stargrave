@@ -17,7 +17,7 @@ export function stateReducer(state: CrewState = InitialCrewState, action: ReduxA
             return { ...state, FirstMate: action.payload };
         case ReduxActions.ADD_SOLDIERS:
             const soldiers = state.Soldiers ? [...state.Soldiers, ...action.payload] : action.payload;
-            return { ...state, Soldiers: soldiers, Credits: state.Credits - action.payload.reduce((acc, soldier) => acc + soldier.cost, 0) };
+            return { ...state, Soldiers: soldiers, Credits: state.Credits - action.payload.reduce((acc, soldier) => acc + (soldier.amount * soldier.cost), 0) };
         default:
             return state;
     }

@@ -7,6 +7,7 @@ import CaptainPng from "./icons/Captain.png";
 import CreditsPng from "./icons/Credits.png";
 import CrewPng from "./icons/Crew.png";
 import DeletePng from "./icons/Delete.png";
+import ExitPng from "./icons/Exit.png";
 import SavePng from "./icons/Save.png";
 import TreasuryPng from "./icons/Treasury.png";
 import ImportCrewPng from "./ImportCrew.png";
@@ -52,5 +53,6 @@ export const TreasuryIcon = TreasuryPng;
 export const CrewIcon = CrewPng;
 export const AddIcon = AddPng;
 export const SaveIcon = SavePng;
+export const ExitIcon = ExitPng;
 
 export const DeleteItemIcon = DeletePng;

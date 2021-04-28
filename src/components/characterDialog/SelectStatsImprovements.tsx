@@ -13,12 +13,12 @@ export const SelectStatsImprovements = ({ background, updateStatsCallback, updat
         const parts: Partial<Stats> = {};
         const merged: Partial<Stats> = Object.assign(parts, ...selections);
         updateStatsCallback(Object.fromEntries([...Object.entries(mand), ...Object.entries(merged)].reduce((acc, [key, value]) => acc.set(key, (acc.get(key) || 0) + (value || 0)), new Map<string, number | undefined>())));
-    });
+    }, [selections]);
     const isStatSelected = (statName: string) => selections.find((stat) => stat[statName as StatsEnum] !== undefined);
     const statModificationsForBackground = getBackgroundInfos(background.name).statModifications;
     const maxStatsReached = () => selections.length === statModificationsForBackground.chooseOptionals;
     return <React.Fragment>
-        <div className="dialog-sub-header">Granted Stats Improvements</div>
+        <div style={{ marginTop: "2rem" }} className="dialog-sub-header">Granted Stats Improvements</div>
         <div className="section-div" >
             {Object.entries(statModificationsForBackground.mandatory).map(([statName, statValue]) =>
                 <div className="background-stat-selection background-stat-selected" key={`add_captain_dialog_mand_stat_${statName}`}>+{statValue} {statName}</div>

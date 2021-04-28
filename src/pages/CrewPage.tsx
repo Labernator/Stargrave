@@ -16,7 +16,7 @@ export const CrewOverview = ({ captain, firstMate, soldiers }: { captain: Charac
             {captain ? <CharacterComponent key="captainComponent" isCaptain={true} /> : <AddCharacterComponent isCaptain={true} />}
             {firstMate ? <CharacterComponent key="firstMateComponent" isCaptain={false} /> : <AddCharacterComponent isCaptain={false} />}
         </div>
-        {soldiers && soldiers.length > 0 ? soldiers.map((soldier) => <CrewMemberComponent key={`crew_member_${soldier.name}`} soldier={soldier} />) : undefined}
+        {soldiers && soldiers.length > 0 ? soldiers.map((soldier) => <CrewMemberComponent key={`crew_member_${soldier.type}`} soldier={soldier} />) : undefined}
         {numberOfSoldiers() < 8 ? <AddCrewMemberComponent /> : undefined}
     </div>
 </React.Fragment>;

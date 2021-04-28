@@ -34,7 +34,7 @@ export enum StatsEnum {
 export type Stats = { [key in StatsEnum]: number; };
 
 export interface Soldier {
-    name: string;
+    // name: string;
     type: string;
     stats: Stats;
     cost: number;
@@ -42,6 +42,7 @@ export interface Soldier {
     gear: string[];
     id: number;
     group: SoldierGroups;
+    amount: number;
 }
 
 export enum CharactersEnum {

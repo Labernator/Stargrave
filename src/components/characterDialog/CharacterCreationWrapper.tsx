@@ -65,6 +65,26 @@ export const CharacterCreationDialog = ({ baseCharacter, callback }: { baseChara
                     {background && statsSelected && !(selectedPowers.length > 0) ? <SelectPowers background={background} isCaptain={isCaptain(character.type)} updatePowers={isCaptain(character.type) ? setSelectedPowers : finishCreation} />
                         : null}
                     {background && statsSelected && selectedPowers.length > 0 ? <SelectPowerUpgrades powers={selectedPowers} upgradePowers={finishCreation} /> : null}
+                    {background ?
+                        <button
+                            onClick={() => {
+                                if (background && statsSelected && selectedPowers.length > 0) {
+                                    setSelectedPowers([]);
+                                    return;
+                                }
+                                if (background && statsSelected) {
+                                    setStatsSelected(false);
+                                    setUpdatedStats({});
+                                    return;
+                                }
+                                if (background) {
+                                    setBackground(undefined);
+                                    return;
+                                }
+                            }}
+                            className={"back-btn"}
+                        >Back</button>
+                        : undefined}
                 </div>
             </div >,
             document.getElementById("crewRoster") as HTMLElement
