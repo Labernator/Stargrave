@@ -9,7 +9,7 @@ const allBackgrounds: BackgroundMetadata[] = BackgroundList.backgrounds;
 
 export const numberOfCrewMembers = () => {
     const state = store.getState();
-    return (state.Soldiers?.length || 0) + (state.Captain ? 1 : 0) + (state.FirstMate ? 1 : 0);
+    return (state.Soldiers.reduce((acc, soldier) => soldier.amount + acc, 0) || 0) + (state.Captain ? 1 : 0) + (state.FirstMate ? 1 : 0);
 };
 
 export const numberOfSoldiers = () => {
@@ -22,7 +22,7 @@ export const getStatStrings = (stats: Stats | Partial<Stats>) => Object.keys(sta
         case "Fight":
         case "Shoot":
         case "Will":
-            return { [stat]: `+${stats[stat]}` };
+            return { [stat]: stats[stat] as number < 0 ? `${stats[stat]}` : `+${stats[stat]}` };
         default:
             return { [stat]: `${stats[stat as StatsEnum]}` };
     }

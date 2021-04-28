@@ -266,14 +266,12 @@ table > thead > tr > td:first-child {
 .add-soldier-list-container {
   width: calc(50% - 1rem);
   float: left;
-  display: grid;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
 }
 
 .add-soldier-list-header {
   font-weight: bold;
-  float: left;
-  padding-bottom: 1rem;
+  padding-bottom: 0.3rem;
 }
 .add-soldier-list-item {
   max-width: 17rem;
@@ -292,9 +290,7 @@ table > thead > tr > td:first-child {
 }
 
 .add_dialog_soldier_selection {
-  float: left;
-  padding-left: 1rem;
-  padding-top: 0.25rem;
+  padding: 0.25rem;
 }
 
 .totals-td {
