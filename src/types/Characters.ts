@@ -13,6 +13,16 @@ export interface Power {
     effect: string;
 }
 
+export interface Gear {
+    name: string;
+    type: string;
+    gearSlots: number;
+    notes?: string;
+    damageModifier?: number;
+    maxRange?: string | number;
+    armourModifier?: number;
+}
+
 export interface Character {
     name: string;
     stats: Stats;
@@ -20,6 +30,7 @@ export interface Character {
     gearSlots: number;
     type: string;
     background?: Background;
+    gear?: string[];
 }
 
 export enum StatsEnum {

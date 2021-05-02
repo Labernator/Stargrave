@@ -34,7 +34,7 @@ export const SelectPowers = (
             <div className={previewPower.effect.length <= 200 ? "power-preview-large-text" : previewPower.effect.length <= 400 ? "power-preview-medium-text" : "power-preview-small-text"}>{previewPower.effect}</div>
         </div>
         <div className="core-power-section">
-            <div className="dialog-sub-header">{`Choose ${isCaptain ? "3 - 4" : "2 - 3"} core Powers`}</div>
+            <div className="modal-header">{`Choose ${isCaptain ? "3 - 4" : "2 - 3"} core Powers`}</div>
             <div className="section-div" >
                 {background ? getPowerInfos(infos.corePowers).map((power) => <div
                     style={{ float: "none" }}
@@ -62,7 +62,7 @@ export const SelectPowers = (
             </div>
         </div>
         <div className="non-core-power-section">
-            <div className="dialog-sub-header">Choose 1 - 2 non-core Powers</div>
+            <div className="modal-header">Choose 1 - 2 non-core Powers</div>
             <div className="section-div" >
                 {background ? getNonCorePowers(background.name).map((power) => <div
                     onMouseOver={() => setPreviewPower(power)}

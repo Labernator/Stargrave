@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { useDispatch } from "react-redux";
-import { DeleteItemIcon } from "../../images";
 import { SET_CAPTAIN, SET_FIRST_MATE } from "../../redux/actions";
 import { BackgroundModifications } from "../../types/Background";
 import { Character, Power, Stats, StatsEnum } from "../../types/Characters";
-import { isCaptain } from "../../Utils";
-import { CharacterTable } from "../CharacterTableComponent";
+import { getGearDetails, isCaptain } from "../../Utils";
+import { InputComponent } from "../InputControl";
+import { ExitComponent } from "../statusbar/ExitComponent";
+import { StatusBarTable } from "../StatusBarTable";
 import { SelectBackground } from "./SelectBackground";
+import { SelectGear } from "./SelectGear";
 import { SelectPowers } from "./SelectPowers";
 import { SelectPowerUpgrades } from "./SelectPowerUpgrades";
 import { SelectStatsImprovements } from "./SelectStatsImprovements";
@@ -18,12 +20,42 @@ export const CharacterCreationDialog = ({ baseCharacter, callback }: { baseChara
     const [updatedStats, setUpdatedStats] = useState<Partial<Stats>>({});
     const [selectedPowers, setSelectedPowers] = useState<Power[]>([]);
     const [statsSelected, setStatsSelected] = useState<boolean>(false);
+    const [powersUpgraded, setPowersUpgraded] = useState<boolean>(false);
+    const [gear, setGear] = useState<string[]>([]);
     const dispatch = useDispatch();
     const improvedStats = () => Object.keys(character.stats).reduce(
         (acc, stat) => ({ ...acc, [stat]: (character.stats[stat as StatsEnum] || 0) + (updatedStats[stat as StatsEnum] || 0) }),
         { "Move": 0, "Fight": 0, "Shoot": 0, "Armour": 0, "Will": 0, "Health": 0 }
     );
-    const finishCreation = (powers: Power[]) => {
+    const updatedStatsIncludingGear = () => {
+        const updatedStatsWithGear: Partial<Stats> = {};
+        gear.forEach((gearItem) => {
+            switch (gearItem) {
+                case "Light Armour": updatedStatsWithGear.Armour = 1; break;
+                case "Heavy Armour":
+                    updatedStatsWithGear.Armour = 2;
+                    updatedStatsWithGear.Move = -1;
+                    break;
+                case "Unarmed":
+                    updatedStatsWithGear.Fight = -2;
+                    break;
+                case "Flame Thrower":
+                case "Rapid Fire":
+                    if (!gear.includes("Heavy Armour") && !gear.includes("Combat Armour")) {
+                        updatedStatsWithGear.Move = -1;
+                    }
+            }
+        });
+        return Object.keys(character.stats).reduce(
+            (acc, stat) => ({ ...acc, [stat]: (updatedStats[stat as StatsEnum] || 0) + (updatedStatsWithGear[stat as StatsEnum] || 0) }),
+            { "Move": 0, "Fight": 0, "Shoot": 0, "Armour": 0, "Will": 0, "Health": 0 }
+        );
+    };
+    const finishPowerUpgrades = (powers: Power[]) => {
+        setPowersUpgraded(true);
+        setSelectedPowers(powers);
+    };
+    const finishCreation = () => {
         dispatch({
             type: isCaptain(character.type) ? SET_CAPTAIN : SET_FIRST_MATE,
             payload: {
@@ -31,8 +63,9 @@ export const CharacterCreationDialog = ({ baseCharacter, callback }: { baseChara
                 stats: improvedStats(),
                 background: {
                     name: background?.name,
-                    powers,
+                    powers: selectedPowers,
                 },
+                gear,
             },
         });
         callback(false);
@@ -41,17 +74,21 @@ export const CharacterCreationDialog = ({ baseCharacter, callback }: { baseChara
         ReactDOM.createPortal(
             <div className="block-background">
                 <div className="modal">
-                    <img
-                        className="close-dialog"
-                        src={DeleteItemIcon}
-                        alt="deleteIcon"
-                        onClick={(e) => {
+                    <div className="compact-statusbar" style={{ gridTemplateColumns: "20rem auto 4rem" }}>
+                        <div className="statusbar-tiles" style={{ minWidth: "14rem" }}>
+                            <div className="small-text">{`${character.name ? `${isCaptain(character.type) ? "Captain" : "First Mate"}` : `Click here to give your ${isCaptain(character.type) ? "Captain" : "First Mate"} a proper name`}`}</div>
+                            <InputComponent callback={(name: string) => setCharacter({ ...character, name })} currentState={character.name} tooltip="Enter Name" cssClass="input-field" />
+                        </div>
+                        <StatusBarTable
+                            character={background ? { ...character, background: { name: background.name, powers: [] } } : character}
+                            statModifications={updatedStatsIncludingGear()}
+                            gearSlotsUsed={gear.reduce((acc, gearItem) => acc + getGearDetails(gearItem).gearSlots, 0)} />
+                        <ExitComponent compactView={true} clickFn={(e) => {
                             callback(false);
                             e.preventDefault();
                             e.stopPropagation();
                         }} />
-                    {<div className="modal-header">{!character.name ? `Give your ${isCaptain(character.type) ? "Captain" : "First Mate"} a name` : `${isCaptain(character.type) ? "Captain" : "First Mate"} - Overview`}</div>}
-                    <CharacterTable character={background ? { ...character, background: { name: background.name, powers: [] } } : character} statModifications={updatedStats} setNameCallback={(name: string) => setCharacter({ ...character, name })} />
+                    </div>
                     {!background ? <SelectBackground
                         character={character}
                         selectedBackground={background}
@@ -62,12 +99,19 @@ export const CharacterCreationDialog = ({ baseCharacter, callback }: { baseChara
                         updateStatsCallback={(value) => { setUpdatedStats(value); }}
                         updateAndContinue={() => setStatsSelected(true)}
                     /> : null}
-                    {background && statsSelected && !(selectedPowers.length > 0) ? <SelectPowers background={background} isCaptain={isCaptain(character.type)} updatePowers={isCaptain(character.type) ? setSelectedPowers : finishCreation} />
+                    {background && statsSelected && !(selectedPowers.length > 0) ? <SelectPowers background={background} isCaptain={isCaptain(character.type)} updatePowers={isCaptain(character.type) ? setSelectedPowers : finishPowerUpgrades} />
                         : null}
-                    {background && statsSelected && selectedPowers.length > 0 ? <SelectPowerUpgrades powers={selectedPowers} upgradePowers={finishCreation} /> : null}
+                    {background && statsSelected && selectedPowers.length > 0 && !powersUpgraded ? <SelectPowerUpgrades powers={selectedPowers} upgradePowers={finishPowerUpgrades} /> : null}
+                    {background && statsSelected && powersUpgraded ? <SelectGear isCaptain={isCaptain(character.type)} updateGear={setGear} finish={finishCreation} /> : null}
                     {background ?
                         <button
                             onClick={() => {
+                                if (background && statsSelected && selectedPowers.length > 0 && powersUpgraded) {
+                                    setGear([]);
+                                    setPowersUpgraded(false);
+                                    setSelectedPowers([]);
+                                    return;
+                                }
                                 if (background && statsSelected && selectedPowers.length > 0) {
                                     setSelectedPowers([]);
                                     return;

@@ -70,13 +70,6 @@
   font-size: 1.5rem;
 }
 
-/* Builder Toolbar */
-.builder-toolbar {
-  padding: 0.2rem;
-  height: 3.8rem;
-  grid-area: 1/1;
-}
-
 .toolbar-icon {
   border: 0.05rem solid transparent;
   border-radius: 0.35rem;
@@ -86,6 +79,26 @@
   place-self: end;
   cursor: pointer;
   grid-area: 2 / 1;
+}
+
+
+.compact-statusbar {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  display: inline-grid;
+  grid-template-columns: auto 9rem 10rem 4rem;
+  width: calc(100% - 0.2rem);
+}
+.toolbar-compact-icon {
+  height: 2rem;
+  place-self: center;
+  grid-area: 1 / 1;
+}
+
+.toolbar-compact-text {
+  place-self: center;
+  padding: 0 0.25rem;
+  grid-area: 1 / 2;
 }
 /*
 .toolbar-icon:hover {
@@ -170,25 +183,25 @@
 .character-table {
   width: 100%;
 }
-table > thead > tr > td {
+.character-table > thead > tr > td {
   padding: 0.5rem;
   font-weight: bold;
   text-align: center;
 }
 
-table > thead > tr {
+.character-table > thead > tr {
   background: #d3d3d3;
 }
-table > tbody > tr > td {
+.character-table > tbody > tr > td {
   padding: 0.15rem 0.5rem 0.1rem;
   text-align: center;
 }
-table > tbody > tr > td:first-child {
+.character-table > tbody > tr > td:first-child {
   text-align: left;
   font-weight: bold;
 }
 
-table > thead > tr > td:first-child {
+.character-table > thead > tr > td:first-child {
   text-align: left;
 }
 .small-text {
@@ -248,8 +261,6 @@ table > thead > tr > td:first-child {
   font-size: 1.1rem;
   padding: 0.7rem 0.5rem;
   font-weight: bold;
-  border-top: 0.15rem solid;
-  margin-top: 0.6rem;
   clear: both;
 }
 
@@ -447,22 +458,25 @@ table > thead > tr > td:first-child {
 }
 
 .core-power-section {
-  padding-top: 1rem;
   width: 20%;
   float: left;
 }
 
 .non-core-power-section {
-  padding-top: 1rem;
   width: 80%;
   float: left;
 }
 
+.gear-section {
+  width: 49%;
+  float: left;
+}
+
 .background-power-selection {
-  padding: 0.3rem 0.5rem;
+  padding: 0.2rem 0.5rem;
   min-width: 5rem;
   border: 0.15rem solid;
-  margin: 0.2rem;
+  margin: 0.25rem;
   border-radius: 0.5rem;
   text-align: center;
   float: left;

@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { Power } from "../../types/Characters";
 
-export const SelectPowerUpgrades = (
-    { powers, upgradePowers }:
-        { powers: Power[]; upgradePowers(value: Power[]): void }
-) => {
+export const SelectPowerUpgrades = ({ powers, upgradePowers }: { powers: Power[]; upgradePowers(value: Power[]): void }) => {
     const [selectedPowers, setSelectedPowers] = useState<Power[]>([]);
     const updatedArray = () => powers.filter((pwr) => !selectedPowers.find((x) => x.name === pwr.name)).concat(selectedPowers).sort((a, b) => (a.name.localeCompare(b.name)));
 

@@ -18,13 +18,13 @@ export const SelectStatsImprovements = ({ background, updateStatsCallback, updat
     const statModificationsForBackground = getBackgroundInfos(background.name).statModifications;
     const maxStatsReached = () => selections.length === statModificationsForBackground.chooseOptionals;
     return <React.Fragment>
-        <div style={{ marginTop: "2rem" }} className="dialog-sub-header">Granted Stats Improvements</div>
+        <div style={{ marginTop: "0.5rem" }} className="modal-header">Granted Stats Improvements</div>
         <div className="section-div" >
             {Object.entries(statModificationsForBackground.mandatory).map(([statName, statValue]) =>
                 <div className="background-stat-selection background-stat-selected" key={`add_captain_dialog_mand_stat_${statName}`}>+{statValue} {statName}</div>
             )}
         </div>
-        <div className="dialog-sub-header">{`Optional Stats Improvements (choose ${statModificationsForBackground.chooseOptionals} of the following)`}</div>
+        <div className="modal-header">{`Optional Stats Improvements (choose ${statModificationsForBackground.chooseOptionals} of the following)`}</div>
         <div className="section-div" >
             {Object.entries(statModificationsForBackground.optional).map(([statName, statValue]) =>
                 <div

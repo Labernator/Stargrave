@@ -1,0 +1,133 @@
+{
+    "general": [
+        {
+            "name": "Deck",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "+6 on rolls to unlock data-loot"
+        },
+        {
+            "name": "Picks",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "+6 on rolls to unlock  physical-loot"
+        },
+        {
+            "name": "Filter Mask",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Never affected by gases or low oxygen levels"
+        },
+        {
+            "name": "Medic Kit",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Spend an action to attend to any figure within 2”",
+            "completeNotes": "Spend an action to attend to any figure within 2”, provided neither figure is in combat. This action may replace the move action. The recipient figure is immediately cured of any toxins, recovers from stun and is not longer treated as wounded. Has no effect on robots. There is no limit to how often this can be used."
+        },
+        {
+            "name": "Unarmed",
+            "type": "Weapon",
+            "maxRange": "Melee",
+            "damageModifier": -2,
+            "notes": "-2 Fight",
+            "gearSlots": 0
+        },
+        {
+            "name": "Knife",
+            "type": "Weapon",
+            "maxRange": "Melee",
+            "damageModifier": -1,
+            "gearSlots": 0
+        },
+        {
+            "name": "Hand Weapon",
+            "type": "Weapon",
+            "maxRange": "Melee",
+            "gearSlots": 1
+        },
+        {
+            "name": "Pistol",
+            "type": "Weapon",
+            "maxRange": 10,
+            "gearSlots": 1
+        },
+        {
+            "name": "Carbine",
+            "type": "Weapon",
+            "maxRange": 24,
+            "gearSlots": 2
+        },
+        {
+            "name": "Shotgun",
+            "type": "Weapon",
+            "maxRange": 12,
+            "damageModifier": 1,
+            "gearSlots": 2
+        },
+        {
+            "name": "Rapid Fire",
+            "type": "Weapon",
+            "maxRange": 24,
+            "damageModifier": 2,
+            "gearSlots": 3,
+            "notes": "2 Targets, -1 Move unless wearing heavy or combat armour"
+        },
+        {
+            "name": "Fragmentation Grenade",
+            "type": "Weapon",
+            "maxRange": 6,
+            "gearSlots": 1,
+            "notes": "3” diameter damage"
+        },
+        {
+            "name": "Smoke Grenade",
+            "type": "Weapon",
+            "maxRange": 6,
+            "gearSlots": 1,
+            "notes": "4” diameter smoke"
+        },
+        {
+            "name": "Grenade - Launcher",
+            "type": "Weapon",
+            "maxRange": 16,
+            "gearSlots": 3,
+            "notes": "-1 Shoot"
+        },
+        {
+            "name": "Flamethrower",
+            "type": "Weapon",
+            "damageModifier": 2,
+            "maxRange": "Template",
+            "gearSlots": 2,
+            "notes": "-1 Move unless wearing heavy or combat armour. Target Armour and cover modifiers"
+        },
+        {
+            "name": "Light Armour",
+            "type": "Armour",
+            "gearSlots": 1,
+            "armourModifier": 1
+        },
+        {
+            "name": "Heavy Armour",
+            "type": "Armour",
+            "gearSlots": 1,
+            "armourModifier": 2,
+            "notes": "-1 Move"
+        },
+        {
+            "name": "Combat Armour",
+            "type": "Armour",
+            "gearSlots": 2,
+            "armourModifier": 4,
+            "notes": "50cr upkeep fee. Includes hand weapon, pistol and filter mask."
+        },
+        {
+            "name": "Shield",
+            "type": "Armour",
+            "gearSlots": 1,
+            "armourModifier": 0,
+            "notes": "May only carry weapons that take up less than 2 gear slot"
+        }
+    ]
+}

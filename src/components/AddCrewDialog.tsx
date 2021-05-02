@@ -53,7 +53,6 @@ export const AddCrewDialog = ({ soldiersState, credits, callback }: { soldiersSt
             {!currentCrew ? <div style={{ float: "left", fontWeight: "bold", fontSize: "1.2rem" }} onClick={() => {
                 const soldierIdx = soldiers.findIndex((sol) => sol.type === soldier.type);
                 if (soldierIdx !== -1) {
-                    const amt = soldiers[soldierIdx].amount;
                     setSoldiers([...soldiers.slice(0, soldierIdx), { ...soldiers[soldierIdx], amount: soldiers[soldierIdx].amount + 1 }, ...soldiers.slice(soldierIdx + 1)]);
                 }
             }}>+</div> : null}
@@ -84,14 +83,14 @@ export const AddCrewDialog = ({ soldiersState, credits, callback }: { soldiersSt
         ReactDOM.createPortal(
             <div className="block-background">
                 <div className="modal">
-                    <div className="builder-statusbar" style={{ gridTemplateColumns: "auto 9rem 10rem 4rem", float: "right", width: "calc(100% - 0.2rem)" }}>
+                    <div className="compact-statusbar" >
                         <div className="statusbar-tiles" style={{ minWidth: "14rem" }}>
                             <div className="toolbar-two-column-header-text">Hire new crew members</div>
                             <div className="small-text">Max 8 crew members can be hired. Of that only 4 may be Specialists</div>
                         </div>
-                        <CrewSizeComponent />
-                        <TreasuryComponent />
-                        <ExitComponent clickFn={(e) => {
+                        <CrewSizeComponent compactView={true} />
+                        <TreasuryComponent compactView={true} />
+                        <ExitComponent compactView={true} clickFn={(e) => {
                             callback(false);
                             e.preventDefault();
                             e.stopPropagation();

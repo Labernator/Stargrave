@@ -1,6 +1,8 @@
 import { store } from "..";
 import { getBackgroundImage } from "../images";
 import { Character, StatsEnum } from "../types/Characters";
+import { getGearDetails } from "../Utils";
+import { StatusBarTable } from "./StatusBarTable";
 
 export const CharacterComponent = ({ isCaptain }: { isCaptain: boolean }) => {
     const state = store.getState();
@@ -26,7 +28,8 @@ export const CharacterComponent = ({ isCaptain }: { isCaptain: boolean }) => {
             <div className="character-title-left">{character.name}</div>
             <div className="character-title-right">{isCaptain ? "Captain" : "First Mate"}</div>
         </div>
-        <table className="character-table">
+        <StatusBarTable character={character} statModifications={{}} gearSlotsUsed={character.gear?.reduce((acc, gearItem) => acc + getGearDetails(gearItem).gearSlots, 0) || 0} />
+        {/* <table className="character-table">
             <thead>
                 <tr>
                     <td key={`${id}_stat_header_name`}>Name</td>
@@ -37,7 +40,7 @@ export const CharacterComponent = ({ isCaptain }: { isCaptain: boolean }) => {
             <tbody>
                 {renderCaptainStats()}
             </tbody>
-        </table>
+        </table> */}
         <div className="character-title">Background</div>
         <div>
             <div style={{ float: "left" }}>
@@ -59,6 +62,37 @@ export const CharacterComponent = ({ isCaptain }: { isCaptain: boolean }) => {
                             <td>{power.name}</td><td>{power.activationValue}</td>
                             <td>{power.strain}</td>
                             <td>{Array.isArray(power.category) ? power.category.map((cat) => <div>{cat}</div>) : power.category}</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
+        <div className="character-title">Gear</div>
+        <div>
+            {/* <div style={{ float: "left" }}>
+                <img className="background-image-tile" src={getBackgroundImage(character.background?.name)} alt={`${id}_tile-${character.name}-bg-icon`} />
+                <div className="background-title">{character.background?.name}</div>
+            </div> */}
+            <table className="power-table">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Type</td>
+                        <td>Slots</td>
+                        <td>Range</td>
+                        <td>Dmg</td>
+                        <td>Notes</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {character.gear?.map(getGearDetails).map((gear) =>
+                        <tr key={`${id}_power_${gear.name}`}>
+                            <td>{gear.name} </td>
+                            <td>{gear.type}</td>
+                            <td>{gear.gearSlots}</td>
+                            <td>{`${gear.maxRange || "-"}`}</td>
+                            <td>{`${gear.damageModifier || "-"}`}</td>
+                            <td>{`${gear.notes || "-"}`}</td>
                         </tr>
                     )}
                 </tbody>

@@ -114,7 +114,7 @@
             "activationValue": 10,
             "strain": 1,
             "category": "Line of Sight",
-            "effect": "The figure makes a +5 shooting attack against any target within 12”. This attack ignores any armour worn by the figure. Increase this attack to +7 agains Robots. If the target is in combat, do not randomize the target, it can only hit the intended target."
+            "effect": "The figure makes a +5 Shooting attack against any target within 12”. This attack ignores any armour worn by a figure (so subtract a figure’s armour modifier from their armour). Increase this attack to +7 against robots. If this attack targets a figure in combat, do not randomize the target, it can only hit the intended target. (Armour Interference)."
         },
         {
             "name": "Data Jump",
@@ -142,7 +142,7 @@
             "activationValue": 12,
             "strain": 2,
             "category": "Line of Sight",
-            "effect": "May be used against a figure within 12”. Choose one weapon that figure is carried by the target to be destroyed. The weapon is replaced for free after the game."
+            "effect": "May be used against a figure within 12”. Choose one weapon that figure is carried by the target to be destroyed. The weapon is replaced for free after the game. (Armour Interference)."
         },
         {
             "name": "Drone",
@@ -191,7 +191,7 @@
             "activationValue": 10,
             "strain": 0,
             "category": "Line of Sight",
-            "effect": "This power restores up to 5 points of lost Health to a target figure within 6”. The power has no effect on Robots."
+            "effect": "This power restores up to 5 points of lost Health to a target figure within 6”. The power has no effect on Robots. (Armour Interference)"
         },
         {
             "name": "Holographic Wall",
@@ -205,7 +205,7 @@
             "activationValue": 10,
             "strain": 0,
             "category": "Line of Sight",
-            "effect": "The target must make an immediate will roll (TN 15). If failed, the target loses 3 Health and the activator regains 3 Health. The power cannot be used against Robots. The power may be used against a member of your own crew, but if so, that figure is immediately removed from the crew list."
+            "effect": "The target must make an immediate will roll (TN 15). If failed, the target loses 3 Health and the activator regains 3 Health. The power cannot be used against Robots. The power may be used against a member of your own crew, but if so, that figure is immediately removed from the crew list. (Armour Interference)"
         },
         {
             "name": "Lift",
@@ -240,21 +240,21 @@
             "activationValue": 10,
             "strain": 2,
             "category": "Line of Sight",
-            "effect": "The next time the target figure is hit with a Shooting attack that causes Damage of any amount, halve that Damage (rounding down), and then the power is cancelled. If this figure enters combat, the power is immediately cancelled. If the figure also has an active Energy Shield, deduct the 3 Points of Damage for it first and then halve the remaining damage."
+            "effect": "The next time the target figure is hit with a Shooting attack that causes Damage of any amount, halve that Damage (rounding down), and then the power is cancelled. If this figure enters combat, the power is immediately cancelled. If the figure also has an active Energy Shield, deduct the 3 Points of Damage for it first and then halve the remaining damage. (Armour Interference)"
         },
         {
             "name": "Pull",
             "activationValue": 12,
             "strain": 1,
             "category": "Line of Sight",
-            "effect": "The target figure must make a Will Roll (TN16). If it fails, move that figure up to 6” in any horizontal direction. This may not move the figure over terrain more than 0.5” high. If this moves them off terrain that is above the ground, they fall and take Damage as normal."
+            "effect": "The target figure must make a Will Roll (TN16). If it fails, move that figure up to 6” in any horizontal direction. This may not move the figure over terrain more than 0.5” high. If this moves them off terrain that is above the ground, they fall and take Damage as normal. (Armour Interference)"
         },
         {
             "name": "Puppet Master",
             "activationValue": 12,
             "strain": 2,
             "category": "Touch",
-            "effect": "Choose one non-robot member of your crew that has been reduced to 0 Health during the game. That soldier returns to the table adjacent to the figure activating this power. The soldier has 1 health and counts as wounded. They are treated as normal soldiers in ever other way. Every given soldier can only be returned to the table once per game through the use of Puppet Master."
+            "effect": "Choose one non-robot member of your crew that has been reduced to 0 Health during the game. That soldier returns to the table adjacent to the figure activating this power. The soldier has 1 health and counts as wounded. They are treated as normal soldiers in ever other way. Every given soldier can only be returned to the table once per game through the use of Puppet Master. (Armour Interference)"
         },
         {
             "name": "Quick Step",

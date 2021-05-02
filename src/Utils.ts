@@ -1,11 +1,13 @@
 import { store } from ".";
 import * as BackgroundList from "./data/Backgrounds.json";
+import * as GearItems from "./data/Gear.json";
 import * as PowerList from "./data/Powers.json";
-import { BackgroundMetadata, BackgroundModifications } from "./types/Background";
-import { CharactersEnum, Power, Stats, StatsEnum } from "./types/Characters";
+import { BackgroundMetadata } from "./types/Background";
+import { CharactersEnum, Gear, Power, Stats, StatsEnum } from "./types/Characters";
 
 const allPowers: Power[] = PowerList.Powers;
 const allBackgrounds: BackgroundMetadata[] = BackgroundList.backgrounds;
+const allGear: Gear[] = GearItems.general;
 
 export const numberOfCrewMembers = () => {
     const state = store.getState();
@@ -39,15 +41,6 @@ export const isCaptain = (type: string) => type === CharactersEnum.Captain;
 
 export const getNonCorePowers = (backgroundName: string) => allPowers.filter((power) => !getBackground(backgroundName).corePowers.includes(power.name));
 
-export const maxStatsSelected = (background: BackgroundModifications) => Object.keys(background.statModifications.mandatory).length + Object.keys(background.statModifications.optional).length >= 3;
+export const getStatsMaximums = () => ({ "Move": 7, "Fight": 6, "Shoot": 6, "Will": 8, "Health": 25, "Armour": 14 });
 
-export const maxCorePowersSelected = (background: BackgroundModifications, isCaptainFlag: boolean) => {
-    let powersRemaining = isCaptainFlag ? 4 : 3;
-    if (background.powers.filter((power) => !isCorePower(power.name, background.name)).length === 2) {
-        powersRemaining = isCaptainFlag ? 3 : 2;
-    }
-    return background.powers.filter((power) => isCorePower(power.name, background.name)).length >= powersRemaining;
-};
-
-export const maxNonCorePowersSelected = (background: BackgroundModifications, isCaptainFlag: boolean) =>
-    background.powers.filter((power) => !isCorePower(power.name, background.name)).length >= (maxCorePowersSelected(background, isCaptainFlag) ? 1 : 2);
+export const getGearDetails = (gearName: string) => allGear.find((gear) => gear.name === gearName) as Gear;
