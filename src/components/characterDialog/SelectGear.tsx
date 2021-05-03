@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as GearItems from "../../data/Gear.json";
 import { Gear } from "../../types/Characters";
-import { getGearDetails } from "../../Utils";
+import { getDamageModifierString, getGearDetails } from "../../Utils";
 
 const gearList = GearItems.general as Gear[];
 
@@ -43,16 +43,7 @@ export const SelectGear = (
             setSelectedGear([...selectedGear, gearName]);
         }
     };
-    const getDamageModifierString = (weapon: Gear) => {
-        if (!weapon.damageModifier) {
-            return "+0";
-        }
-        if (weapon.damageModifier > 0) {
-            return `+${weapon.damageModifier}`;
-        }
 
-        return `${weapon.damageModifier}`;
-    };
     return <React.Fragment>
         <div className="gear-section">
             <div className="modal-header">Equipment</div>

@@ -121,7 +121,7 @@
             "activationValue": 10,
             "strain": 1,
             "category": "Line of Sight",
-            "effect": "This power may only target a member of the same crew that is currently carrying a data loot counter."
+            "effect": "This power may only target a member of the same  warband that is carrying a data-loot token. The player may immediately move the data-loot token carried by that figure to another member of the crew, provided both are in line of sight of the activator and within 8” of one another."
         },
         {
             "name": "Data Knock",
@@ -135,7 +135,7 @@
             "activationValue": 12,
             "strain": 2,
             "category": "Line of Sight",
-            "effect": "The power targets an unlocked data-loot token or a figure carrying such a token that is within 12”. If the token is not being carried, the activator may move the token 4” in any direction. If a figure is carrying the tolen, then that figure must make a will roll (TN16). If failed, the activator may move the token up to 4” in any direction. Either way the token remains unlocked."
+            "effect": "This power targets an unlocked data-loot token or a figure carrying such a token that is within 12”. If the token is not being carried, the activator may move the data-loot token 4” in any direction. If a figure is carrying the token, then that figure must make a Will Roll (TN16). If failed, the activator may move the data-loot token up to 4” in any direction. Either way, the token remains unlocked."
         },
         {
             "name": "Destroy Weapon",

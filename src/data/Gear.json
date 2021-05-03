@@ -88,7 +88,7 @@
             "notes": "4” diameter smoke"
         },
         {
-            "name": "Grenade - Launcher",
+            "name": "Grenade Launcher",
             "type": "Weapon",
             "maxRange": 16,
             "gearSlots": 3,

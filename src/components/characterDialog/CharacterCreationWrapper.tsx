@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { SET_CAPTAIN, SET_FIRST_MATE } from "../../redux/actions";
 import { BackgroundModifications } from "../../types/Background";
 import { Character, Power, Stats, StatsEnum } from "../../types/Characters";
-import { getGearDetails, isCaptain } from "../../Utils";
+import { getGearDetails, getStatsWithGear, isCaptain } from "../../Utils";
 import { InputComponent } from "../InputControl";
 import { ExitComponent } from "../statusbar/ExitComponent";
 import { StatusBarTable } from "../StatusBarTable";
@@ -27,30 +27,6 @@ export const CharacterCreationDialog = ({ baseCharacter, callback }: { baseChara
         (acc, stat) => ({ ...acc, [stat]: (character.stats[stat as StatsEnum] || 0) + (updatedStats[stat as StatsEnum] || 0) }),
         { "Move": 0, "Fight": 0, "Shoot": 0, "Armour": 0, "Will": 0, "Health": 0 }
     );
-    const updatedStatsIncludingGear = () => {
-        const updatedStatsWithGear: Partial<Stats> = {};
-        gear.forEach((gearItem) => {
-            switch (gearItem) {
-                case "Light Armour": updatedStatsWithGear.Armour = 1; break;
-                case "Heavy Armour":
-                    updatedStatsWithGear.Armour = 2;
-                    updatedStatsWithGear.Move = -1;
-                    break;
-                case "Unarmed":
-                    updatedStatsWithGear.Fight = -2;
-                    break;
-                case "Flame Thrower":
-                case "Rapid Fire":
-                    if (!gear.includes("Heavy Armour") && !gear.includes("Combat Armour")) {
-                        updatedStatsWithGear.Move = -1;
-                    }
-            }
-        });
-        return Object.keys(character.stats).reduce(
-            (acc, stat) => ({ ...acc, [stat]: (updatedStats[stat as StatsEnum] || 0) + (updatedStatsWithGear[stat as StatsEnum] || 0) }),
-            { "Move": 0, "Fight": 0, "Shoot": 0, "Armour": 0, "Will": 0, "Health": 0 }
-        );
-    };
     const finishPowerUpgrades = (powers: Power[]) => {
         setPowersUpgraded(true);
         setSelectedPowers(powers);
@@ -80,8 +56,8 @@ export const CharacterCreationDialog = ({ baseCharacter, callback }: { baseChara
                             <InputComponent callback={(name: string) => setCharacter({ ...character, name })} currentState={character.name} tooltip="Enter Name" cssClass="input-field" />
                         </div>
                         <StatusBarTable
-                            character={background ? { ...character, background: { name: background.name, powers: [] } } : character}
-                            statModifications={updatedStatsIncludingGear()}
+                            character={background ? { ...character, stats: getStatsWithGear(character.stats, updatedStats, gear), background: { name: background.name, powers: [] } } : character}
+                            statModifications={{}}
                             gearSlotsUsed={gear.reduce((acc, gearItem) => acc + getGearDetails(gearItem).gearSlots, 0)} />
                         <ExitComponent compactView={true} clickFn={(e) => {
                             callback(false);

@@ -44,3 +44,57 @@ export const getNonCorePowers = (backgroundName: string) => allPowers.filter((po
 export const getStatsMaximums = () => ({ "Move": 7, "Fight": 6, "Shoot": 6, "Will": 8, "Health": 25, "Armour": 14 });
 
 export const getGearDetails = (gearName: string) => allGear.find((gear) => gear.name === gearName) as Gear;
+
+export const getActualNotes = (gearList: string[], gearItem: Gear) => {
+    let notes = gearItem.notes;
+    switch (gearItem.name) {
+        case "Flamethrower":
+            notes = gearList.includes("Heavy Armour") || gearList.includes("Combat Armour") ? "Target Armour and Cover Modifiers" : "Target Armour and Cover Modifiers. -1 Move";
+            break;
+        case "Rapid Fire":
+            notes = gearList.includes("Heavy Armour") || gearList.includes("Combat Armour") ? "2 Targets" : "2 Targets. -1 Move";
+            break;
+        case "Combat Armour":
+            notes = "50gc upkeep fee";
+    }
+    return notes || "";
+};
+
+export const getStatsWithGear = (stats: Stats, updateStats: Partial<Stats>, gear: string[] | undefined): Stats => {
+    const updatedStatsByGear = gear ? gear.reduce((updatedStatsWithGear, gearItem) => {
+        switch (gearItem) {
+            case "Light Armour": updatedStatsWithGear.Armour = 1; break;
+            case "Heavy Armour":
+                updatedStatsWithGear.Armour = 2;
+                updatedStatsWithGear.Move = -1;
+                break;
+            case "Combat Armour":
+                updatedStatsWithGear.Armour = 4;
+                break;
+            case "Unarmed":
+                updatedStatsWithGear.Fight = -2;
+                break;
+            case "Flamethrower":
+            case "Rapid Fire":
+                if (!gear.includes("Heavy Armour") && !gear.includes("Combat Armour")) {
+                    updatedStatsWithGear.Move = -1;
+                }
+        }
+        return updatedStatsWithGear;
+    }, { "Move": 0, "Fight": 0, "Shoot": 0, "Armour": 0, "Will": 0, "Health": 0 }) : { "Move": 0, "Fight": 0, "Shoot": 0, "Armour": 0, "Will": 0, "Health": 0 };
+
+    return Object.keys(stats).reduce(
+        (acc, stat) => ({ ...acc, [stat]: (stats[stat as StatsEnum] || 0) + (updateStats[stat as StatsEnum] || 0) + (updatedStatsByGear[stat as StatsEnum] || 0) }),
+        { "Move": 0, "Fight": 0, "Shoot": 0, "Armour": 0, "Will": 0, "Health": 0 });
+};
+
+export const getDamageModifierString = (weapon: Gear) => {
+    if (!weapon.damageModifier) {
+        return "+0";
+    }
+    if (weapon.damageModifier > 0) {
+        return `+${weapon.damageModifier}`;
+    }
+
+    return `${weapon.damageModifier}`;
+};
