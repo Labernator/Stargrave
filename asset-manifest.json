@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Stargrave/static/css/main.6b333307.chunk.css",
-    "main.js": "/Stargrave/static/js/main.3d7901ca.chunk.js",
-    "main.js.map": "/Stargrave/static/js/main.3d7901ca.chunk.js.map",
+    "main.js": "/Stargrave/static/js/main.29b1d715.chunk.js",
+    "main.js.map": "/Stargrave/static/js/main.29b1d715.chunk.js.map",
     "runtime-main.js": "/Stargrave/static/js/runtime-main.120ced82.js",
     "runtime-main.js.map": "/Stargrave/static/js/runtime-main.120ced82.js.map",
     "static/js/2.87e52b0a.chunk.js": "/Stargrave/static/js/2.87e52b0a.chunk.js",
@@ -17,7 +17,7 @@
     "static/media/Crew.517fe591.png": "/Stargrave/static/media/Crew.517fe591.png",
     "static/media/Cyborg.1d6e41d1.png": "/Stargrave/static/media/Cyborg.1d6e41d1.png",
     "static/media/Delete.17e835d8.png": "/Stargrave/static/media/Delete.17e835d8.png",
-    "static/media/Firefly.7581a460.sg": "/Stargrave/static/media/Firefly.7581a460.sg",
+    "static/media/Firefly.b34485f8.sg": "/Stargrave/static/media/Firefly.b34485f8.sg",
     "static/media/ImportCrew.e5abae4c.png": "/Stargrave/static/media/ImportCrew.e5abae4c.png",
     "static/media/Mystic.41443507.png": "/Stargrave/static/media/Mystic.41443507.png",
     "static/media/Psionicist.3e8db9d2.png": "/Stargrave/static/media/Psionicist.3e8db9d2.png",
@@ -33,6 +33,6 @@
     "static/js/runtime-main.120ced82.js",
     "static/js/2.87e52b0a.chunk.js",
     "static/css/main.6b333307.chunk.css",
-    "static/js/main.3d7901ca.chunk.js"
+    "static/js/main.29b1d715.chunk.js"
   ]
 }
