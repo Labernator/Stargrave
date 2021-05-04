@@ -7,12 +7,21 @@ export interface Background {
 
 export interface Power {
     name: string;
-    activationValue: number;
+    activation: number;
     strain: number;
     category: string | string[];
     effect: string;
 }
 
+export interface ModifiedPower {
+    name: string;
+    activation: number;
+}
+
+export interface ModifiedGear {
+    name: string;
+    gearSlots: number;
+}
 export interface Gear {
     name: string;
     type: string;
@@ -29,8 +38,9 @@ export interface Character {
     level: number;
     gearSlots: number;
     type: string;
-    background?: Background;
-    gear?: string[];
+    background?: string;
+    powers?: ModifiedPower[];
+    gear?: ModifiedGear[];
 }
 
 export enum StatsEnum {

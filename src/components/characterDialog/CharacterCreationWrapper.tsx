@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import { useDispatch } from "react-redux";
 import { SET_CAPTAIN, SET_FIRST_MATE } from "../../redux/actions";
 import { BackgroundModifications } from "../../types/Background";
-import { Character, Power, Stats, StatsEnum } from "../../types/Characters";
-import { getGearDetails, getStatsWithGear, isCaptain } from "../../Utils";
+import { Character, ModifiedGear, Power, Stats, StatsEnum } from "../../types/Characters";
+import { getStatsWithGear, isCaptain } from "../../Utils";
 import { InputComponent } from "../InputControl";
 import { ExitComponent } from "../statusbar/ExitComponent";
 import { StatusBarTable } from "../StatusBarTable";
@@ -21,7 +21,7 @@ export const CharacterCreationDialog = ({ baseCharacter, callback }: { baseChara
     const [selectedPowers, setSelectedPowers] = useState<Power[]>([]);
     const [statsSelected, setStatsSelected] = useState<boolean>(false);
     const [powersUpgraded, setPowersUpgraded] = useState<boolean>(false);
-    const [gear, setGear] = useState<string[]>([]);
+    const [gear, setGear] = useState<ModifiedGear[]>([]);
     const dispatch = useDispatch();
     const improvedStats = () => Object.keys(character.stats).reduce(
         (acc, stat) => ({ ...acc, [stat]: (character.stats[stat as StatsEnum] || 0) + (updatedStats[stat as StatsEnum] || 0) }),
@@ -37,10 +37,8 @@ export const CharacterCreationDialog = ({ baseCharacter, callback }: { baseChara
             payload: {
                 ...character,
                 stats: improvedStats(),
-                background: {
-                    name: background?.name,
-                    powers: selectedPowers,
-                },
+                background: background?.name,
+                powers: selectedPowers,
                 gear,
             },
         });
@@ -56,9 +54,9 @@ export const CharacterCreationDialog = ({ baseCharacter, callback }: { baseChara
                             <InputComponent callback={(name: string) => setCharacter({ ...character, name })} currentState={character.name} tooltip="Enter Name" cssClass="input-field" />
                         </div>
                         <StatusBarTable
-                            character={background ? { ...character, stats: getStatsWithGear(character.stats, updatedStats, gear), background: { name: background.name, powers: [] } } : character}
+                            character={background ? { ...character, stats: getStatsWithGear(character.stats, updatedStats, gear), background: background.name, powers: [] } : character}
                             statModifications={{}}
-                            gearSlotsUsed={gear.reduce((acc, gearItem) => acc + getGearDetails(gearItem).gearSlots, 0)} />
+                            gearSlotsUsed={gear.reduce((acc, gearItem) => acc + gearItem.gearSlots, 0)} />
                         <ExitComponent compactView={true} clickFn={(e) => {
                             callback(false);
                             e.preventDefault();

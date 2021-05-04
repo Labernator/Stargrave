@@ -18,27 +18,27 @@
             "powers": [
                 {
                     "name": "Command",
-                    "activationValue": 7,
+                    "activation": 7,
                     "strain": 0
                 },
                 {
                     "name": "Coordinated Fire",
-                    "activationValue": 9,
+                    "activation": 9,
                     "strain": 0
                 },
                 {
                     "name": "Target Designation",
-                    "activationValue": 11,
+                    "activation": 11,
                     "strain": 2
                 },
                 {
                     "name": "Remote Firing",
-                    "activationValue": 8,
+                    "activation": 8,
                     "strain": 1
                 },
                 {
                     "name": "Adrenaline Surge",
-                    "activationValue": 12,
+                    "activation": 12,
                     "strain": 3
                 }
             ]
@@ -61,22 +61,22 @@
             "powers": [
                 {
                     "name": "Concealed Firearm",
-                    "activationValue": 9,
+                    "activation": 9,
                     "strain": 1
                 },
                 {
                     "name": "Data Jump",
-                    "activationValue": 12,
+                    "activation": 12,
                     "strain": 2
                 },
                 {
                     "name": "Quick Step",
-                    "activationValue": 11,
+                    "activation": 11,
                     "strain": 0
                 },
                 {
                     "name": "Break Lock",
-                    "activationValue": 14,
+                    "activation": 14,
                     "strain": 0
                 }
             ]

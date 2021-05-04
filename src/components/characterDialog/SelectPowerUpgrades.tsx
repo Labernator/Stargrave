@@ -17,16 +17,16 @@ export const SelectPowerUpgrades = ({ powers, upgradePowers }: { powers: Power[]
                         if (selectedPowers.length >= 2) {
                             return;
                         }
-                        setSelectedPowers([...selectedPowers, { ...power, activationValue: power.activationValue - 1 }]);
+                        setSelectedPowers([...selectedPowers, { ...power, activation: power.activation - 1 }]);
                     }
                 }}>
                 <div className="power-preview-name">{power.name}</div>
-                <div className="power-preview-infos">{`Activation: ${power.activationValue}`} / {`Strain: ${power.strain}`} / {Array.isArray(power.category) ? `Categories: ${power.category.join(", ")}` : `Category: ${power.category}`}</div>
+                <div className="power-preview-infos">{`Activation: ${power.activation}`} / {`Strain: ${power.strain}`} / {Array.isArray(power.category) ? `Categories: ${power.category.join(", ")}` : `Category: ${power.category}`}</div>
                 <div className={power.effect.length <= 200 ? "power-preview-large-text" : power.effect.length <= 400 ? "power-preview-medium-text" : "power-preview-small-text"}>{power.effect}</div>
             </div>)}
         <button
             onClick={() => selectedPowers.length === 2 ? upgradePowers(updatedArray()) : undefined}
             className={selectedPowers.length === 2 ? "power-btn" : "power-btn disabled"}
-        >Confirm selection and finish creation</button>
+        >Confirm selection</button>
     </div>;
 };

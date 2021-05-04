@@ -50,7 +50,7 @@ export const CharacterTable = (
                     </td>
                 )}
                 <td>{character.level}</td>
-                {character.background ? <td>{character.background.name}</td> : null}
+                {character.background ? <td>{character.background}</td> : null}
             </tr>
         </tbody>
     </table>;

@@ -3,7 +3,7 @@ import * as BackgroundList from "./data/Backgrounds.json";
 import * as GearItems from "./data/Gear.json";
 import * as PowerList from "./data/Powers.json";
 import { BackgroundMetadata } from "./types/Background";
-import { CharactersEnum, Gear, Power, Stats, StatsEnum } from "./types/Characters";
+import { CharactersEnum, Gear, ModifiedGear, Power, Stats, StatsEnum } from "./types/Characters";
 
 const allPowers: Power[] = PowerList.Powers;
 const allBackgrounds: BackgroundMetadata[] = BackgroundList.backgrounds;
@@ -29,7 +29,7 @@ export const getStatStrings = (stats: Stats | Partial<Stats>) => Object.keys(sta
             return { [stat]: `${stats[stat as StatsEnum]}` };
     }
 });
-const getPower = (name: string) => allPowers.find((power) => power.name === name) as Power;
+export const getPower = (name: string) => allPowers.find((power) => power.name === name) as Power;
 
 export const getPowerInfos = (powerNames: string[]): Power[] => powerNames.map(getPower);
 
@@ -43,16 +43,22 @@ export const getNonCorePowers = (backgroundName: string) => allPowers.filter((po
 
 export const getStatsMaximums = () => ({ "Move": 7, "Fight": 6, "Shoot": 6, "Will": 8, "Health": 25, "Armour": 14 });
 
-export const getGearDetails = (gearName: string) => allGear.find((gear) => gear.name === gearName) as Gear;
+export const getGearDetails = (gearName: string | ModifiedGear) => {
+    const foundGear = allGear.find((gear) => (typeof (gearName) === "string" ? gearName : gearName.name) === gear.name) as Gear;
+    if (typeof (gearName) !== "string") {
+        foundGear.gearSlots = gearName.gearSlots;
+    }
+    return foundGear;
+};
 
-export const getActualNotes = (gearList: string[], gearItem: Gear) => {
+export const getActualNotes = (gearList: Array<string | ModifiedGear>, gearItem: Gear) => {
     let notes = gearItem.notes;
     switch (gearItem.name) {
         case "Flamethrower":
-            notes = gearList.includes("Heavy Armour") || gearList.includes("Combat Armour") ? "Target Armour and Cover Modifiers" : "Target Armour and Cover Modifiers. -1 Move";
+            notes = gearList.find((gear: ModifiedGear | string) => (typeof (gear) === "string" ? gear : gear.name) === "Heavy Armour") || gearList.find((gear: ModifiedGear | string) => (typeof (gear) === "string" ? gear : gear.name) === "Combat Armour") ? "Target Armour and Cover Modifiers" : "Target Armour and Cover Modifiers. -1 Move";
             break;
         case "Rapid Fire":
-            notes = gearList.includes("Heavy Armour") || gearList.includes("Combat Armour") ? "2 Targets" : "2 Targets. -1 Move";
+            notes = gearList.find((gear: ModifiedGear | string) => (typeof (gear) === "string" ? gear : gear.name) === "Heavy Armour") || gearList.find((gear: ModifiedGear | string) => (typeof (gear) === "string" ? gear : gear.name) === "Combat Armour") ? "2 Targets" : "2 Targets. -1 Move";
             break;
         case "Combat Armour":
             notes = "50gc upkeep fee";
@@ -60,9 +66,9 @@ export const getActualNotes = (gearList: string[], gearItem: Gear) => {
     return notes || "";
 };
 
-export const getStatsWithGear = (stats: Stats, updateStats: Partial<Stats>, gear: string[] | undefined): Stats => {
+export const getStatsWithGear = (stats: Stats, updateStats: Partial<Stats>, gear: ModifiedGear[] | undefined): Stats => {
     const updatedStatsByGear = gear ? gear.reduce((updatedStatsWithGear, gearItem) => {
-        switch (gearItem) {
+        switch (gearItem.name) {
             case "Light Armour": updatedStatsWithGear.Armour = 1; break;
             case "Heavy Armour":
                 updatedStatsWithGear.Armour = 2;
@@ -76,7 +82,7 @@ export const getStatsWithGear = (stats: Stats, updateStats: Partial<Stats>, gear
                 break;
             case "Flamethrower":
             case "Rapid Fire":
-                if (!gear.includes("Heavy Armour") && !gear.includes("Combat Armour")) {
+                if (!gear.find((item) => item.name === "Heavy Armour") && !gear.find((item) => item.name === "Combat Armour")) {
                     updatedStatsWithGear.Move = -1;
                 }
         }

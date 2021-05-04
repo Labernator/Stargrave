@@ -2,21 +2,21 @@
     "Powers": [
         {
             "name": "Adrenaline Surge",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 2,
             "category": "Self-only",
             "effect": "The figure immediately gains an additional action during this activation, and an additional action in their next activation as well."
         },
         {
             "name": "Anti-gravity Projection",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": "Line of Sight",
             "effect": "The figure gains the Leviathan attribute for the rest of the game."
         },
         {
             "name": "Armour Plates",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 2,
             "category": [
                 "Self-only",
@@ -26,56 +26,56 @@
         },
         {
             "name": "Armoury",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": "Out of Game (B)",
             "effect": "The crew can field one combat armour without having to pay the normal upkeep cost. Alternatively one standard Pistol, Carbine or Shotgun gains a +1 damage modifier for the next game only."
         },
         {
             "name": "Bait and Switch",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 2,
             "category": "Line of Sight",
             "effect": "This power may only be used against a soldiert carrying a loot token. That figure must take an immediate will roll (TN 14). If failed, the figure drops the loot token and the activator may move the token up to 4” in any direction."
         },
         {
             "name": "Break Lock",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 1,
             "category": "Line of Sight",
             "effect": "Immediately unlock a physical loot counter."
         },
         {
             "name": "Bribe",
-            "activationValue": 14,
+            "activation": 14,
             "strain": 0,
             "category": "Out of Game (B)",
             "effect": "If successful, place one bribe token next to the table and make your opponent aware of it. At any point of the game, when your opponent declares that a soldier (not a captain or first mate) is making a Shooting attack, but before the dice are rolled, you may play your bribe token. The Shooting attack automatically misses, and no dice are rolled. No crew may use more than one bribe token in any game."
         },
         {
             "name": "Camouflage",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 2,
             "category": "Self-only",
             "effect": "No figure may draw line of sight to this figure if it is more than 12” away. In addition it gains +2 Fight when rolling against shooting attacks from Pistols, Carbines, Rapid-fire or Shotguns attacks. The power is cancelled if the figure becomes stunned."
         },
         {
             "name": "Cancel Power",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 1,
             "category": "Line of Sight",
             "effect": ""
         },
         {
             "name": "Command",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": "Line of Sight",
             "effect": "Select one member of the crew that is in line of sight. That figure now activates in the current player’s phase this turn. This power may not be used on a figure that has already activated in this turn."
         },
         {
             "name": "Concealed Firearm",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Self-only",
             "effect": "This power may only be used while the figure is in combat. This figure may make a single +5 shooting attack against any other figure in the combat. If this attack damages the target, it is immediately pushed back 1” and stunned, even if the attack did less than 4 damage."
@@ -83,287 +83,287 @@
         },
         {
             "name": "Control Animal",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Line of Sight",
             "effect": "This power may only be used against uncontrolled animals. The target animal must make an immediate Will Roll (TN16) or become a temporary member of the same crew as the activator. Each figure with this power may only have one animal under control at any time. They may cancel this power at any time as a free action."
         },
         {
             "name": "Control Robot",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Line of Sight",
             "effect": "Select one robot in line of sight. That robot must make an immediate Will Roll (TN15). If it succeeds, nothing happens. If it fails, it immediately joins the crew of activator as a temporary member. The controlled robot may make a new Will Roll (TN15) after each of its activations. If it succeeds this power is canceled and the robot immediately reverts to its previous allegiance. A figure with this power may only have one robot under control at any time. They may cancel this power at any time as a free action."
         },
         {
             "name": "Coordinated Fire",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": "Line of Sight",
             "effect": "The target member of the crew receives +1 Shoot for the duration of the game. This may not take a figure above +5 Shoot. A figure may only benefit from one Coordinated Fire Power at a time."
         },
         {
             "name": "Create Robot",
-            "activationValue": 14,
+            "activation": 14,
             "strain": 0,
             "category": "Out of Game (A)",
             "effect": "The player may immediately add one robot soldier to their crew for no cost. This soldier can be of any type except Armoured Trooper, but the crew is still subject to the normal limitation on soldiers and specialist soldiers."
         },
         {
             "name": "Dark Energy",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Line of Sight",
             "effect": "The figure makes a +5 Shooting attack against any target within 12”. This attack ignores any armour worn by a figure (so subtract a figure’s armour modifier from their armour). Increase this attack to +7 against robots. If this attack targets a figure in combat, do not randomize the target, it can only hit the intended target. (Armour Interference)."
         },
         {
             "name": "Data Jump",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Line of Sight",
             "effect": "This power may only target a member of the same  warband that is carrying a data-loot token. The player may immediately move the data-loot token carried by that figure to another member of the crew, provided both are in line of sight of the activator and within 8” of one another."
         },
         {
             "name": "Data Knock",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 1,
             "category": "Line of Sight",
             "effect": "Immediately unlock a data loot counter."
         },
         {
             "name": "Data Skip",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 2,
             "category": "Line of Sight",
             "effect": "This power targets an unlocked data-loot token or a figure carrying such a token that is within 12”. If the token is not being carried, the activator may move the data-loot token 4” in any direction. If a figure is carrying the token, then that figure must make a Will Roll (TN16). If failed, the activator may move the data-loot token up to 4” in any direction. Either way, the token remains unlocked."
         },
         {
             "name": "Destroy Weapon",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 2,
             "category": "Line of Sight",
             "effect": "May be used against a figure within 12”. Choose one weapon that figure is carried by the target to be destroyed. The weapon is replaced for free after the game. (Armour Interference)."
         },
         {
             "name": "Drone",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Touch",
             "effect": "Place a drone next to the activator. This drone counts as a temporary member of the crew and may activate and move as normal. For the rest of the game, the figure may draw line of sight from the drone, instead of the figure when using a power. This includes using Touch powers. A figure may only have one active drone at a time."
         },
         {
             "name": "Electromagnetic Pulse",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Line of Sight",
             "effect": "If targeted against a robot, that robot must make an immediate Will Roll (TN18). If it fails, it receives no actions the next time it activates. If targeted against a non-robot figure, all firearms carried by that figure immediately jam as though they had rolled a 1 on a Shooting attack. Additionally, the weapon suffers a -1 Damage modifier for the rest of the game. A weapon can be jammed in multiple turns through the use of this power, but the Damage modifier only applies the first time."
         },
         {
             "name": "Energy Shield",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": "Self-only",
             "effect": "A small energy shield forms around the user. The shield absorbs the next 3 points of damage from any shooting attack, that would injure the activator. Once 3 points of damage have been absorbed, the power is cancelled."
         },
         {
             "name": "Fling",
-            "activationValue": 8,
+            "activation": 8,
             "strain": 1,
             "category": ["Self-only", "Touch"],
             "effect": "This power can be used in two ways. The activator may use it while standing within 1” of a member of their crew, in which case they may immediately move that crewmember 6” in any direction, including up. However, the figure that was moved is immediately stunned. Alternatively, it can be used while in combat against a specific enemy figure. The target figure must make an immediate Fight Roll (TN16). If it fails, the activator may move the target figure up to 6” in any horizontal direction. The figure takes no Damage (unless there is another reason it would, such as falling), but is stunned. This power may not be used on any figure that has the Large attribute."
         },
         {
             "name": "Fortune",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 0,
             "category": "Self-only",
             "effect": "Place a fortune token either next to the figure or on your crew sheet next to the figure's entry. At any point the player may discard this token to reroll a Combat Roll, Shooting Roll or Stat Roll made by that figure. If used, the figure must take the result of the reroll. No figure may have more than one fortune token at any time."
         },
         {
             "name": "Haggle",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": "Out of Game (A)",
             "effect": "This power may be used whenever the crew sells anything. The crew receives 20% more than the usual selling price. This power may only be used one the sale of one item after each game."
         },
         {
             "name": "Heal",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": "Line of Sight",
             "effect": "This power restores up to 5 points of lost Health to a target figure within 6”. The power has no effect on Robots. (Armour Interference)"
         },
         {
             "name": "Holographic Wall",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Line of Sight",
             "effect": "Create a holographic wall 6” long, 3” high. Figures can move through the fog with no difficulty, but no-one may draw line of sight through it. At the end of each new turn after the turn in which the holograph was placed, roll a d20. On 1 -4 the holograph fails and is removed from the table."
         },
         {
             "name": "Life Leach",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": "Line of Sight",
             "effect": "The target must make an immediate will roll (TN 15). If failed, the target loses 3 Health and the activator regains 3 Health. The power cannot be used against Robots. The power may be used against a member of your own crew, but if so, that figure is immediately removed from the crew list. (Armour Interference)"
         },
         {
             "name": "Lift",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": "Line of Sight",
             "effect": "Immediately move one member of the same crew that is in line of sight 6” in any direction, including vertically. If this leaves the figure hanging above the ground, it immediately drops to the ground, but takes no Damage. The figure that is moved cannot take any additional actions this turn, though may have taken actions previously this turn. This may not move a figure off the table. (Armour Interference)."
         },
         {
             "name": "Mystic Trance",
-            "activationValue": 8,
+            "activation": 8,
             "strain": 0,
             "category": "Out of Game (B)",
             "effect": "If successfully activated, the figure may attempt to use one of their other powers before the first Initiative Roll as if it was an Out of Game (B) power. No power that targets a point on the table or an enemy figure can be used with Mystic Trance."
         },
         {
             "name": "Power Spike",
-            "activationValue": 8,
+            "activation": 8,
             "strain": 1,
             "category": "Self-only",
             "effect": "The next time this figure makes a Shooting attack with a pistol, carbine or shotgun, the shot is resolved with +3 Damage. This is cumulative with other damage modifiers for the weapon. For example the total damage modifier for a shotgun would be +4."
         },
         {
             "name": "Psionic Fire",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Self-only",
             "effect": "The activator should place two flamethrower templates as thought the figure had just made a flamethrower attack. These templates may be touching, but may not overlap. Every figure touching  a template immediately suffers a +3 flamethrower attack (see page 32). Figures only suffer one attack even if touching both templates. (Armour Interference)."
         },
         {
             "name": "Psychic Shield",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 2,
             "category": "Line of Sight",
             "effect": "The next time the target figure is hit with a Shooting attack that causes Damage of any amount, halve that Damage (rounding down), and then the power is cancelled. If this figure enters combat, the power is immediately cancelled. If the figure also has an active Energy Shield, deduct the 3 Points of Damage for it first and then halve the remaining damage. (Armour Interference)"
         },
         {
             "name": "Pull",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 1,
             "category": "Line of Sight",
             "effect": "The target figure must make a Will Roll (TN16). If it fails, move that figure up to 6” in any horizontal direction. This may not move the figure over terrain more than 0.5” high. If this moves them off terrain that is above the ground, they fall and take Damage as normal. (Armour Interference)"
         },
         {
             "name": "Puppet Master",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 2,
             "category": "Touch",
             "effect": "Choose one non-robot member of your crew that has been reduced to 0 Health during the game. That soldier returns to the table adjacent to the figure activating this power. The soldier has 1 health and counts as wounded. They are treated as normal soldiers in ever other way. Every given soldier can only be returned to the table once per game through the use of Puppet Master. (Armour Interference)"
         },
         {
             "name": "Quick Step",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Self-only",
             "effect": "A figure may not make a power move when attempting to activate this power. The activator ma immediately move 4” in any direction, including out of combat. No figure may force combar during this move. The activator may not end this move within 1” of an enemy figure nor exit the table. This move does not suffer any movement penalties for terrain. If the figure fails its activation, it may make a normal power move."
         },
         {
             "name": "Regenerate",
-            "activationValue": 8,
+            "activation": 8,
             "strain": 0,
             "category": "Self-only",
             "effect": "The activator regains up to 3 points of lost Health."
         },
         {
             "name": "Remote Firing",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": "Line of Sight",
             "effect": "This power allows the user to select one robot in the same crew that is within line of sight. That robot makes an immediate +3 Shooting attack against any legal target within 12”. This attack does not count as the robot’s activation, nor does it cost the robot an action."
         },
         {
             "name": "Remote Guidance",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": ["Out of Game (B)", "Touch"],
             "effect": "This power may be used on any robot soldier. That robot can always activate in the same phase as the activator, even if it is not within 3”. The player is still limited to a maximum of three soldiers activating in either the Captain or First Mate Phase. An activator may only use Remote Guidance on one robot at a time."
         },
         {
             "name": "Repair Robot",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": "Line of Sight",
             "effect": "This power restores up to 5 points of lost Health to a target robot within 6”. This power cannot take a figure above its starting health."
         },
         {
             "name": "Restructure Body",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": ["Self-only", "Out of Game (B)"],
             "effect": "The activator gains one of the following traits of its choice: Amphibious, Burrowing , Expter Climber, Immune to Critical Hits, Immune to Toxings or Never Wounded. It may only gain one of these traits at a time, but can change the attribute from one to another with an additional use of the power."
         },
         {
             "name": "Re-wire Robot",
-            "activationValue": 14,
+            "activation": 14,
             "strain": 0,
             "category": "Out of Game (B)",
             "effect": "Select one robot in the crew. The robot may be given one of the following enhancements: +1 Move, +1 Fight, +1 Armour; however, it suffers -1 Will. These modifications are permanent. No robot may be re-wired more than once"
         },
         {
             "name": "Suggestion",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 1,
             "category": "Line of Sight",
             "effect": "The target of this power must make an immediate Will Roll (TN16). If it fails, it drops any loot it is carrying, and the activator may move the figure up to 3” in any direction, provided this does not move the figure into combat or cause it any immediate Damage (i.e. falling more than 3”). (Armour Interference)."
         },
         {
             "name": "Target Designation",
-            "activationValue": 8,
+            "activation": 8,
             "strain": 0,
             "category": "Line of Sight",
             "effect": "For the rest of the battle, the target figure receives -2 Fight whenever rolling against Shooting attacks."
         },
         {
             "name": "Target Lock",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Touch",
             "effect": "The activator may make an immediate grenade or grenade launcher attack as a free action against any point in range; it does not have to be in line of sight. The attack automatically hits its intended point. If this power is used during a group activation, then the grenade or grenade launcher attack can be made by another member of the crew that is within 1” and was part of the group activation."
         },
         {
             "name": "Temporary Upgrade",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 0,
             "category": "Self-only",
             "effect": "The activator may select one of the following stat increases: +1 Move, +1 Fight, +1 Shoot, +3 Will, +1 Armour. These may not take the figure above Move (7), Fight (+6), Shoot (+6), Will (+8), or Armour (14). A figure may only have one upgrade activate a time, but they may use this power again to switch from one upgrade to another."
         },
         {
             "name": "Toxic Claws",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Self-only",
             "effect": "The figure immediately grows a set ot indestructable claws. These count as a hand weapon, do +2 Damage and are toxic."
         },
         {
             "name": "Toxic Secretion",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 0,
             "category": "Out of Game (B)",
             "effect": "The activator may select up to two members of their crew, including itself. All attacks made by those figures including Shooting attacks count as toxic for the rest of the game."
         },
         {
             "name": "Transport",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 1,
             "category": "Line of Sight",
             "effect": "May target one member of the same crew that is within Line of Sight and within 12” of the activator. This figure can be moved up to 6” in any direction (maintaining line of sight). If the figure was carrying a loot token, the token is droppend and not moved with the figure."
         },
         {
             "name": "Void Blade",
-            "activationValue": 10,
+            "activation": 10,
             "strain": 0,
             "category": "Self-only",
             "effect": "A figure must be carrying a hand weapon in order to use this power. This hand weapon becomes indestructable and does +2 Damage. In addition, the figure receives +3 Fight whenever they are rolling against a shooting attack generated by a pistol, carbine, rapid-fire or shotgun. This bonus does not stack with cover, the player should use whichever bonus is higher. If the figure becomes stunned, this power is immediately cancelled. A figure with an active Void blade cannot use any weapon that takes up more than 1 gear slot."
         },
         {
             "name": "Wall of Force",
-            "activationValue": 12,
+            "activation": 12,
             "strain": 1,
             "category": "Self-only",
             "effect": "Creates an impenetrable, transparent wall, up to 6” long and 3” high anywhere within line of sight of the activator. This wall cannot be climbed (though any point it is anchored on may be). Grenade and grenade launcher attacks may be made over the wall. Figures may make a Shooting action at the wall. In that case, roll a die, on a 19–20, the wall is immediately cancelled."
