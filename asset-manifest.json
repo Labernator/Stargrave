@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Stargrave/static/css/main.6b333307.chunk.css",
-    "main.js": "/Stargrave/static/js/main.29b1d715.chunk.js",
-    "main.js.map": "/Stargrave/static/js/main.29b1d715.chunk.js.map",
+    "main.css": "/Stargrave/static/css/main.11a98018.chunk.css",
+    "main.js": "/Stargrave/static/js/main.cd06e584.chunk.js",
+    "main.js.map": "/Stargrave/static/js/main.cd06e584.chunk.js.map",
     "runtime-main.js": "/Stargrave/static/js/runtime-main.120ced82.js",
     "runtime-main.js.map": "/Stargrave/static/js/runtime-main.120ced82.js.map",
-    "static/js/2.87e52b0a.chunk.js": "/Stargrave/static/js/2.87e52b0a.chunk.js",
-    "static/js/2.87e52b0a.chunk.js.map": "/Stargrave/static/js/2.87e52b0a.chunk.js.map",
+    "static/js/2.c71d7d25.chunk.js": "/Stargrave/static/js/2.c71d7d25.chunk.js",
+    "static/js/2.c71d7d25.chunk.js.map": "/Stargrave/static/js/2.c71d7d25.chunk.js.map",
     "index.html": "/Stargrave/index.html",
-    "static/css/main.6b333307.chunk.css.map": "/Stargrave/static/css/main.6b333307.chunk.css.map",
-    "static/js/2.87e52b0a.chunk.js.LICENSE.txt": "/Stargrave/static/js/2.87e52b0a.chunk.js.LICENSE.txt",
+    "static/css/main.11a98018.chunk.css.map": "/Stargrave/static/css/main.11a98018.chunk.css.map",
+    "static/js/2.c71d7d25.chunk.js.LICENSE.txt": "/Stargrave/static/js/2.c71d7d25.chunk.js.LICENSE.txt",
     "static/media/Add.94030173.png": "/Stargrave/static/media/Add.94030173.png",
     "static/media/Biomorph.30852fce.png": "/Stargrave/static/media/Biomorph.30852fce.png",
     "static/media/Captain.95237b5a.png": "/Stargrave/static/media/Captain.95237b5a.png",
@@ -31,8 +31,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.120ced82.js",
-    "static/js/2.87e52b0a.chunk.js",
-    "static/css/main.6b333307.chunk.css",
-    "static/js/main.29b1d715.chunk.js"
+    "static/js/2.c71d7d25.chunk.js",
+    "static/css/main.11a98018.chunk.css",
+    "static/js/main.cd06e584.chunk.js"
   ]
 }
