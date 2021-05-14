@@ -4,13 +4,13 @@
             "name": "Deck",
             "type": "Equipment",
             "gearSlots": 1,
-            "notes": "+6 on rolls to unlock data-loot"
+            "notes": "+6 to unlock data-loot"
         },
         {
             "name": "Picks",
             "type": "Equipment",
             "gearSlots": 1,
-            "notes": "+6 on rolls to unlock  physical-loot"
+            "notes": "+6 to unlock  physical-loot"
         },
         {
             "name": "Filter Mask",
@@ -101,6 +101,12 @@
             "maxRange": "Template",
             "gearSlots": 2,
             "notes": "-1 Move unless wearing heavy or combat armour. Target Armour and cover modifiers"
+        },
+        {
+            "name": "No Armour",
+            "type": "Armour",
+            "gearSlots": 0,
+            "armourModifier": 0
         },
         {
             "name": "Light Armour",

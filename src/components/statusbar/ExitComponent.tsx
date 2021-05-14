@@ -11,7 +11,7 @@ export const ExitComponent = ({ compactView, clickFn }: { compactView?: boolean;
         dispatch({ type: SET_CREW, payload: InitialCrewState });
         history.push("/");
     };
-    return <div className="statusbar-tiles" onClick={(e) => {
+    return <div className="statusbar-tiles" style={{ gridArea: 1 }} onClick={(e) => {
         clickFn ? clickFn(e) : defaultFn();
     }} title="Click to return to main menu">
         {compactView ? null : <div className="toolbar-two-column-header-text small-text" >Exit</div>}

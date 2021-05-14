@@ -8,7 +8,7 @@ import { isCaptain } from "../../Utils";
 const backgroundInformation = Backgrounds.backgrounds as BackgroundOptions[];
 const getBackgroundInfos = (background: BackgroundEnum) => backgroundInformation.find((bg) => bg.name === background) as BackgroundOptions;
 
-export const SelectBackground = ({ character, selectedBackground, updateAndContinue }: { character: Character; selectedBackground: BackgroundModifications | undefined; updateAndContinue(value: BackgroundModifications): void }) => {
+export const SelectBackground = ({ character, updateAndContinue }: { character: Character; updateAndContinue(value: BackgroundModifications | undefined): void }) => {
     const [background, setBackground] = useState<BackgroundModifications | undefined>();
     const renderBackgroundTile = (bg: BackgroundEnum) => <div
         key={`add-character-${bg}`}
@@ -28,14 +28,10 @@ export const SelectBackground = ({ character, selectedBackground, updateAndConti
 
     return <React.Fragment>
         <div className="modal-header">{`Select a background for your ${isCaptain(character.type) ? "Captain" : "First Mate"}`}</div>
-        <div className="add-character-background-container">
-            {Object.keys(BackgroundEnum).map((backgroundEnumEntry: string) => renderBackgroundTile(backgroundEnumEntry as BackgroundEnum))}
-        </div>
-        {background ? <div className="modal-header">Background Description</div> : null}
-        {background ? <div className="background-description">{getBackgroundInfos(background.name).description}</div> : null}
+        {Object.keys(BackgroundEnum).map((backgroundEnumEntry: string) => renderBackgroundTile(backgroundEnumEntry as BackgroundEnum))}
         <button
             onClick={() => background ? updateAndContinue(background) : undefined}
-            className={background && character.name ? "power-btn" : "power-btn disabled"}
-        >Confirm Background selection</button>
+            className={background && character.name ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}
+        >Confirm</button>
     </React.Fragment>;
 };

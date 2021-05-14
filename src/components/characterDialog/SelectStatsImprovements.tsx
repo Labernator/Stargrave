@@ -19,34 +19,30 @@ export const SelectStatsImprovements = ({ background, updateStatsCallback, updat
     const maxStatsReached = () => selections.length === statModificationsForBackground.chooseOptionals;
     return <React.Fragment>
         <div style={{ marginTop: "0.5rem" }} className="modal-header">Granted Stats Improvements</div>
-        <div className="section-div" >
-            {Object.entries(statModificationsForBackground.mandatory).map(([statName, statValue]) =>
-                <div className="background-stat-selection background-stat-selected" key={`add_captain_dialog_mand_stat_${statName}`}>+{statValue} {statName}</div>
-            )}
-        </div>
-        <div className="modal-header">{`Optional Stats Improvements (choose ${statModificationsForBackground.chooseOptionals} of the following)`}</div>
-        <div className="section-div" >
-            {Object.entries(statModificationsForBackground.optional).map(([statName, statValue]) =>
-                <div
-                    onClick={() => {
-                        if (isStatSelected(statName)) {
-                            setSelections(selections.filter((stat) => stat[statName as StatsEnum] === undefined));
-                        } else {
-                            if (maxStatsReached()) {
-                                return;
-                            }
-                            setSelections([...selections, { [statName]: statValue }]);
+        {Object.entries(statModificationsForBackground.mandatory).map(([statName, statValue]) =>
+            <div className="background-stat-selection background-stat-selected" key={`add_captain_dialog_mand_stat_${statName}`}>+{statValue} {statName}</div>
+        )}
+        <div className="modal-header">{`Optional Stats Improvements \n (choose ${statModificationsForBackground.chooseOptionals} of the following)`}</div>
+        {Object.entries(statModificationsForBackground.optional).map(([statName, statValue]) =>
+            <div
+                onClick={() => {
+                    if (isStatSelected(statName)) {
+                        setSelections(selections.filter((stat) => stat[statName as StatsEnum] === undefined));
+                    } else {
+                        if (maxStatsReached()) {
+                            return;
                         }
-                    }}
-                    className={isStatSelected(statName) ? "background-stat-selection background-stat-selected" : maxStatsReached() ? "background-stat-selection background-stat-disabled" : "background-stat-selection"}
-                    key={`add_captain_dialog_opt_stat_${statName}`}>
-                    +{statValue} {statName}
-                </div>
-            )}
-        </div>
+                        setSelections([...selections, { [statName]: statValue }]);
+                    }
+                }}
+                className={isStatSelected(statName) ? "background-stat-selection background-stat-selected" : maxStatsReached() ? "background-stat-selection disabled" : "background-stat-selection"}
+                key={`add_captain_dialog_opt_stat_${statName}`}>
+                +{statValue} {statName}
+            </div>
+        )}
         <button
             onClick={() => maxStatsReached() ? updateAndContinue() : undefined}
-            className={maxStatsReached() ? "power-btn" : "power-btn disabled"}
-        >Confirm Stats selection</button>
+            className={maxStatsReached() ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}
+        >Confirm</button>
     </React.Fragment>;
 };

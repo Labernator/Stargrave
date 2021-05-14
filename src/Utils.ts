@@ -39,7 +39,9 @@ export const isCorePower = (powerName: string, backgroundName: string) => !!getB
 
 export const isCaptain = (type: string) => type === CharactersEnum.Captain;
 
-export const getNonCorePowers = (backgroundName: string) => allPowers.filter((power) => !getBackground(backgroundName).corePowers.includes(power.name));
+export const getNonCorePowers = (backgroundName: string, isCaptainCharacter: boolean) =>
+    allPowers.filter((power) => !getBackground(backgroundName).corePowers.includes(power.name)).
+        map((power) => isCaptainCharacter ? { ...power, activation: power.activation + 2 } : { ...power, activation: power.activation + 4 });
 
 export const getStatsMaximums = () => ({ "Move": 7, "Fight": 6, "Shoot": 6, "Will": 8, "Health": 25, "Armour": 14 });
 
@@ -103,4 +105,21 @@ export const getDamageModifierString = (weapon: Gear) => {
     }
 
     return `${weapon.damageModifier}`;
+};
+
+export const gearSortAlgorithm = (gear: Gear) => {
+    let count = 0;
+    if (gear.type === "Weapon" || gear.type === "Armour") {
+        count += 1;
+    }
+    if (gear.name.length > 19) {
+        count += 0.4;
+    }
+    if (gear.notes) {
+        count += 1;
+        if (gear.notes.length > 40) {
+            count += 0.5;
+        }
+    }
+    return count;
 };

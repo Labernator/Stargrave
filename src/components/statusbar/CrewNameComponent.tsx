@@ -10,5 +10,5 @@ export const CrewNameComponent = () => {
         dispatch({ type: SET_CREWNAME, payload: name });
     };
 
-    return <NameComponent inputCallback={setCrewName} currentStateValue={state.Title} />;
+    return <NameComponent inputCallback={setCrewName} currentStateValue={state.Title} tooltip="Your ship needs a name" />;
 };

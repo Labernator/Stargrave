@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as Backgrounds from "../../data/Backgrounds.json";
 import { BackgroundEnum, BackgroundModifications, BackgroundOptions } from "../../types/Background";
 import { Power } from "../../types/Characters";
-import { getNonCorePowers, getPowerInfos, isCorePower } from "../../Utils";
+import { getPowerInfos } from "../../Utils";
 
 const backgroundInformation = Backgrounds.backgrounds as BackgroundOptions[];
 const getBackgroundInfos = (background: BackgroundEnum) => backgroundInformation.find((bg) => bg.name === background) as BackgroundOptions;
@@ -12,85 +12,76 @@ export const SelectPowers = (
         { background: BackgroundModifications; isCaptain: boolean; updatePowers(value: Power[]): void }
 ) => {
     const [selectedPowers, setSelectedPowers] = useState<Power[]>([]);
-    const [previewPower, setPreviewPower] = useState<Power>({ name: "", activation: 0, strain: 0, category: "Touch", effect: "Click any Power to preview here" });
+    const [previewPower, setPreviewPower] = useState<Power>();
+
     const isPowerSelected = (power: Power) => !!selectedPowers.find((pwr) => pwr.name === power.name);
-    const infos = getBackgroundInfos(background.name);
-
-    const maxCorePowersSelected = () => {
-        let powersRemaining = isCaptain ? 4 : 3;
-        if (selectedPowers.filter((power) => !isCorePower(power.name, background.name)).length === 2) {
-            powersRemaining = isCaptain ? 3 : 2;
-        }
-        return selectedPowers.filter((power) => isCorePower(power.name, background.name)).length >= powersRemaining;
-    };
-
-    const maxNonCorePowersSelected = () => selectedPowers.filter((power) => !isCorePower(power.name, background.name)).length >= (maxCorePowersSelected() ? 1 : 2);
-    const maxPowersSelected = () => selectedPowers.length >= (isCaptain ? 5 : 4);
+    const minPowersSelected = () => selectedPowers.length >= (isCaptain ? 3 : 2);
+    const maxPowersSelected = () => selectedPowers.length >= (isCaptain ? 4 : 3);
 
     return <React.Fragment>
-        <div className="power-preview-section">
-            <div className="power-preview-name">{previewPower.name}</div>
-            <div className="power-preview-infos">{`Activation: ${previewPower.activation}`} / {`Strain: ${previewPower.strain}`} / {Array.isArray(previewPower.category) ? `Categories: ${previewPower.category.join(", ")}` : `Category: ${previewPower.category}`}</div>
-            <div className={previewPower.effect.length <= 200 ? "power-preview-large-text" : previewPower.effect.length <= 400 ? "power-preview-medium-text" : "power-preview-small-text"}>{previewPower.effect}</div>
-        </div>
-        <div className="core-power-section">
-            <div className="modal-header">{`Choose ${isCaptain ? "3 - 4" : "2 - 3"} core Powers`}</div>
-            <div className="section-div" >
-                {background ? getPowerInfos(infos.corePowers).map((power) => <div
-                    style={{ float: "none" }}
-                    onMouseOver={() => setPreviewPower(power)}
-                    onClick={() => {
-                        setPreviewPower(isCaptain ? power : { ...power, activation: power.activation + 2 });
-                        if (isPowerSelected(power)) {
-                            const idx = selectedPowers.findIndex((pwr) => pwr.name === power.name);
-                            if (idx !== -1) {
-                                setSelectedPowers([...selectedPowers.slice(0, idx), ...selectedPowers.slice(idx + 1, selectedPowers.length)]);
+        {previewPower ?
+            <React.Fragment>
+                <div className="modal-header">
+                    {`View Details for Power "${previewPower.name}"`}
+                    <div className="modal-sub-header">{"Click the back to return to the selection menu."}</div>
+                </div>
+                <div className="power-preview-section">
+                    <div className="power-preview-name">{`${previewPower.name}`}</div>
+                    <div className="power-preview-infos">
+                        {`Activation: ${previewPower.activation}`} / {`Strain: ${previewPower.strain}`} / {Array.isArray(previewPower.category) ? `Categories: ${previewPower.category.join(", ")}` : `Category: ${previewPower.category}`}
+                    </div>
+                    <div className={previewPower.effect.length <= 200 ? "power-preview-large-text" : previewPower.effect.length <= 400 ? "power-preview-medium-text" : "power-preview-small-text"}>{previewPower.effect}</div>
+                </div>
+            </React.Fragment> :
+            <React.Fragment>
+                <div className="modal-header">
+                    {`Choose ${isCaptain ? "3 - 4" : "2 - 3"} core Powers`}
+                    <div className="modal-sub-header">{"Click the info icon in the top right corner of a power to view its details"}</div>
+                </div>
+                {background ? getPowerInfos(getBackgroundInfos(background.name).corePowers).map((power) => <div style={{ display: "inline-block", width: "100%" }}>
+                    <div
+                        onClick={() => {
+                            if (isPowerSelected(power)) {
+                                const idx = selectedPowers.findIndex((pwr) => pwr.name === power.name);
+                                if (idx !== -1) {
+                                    setSelectedPowers([...selectedPowers.slice(0, idx), ...selectedPowers.slice(idx + 1, selectedPowers.length)]);
+                                }
+                            } else {
+                                if (maxPowersSelected()) {
+                                    return;
+                                }
+                                setSelectedPowers([...selectedPowers, { ...power, activation: power.activation + (isCaptain ? 0 : 2) }]);
                             }
-                        } else {
-                            if (maxCorePowersSelected()) {
-                                return;
-                            }
-                            setSelectedPowers([...selectedPowers, { ...power, activation: power.activation + (isCaptain ? 0 : 2) }]);
-                        }
-                    }}
-                    className={isPowerSelected(power) ? "background-power-selection selected" : maxCorePowersSelected() ? "background-power-selection disabled" : "background-power-selection"}
-                    key={`add_dialog_x_stat_${power.name}`}>
-                    <div>{power.name}</div>
-                    <div style={{ fontSize: "0.65rem" }}>{power.activation + (isCaptain ? 0 : 2)} / {power.strain} / {Array.isArray(power.category) ? `${power.category.join(", ")}` : power.category}</div>
+                        }}
+                        className={isPowerSelected(power) ? "power-selection selected" : maxPowersSelected() ? "power-selection disabled" : "power-selection"}
+                        key={`add_dialog_x_stat_${power.name}`}>
+
+                        <div className={isPowerSelected(power) ? "info-corner inverted" : "info-corner "} />
+                        <div className="info-corner-text">i</div>
+                        <div>{power.name}</div>
+                        <div style={{ fontSize: "0.8rem" }}>{power.activation + (isCaptain ? 0 : 2)} / {power.strain} / {Array.isArray(power.category) ? `${power.category.join(", ")}` : power.category}</div>
+                    </div>
+                    <div className="info-click-area"
+                        onClick={(event) => {
+                            setPreviewPower(isCaptain ? power : { ...power, activation: power.activation + 2 });
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }} />
+
                 </div>
                 ) : null}
-            </div>
-        </div>
-        <div className="non-core-power-section">
-            <div className="modal-header">Choose 1 - 2 non-core Powers</div>
-            <div className="section-div" >
-                {background ? getNonCorePowers(background.name).map((power) => <div
-                    onMouseOver={() => setPreviewPower(power)}
-                    onClick={() => {
-                        setPreviewPower({ ...power, activation: power.activation + (isCaptain ? 2 : 4) });
-                        if (isPowerSelected(power)) {
-                            const idx = selectedPowers.findIndex((pwr) => pwr.name === power.name);
-                            if (idx !== -1) {
-                                setSelectedPowers([...selectedPowers.slice(0, idx), ...selectedPowers.slice(idx + 1, selectedPowers.length)]);
-                            }
-                        } else {
-                            if (maxNonCorePowersSelected()) {
-                                return;
-                            }
-                            setSelectedPowers([...selectedPowers, { ...power, activation: power.activation + (isCaptain ? 2 : 4) }]);
-                        }
-                    }}
-                    className={isPowerSelected(power) ? "background-power-selection selected" : maxNonCorePowersSelected() ? "background-power-selection disabled" : "background-power-selection"}
-                    key={`add_dialog_x_stat_${power.name}`}>
-                    <div>{power.name}</div>
-                    <div style={{ fontSize: "0.65rem" }}>{power.activation + (isCaptain ? 2 : 4)} / {power.strain} / {Array.isArray(power.category) ? `${power.category.join(", ")}` : power.category}</div>
-                </div>
-                ) : null}
-            </div>
-        </div>
+            </React.Fragment>}
+        {previewPower ? <button
+            onClick={(event) => {
+                setPreviewPower(undefined);
+                event.preventDefault();
+                event.stopPropagation();
+            }}
+            className={"dialog-btn back-btn foreground"}
+        >Back</button> : null}
         <button
-            onClick={() => maxPowersSelected() ? updatePowers(selectedPowers.sort((a, b) => (a.name.localeCompare(b.name)))) : undefined}
-            className={maxPowersSelected() ? "power-btn" : "power-btn disabled"}
-        >Confirm Powers selection</button>
+            onClick={() => minPowersSelected() ? updatePowers(selectedPowers.sort((a, b) => (a.name.localeCompare(b.name)))) : undefined}
+            className={minPowersSelected() ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}
+        >Confirm</button>
     </React.Fragment>;
 };

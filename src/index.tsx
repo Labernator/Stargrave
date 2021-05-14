@@ -4,6 +4,7 @@ import { connect, Provider } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { compose, createStore } from "redux";
 import "./App.css";
+import { CharacterCreationPage } from "./pages/CharacterCreationPage";
 import { CrewPage } from "./pages/CrewPage";
 import { LandingPage } from "./pages/LandingPage";
 import { stateReducer } from "./redux/reducer";
@@ -12,8 +13,8 @@ const App = () =>
   <BrowserRouter>
     <div className="app-body">
       <Switch>
-        {/* <Route path="/SampleWarbands" component={SampleWarbandsPage} /> */}
-        <Route path="/NewCrew" component={CrewPage} />
+        <Route path="/CharacterCreation" component={CharacterCreationPage} />
+        <Route path="/CrewCreation" component={CrewPage} />
         <Route path="/" component={LandingPage} />
       </Switch>
     </div>

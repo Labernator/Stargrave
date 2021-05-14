@@ -59,7 +59,7 @@ export const StatusBarTable = (
                     )}
                     <td>{character.level}</td>
                     <td>{character.background || "?"}</td>
-                    <td>{`${gearSlotsUsed} / ${character.gearSlots}`}</td>
+                    <td>{`${gearSlotsUsed}/${character.gearSlots}`}</td>
                 </tr>
             </tbody>
         </table>

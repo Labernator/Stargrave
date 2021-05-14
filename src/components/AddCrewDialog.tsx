@@ -143,7 +143,7 @@ export const AddCrewDialog = ({ soldiersState, credits, callback }: { soldiersSt
                             e.preventDefault();
                             e.stopPropagation();
                         }}
-                        className={canSubmit() ? "power-btn" : "power-btn disabled"}>
+                        className={canSubmit() ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}>
                         Confirm Staffing</button>
                 </div>
             </div>,

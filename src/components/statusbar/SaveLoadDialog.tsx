@@ -54,7 +54,7 @@ export const SaveLoadComponent = ({ state, closeCallback }: { state: CrewState; 
                     {!validFileName ? <div className="save-warband-error-text">This is not a valid file name. Valid filenames contain only letters, numbers, dashes, underscores and dots.</div> : undefined}
                     <button
                         style={{ gridArea: "8" }}
-                        className={validFileName ? "power-btn" : "power-btn disabled"}
+                        className={validFileName ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}
                         onClick={(e) => validFileName ? saveToFileNew(e) : undefined}
                     >Save</button>
                 </div>
