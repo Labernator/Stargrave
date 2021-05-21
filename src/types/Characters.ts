@@ -22,10 +22,8 @@ export interface ModifiedGear {
     name: string;
     gearSlots: number;
 }
-export interface Gear {
-    name: string;
+export interface Gear extends ModifiedGear {
     type: string;
-    gearSlots: number;
     notes?: string;
     damageModifier?: number;
     maxRange?: string | number;
@@ -55,13 +53,11 @@ export enum StatsEnum {
 export type Stats = { [key in StatsEnum]: number; };
 
 export interface Soldier {
-    // name: string;
     type: string;
     stats: Stats;
     cost: number;
     gearSlots: number;
     gear: string[];
-    id: number;
     group: SoldierGroups;
     amount: number;
 }
@@ -69,4 +65,24 @@ export interface Soldier {
 export enum CharactersEnum {
     Captain = "Captain",
     FirstMate = "FirstMate",
+}
+
+export enum SoldierEnum {
+    Burner = "Burner",
+    Grenadier = "Grenadier",
+    Sniper = "Sniper",
+    GuardDog = "Guard Dog",
+    Casecracker = "Casecracker",
+    Gunner = "Gunner",
+    Codebreaker = "Codebreaker",
+    Medic = "Medic",
+    Pathfinder = "Pathfinder",
+    ArmouredTrooper = "Armoured Trooper",
+    Recruit = "Recruit",
+    Runner = "Runner",
+    Commando = "Commando",
+    Trooper = "Trooper",
+    Hacker = "Hacker",
+    Chiseler = "Chiseler",
+    Sentry = "Sentry",
 }

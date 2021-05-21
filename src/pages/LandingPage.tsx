@@ -22,7 +22,7 @@ export const LandingPage = () => {
                     const reader = new FileReader();
                     reader.onload = (ev: ProgressEvent<FileReader>) => {
                         dispatch({ type: SET_CREW, payload: JSON.parse(ev.target?.result as string) });
-                        history.push("/CrewCreation");
+                        history.push("/CrewOverview");
                     };
                     reader.readAsText((document.querySelector("#file-uploader") as HTMLInputElement)?.files?.item(0) as File);
                 }}
@@ -35,7 +35,7 @@ export const LandingPage = () => {
             className="landing-page-tile"
             onClick={() => {
                 dispatch({ type: SET_CREW, payload: InitialCrewState });
-                history.push("/CrewCreation");
+                history.push("/ShipName");
             }}>
 
             <img alt="CreateWarband" className="landing-page-icon" src={CreateCrewIcon} />
@@ -45,7 +45,7 @@ export const LandingPage = () => {
             className="landing-page-tile"
             onClick={() => {
                 dispatch({ type: SET_CREW, payload: (Crew as any).default as CrewState });
-                history.push("/CrewCreation");
+                history.push("/CrewOverview");
             }}>
 
             <img alt="SampleWarband" className="landing-page-icon" src={UseSampleIcon} />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { SelectBackground } from "../components/characterDialog/SelectBackground";
 import { SelectGear } from "../components/characterDialog/SelectGear";
@@ -9,18 +9,13 @@ import { SelectPowers } from "../components/characterDialog/SelectPowers";
 import { SelectPowerUpgrades } from "../components/characterDialog/SelectPowerUpgrades";
 import { SelectStatsImprovements } from "../components/characterDialog/SelectStatsImprovements";
 import { CharacterStatusbar } from "../components/statusbar/CharacterStatusBar";
-import * as Characters from "../data/Characters.json";
 import { SET_CAPTAIN, SET_FIRST_MATE } from "../redux/actions";
 import { BackgroundModifications } from "../types/Background";
 import { Character, ModifiedGear, Power, Stats, StatsEnum } from "../types/Characters";
-import { CharacterMetadata } from "../types/Metadata";
 import { getStatsWithGear, isCaptain } from "../Utils";
-
-const baseCaptain = Characters.Captain as CharacterMetadata;
-const baseFirstMate = Characters.FirstMate as CharacterMetadata;
 // tslint:disable-next-line: cyclomatic-complexity
-const CharacterCreation = (props: any) => {
-    const [character, setCharacter] = useState<Character>(props.location.state.isCaptain ? { ...baseCaptain, name: "" } : { ...baseFirstMate, name: "" });
+export const CharacterCreation = ({ baseCharacter }: { baseCharacter: Character }) => {
+    const [character, setCharacter] = useState<Character>(baseCharacter);
     const [background, setBackground] = useState<BackgroundModifications>();
     const [updatedStats, setUpdatedStats] = useState<Partial<Stats>>({});
     const [selectedPowers, setSelectedPowers] = useState<Power[]>([]);
@@ -49,7 +44,7 @@ const CharacterCreation = (props: any) => {
                 gear,
             },
         });
-        history.push("/CrewCreation");
+        isCaptainCharacter ? history.push("/FirstMateCreation", { isCaptain: false }) : history.push("/SoldierSelection");
     };
     return <React.Fragment>
         <CharacterStatusbar
@@ -113,7 +108,3 @@ const CharacterCreation = (props: any) => {
             : undefined}
     </React.Fragment>;
 };
-
-const mapStateToProps = (state: boolean) => state;
-
-export const CharacterCreationPage = connect(mapStateToProps)(CharacterCreation);

@@ -1,22 +1,23 @@
 import { useState } from "react";
 import ReactSwipe from "react-swipe";
+import { CarouselSize } from "../../types/State";
 
-export const Carousel = ({ inputDivs }: { inputDivs: JSX.Element[] | null }) => {
+export const Carousel = ({ inputDivs, splitSize, size }: { inputDivs: JSX.Element[] | null; splitSize: number; size?: CarouselSize }) => {
     let reactSwipeEl: ReactSwipe;
     const cnt = inputDivs?.length || 0;
-    const sectionCnt = Math.floor(cnt / 7);
+    const sectionCnt = Math.ceil(cnt / splitSize);
     const [currentSection, setCurrentSection] = useState<number>(1);
     const getContent = () => {
         const sectionDivs: JSX.Element[] = [];
         for (let i = 0; i < sectionCnt; i++) {
-            sectionDivs.push(<div>{inputDivs?.slice((i * 7), (i + 1) * 7)}</div>);
+            sectionDivs.push(<div>{inputDivs?.slice((i * splitSize), (i + 1) * splitSize)}</div>);
         }
         return sectionDivs;
     };
     return (
         <div>
             <ReactSwipe
-                className="carousel"
+                className={size === CarouselSize.large ? "carousel large" : size === CarouselSize.medium ? "carousel medium" : "carousel"}
                 swipeOptions={{
                     continuous: false,
                 }}

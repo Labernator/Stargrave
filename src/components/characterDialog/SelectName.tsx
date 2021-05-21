@@ -8,8 +8,11 @@ export const SelectName = ({ character, updateAndContinue }: { character: Charac
     const characterType = isCaptain(character.type) ? "Captain" : "First Mate";
 
     return <React.Fragment>
-        <div className="modal-header">{`Set a name for your ${characterType}`}</div>
-        <NameComponent inputCallback={setName} currentStateValue={name} tooltip={`Your ${characterType} needs a name`} />
+        <div className="modal-header">
+            {`This is your ${characterType} base stat line. \n\nIn the following screens you will be able to select a background, improve some stats, select powers and equip your ${characterType} with some useful gear.`}
+        </div>
+        <div className="modal-header">{`But first of all, your ${characterType} needs a name:`}</div>
+        <NameComponent inputCallback={setName} currentStateValue={name} tooltip={`${characterType}'s name`} />
         <button
             onClick={() => name ? updateAndContinue({ ...character, name }) : undefined}
             className={name ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}

@@ -12,7 +12,7 @@ export const GearDropDown = ({ list, dropdownOptions, callbackFn }: { list: Gear
     const [selectedItem, setSelectedItem] = useState<Gear>(dropdownOptions.placeholder);
     const getCssProps = () => {
         const position = document.getElementById(`dropdown-container-${dropdownOptions.id}`)?.getBoundingClientRect();
-        return { top: (position?.top || 0) + 42, left: (position?.left || 0), width: (position?.width || 0) - 4 };
+        return { top: (position?.top || 0) + 42, left: (position?.left || 0), width: (position?.width || 0) };
     };
     const renderGearList = () => list.filter((item: Gear) => (item.name !== selectedItem.name)).map((listItem) =>
         <div key={`dropdown-list-item-${dropdownOptions.id}-${listItem.name}`}

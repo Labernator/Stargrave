@@ -96,17 +96,21 @@ export const SelectGear = (
         </div>
         <div className="modal-header">Equipment</div>
         {getGearByType("Equipment")?.map((equi) =>
-            <div className={getCSSClasses(equi.name)} onClick={() => onClickHandler(equi.name)}>
-                <div>{`${equi.name} ( ${isGearSelected(equi.name) ? (selectedGear.find((item) => item.name === equi.name) as ModifiedGear).gearSlots : equi.gearSlots} )`}</div>
-                <div style={{ fontSize: "0.65rem" }}>{equi.notes}</div>
+            <div className="single-selection-gear">
+                <div className={getCSSClasses(equi.name)} onClick={() => onClickHandler(equi.name)}>
+                    <div className="gear-label-name">{`${equi.name} ( ${isGearSelected(equi.name) ? (selectedGear.find((item) => item.name === equi.name) as ModifiedGear).gearSlots : equi.gearSlots} )`}</div>
+                    <div className="medium-text">{equi.notes}</div>
+                </div>
             </div>)}
 
         <div className="modal-header">Shooting Weapons</div>
         {getGearByType("Weapon")?.filter((weapon) => weapon.maxRange !== "Melee").sort((a, b) => gearSortAlgorithm(a) - gearSortAlgorithm(b)).map((weapon) =>
-            <div className={getCSSClasses(weapon.name, true)} onClick={() => onClickHandler(weapon.name)}>
-                <div>{`${weapon.name} ( ${isGearSelected(weapon.name) ? (selectedGear.find((item) => item.name === weapon.name) as ModifiedGear).gearSlots : weapon.gearSlots} )`}</div>
-                <div style={{ fontSize: "0.65rem" }}>{`Range: ${weapon.maxRange}`} / {`${getDamageModifierString(weapon)} dmg`}</div>
-                {weapon.notes ? <div style={{ fontSize: "0.65rem" }}>{getActualNotes(selectedGear, weapon)}</div> : null}
+            <div className="single-selection-gear">
+                <div className={getCSSClasses(weapon.name, true)} onClick={() => onClickHandler(weapon.name)}>
+                    <div className="gear-label-name">{`${weapon.name} ( ${isGearSelected(weapon.name) ? (selectedGear.find((item) => item.name === weapon.name) as ModifiedGear).gearSlots : weapon.gearSlots} )`}</div>
+                    <div className="medium-text">{`Range: ${weapon.maxRange}`} / {`${getDamageModifierString(weapon)} dmg`}</div>
+                    {weapon.notes ? <div className="medium-text">{getActualNotes(selectedGear, weapon)}</div> : null}
+                </div>
             </div>)}
         <button
             onClick={() => { updateGear(selectedGear.sort((a, b) => (a.name.localeCompare(b.name)))); finish(); }}

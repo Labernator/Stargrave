@@ -30,7 +30,7 @@ export const SelectPowers = (
                     <div className="power-preview-infos">
                         {`Activation: ${previewPower.activation}`} / {`Strain: ${previewPower.strain}`} / {Array.isArray(previewPower.category) ? `Categories: ${previewPower.category.join(", ")}` : `Category: ${previewPower.category}`}
                     </div>
-                    <div className={previewPower.effect.length <= 200 ? "power-preview-large-text" : previewPower.effect.length <= 400 ? "power-preview-medium-text" : "power-preview-small-text"}>{previewPower.effect}</div>
+                    <div className={previewPower.effect.length <= 200 ? "large-text" : previewPower.effect.length <= 400 ? "power-preview-medium-text" : "power-preview-small-text"}>{previewPower.effect}</div>
                 </div>
             </React.Fragment> :
             <React.Fragment>
@@ -67,7 +67,6 @@ export const SelectPowers = (
                             event.preventDefault();
                             event.stopPropagation();
                         }} />
-
                 </div>
                 ) : null}
             </React.Fragment>}

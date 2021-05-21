@@ -2,15 +2,17 @@ import { connect } from "react-redux";
 import { CrewState } from "../../types/State";
 import { CrewNameComponent } from "./CrewNameComponent";
 import { CrewSizeComponent } from "./CrewSizeComponent";
+import { FileComponent } from "./FileComponent";
+import { PdfComponent } from "./PdfComponent";
 import { TreasuryComponent } from "./TreasuryComponent";
 
 export const Statusbar = () =>
     <div key="statusbar" id="statusbar" className="statusbar">
         <CrewNameComponent />
-        {/* <FileComponent compactView={true} /> */}
-        <TreasuryComponent compactView={true} />
-        <CrewSizeComponent compactView={true} />
-        {/* <ExitComponent compactView={true} /> */}
+        <FileComponent />
+        <PdfComponent />
+        <TreasuryComponent />
+        <CrewSizeComponent />
     </div>;
 
 const mapStateToProps = (state: CrewState) => state;

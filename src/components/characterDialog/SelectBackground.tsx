@@ -23,7 +23,7 @@ export const SelectBackground = ({ character, updateAndContinue }: { character: 
                 }
         )}>
         <img className="add-character-background-icons" src={getBackgroundImage(bg)} alt={`add-character-${bg}-icon`} />
-        <div className="add-character-background-text">{`${bg}`}</div>
+        <div className="large-text">{`${bg}`}</div>
     </div>;
 
     return <React.Fragment>

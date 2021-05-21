@@ -16,7 +16,7 @@ export const numberOfCrewMembers = () => {
 
 export const numberOfSoldiers = () => {
     const state = store.getState();
-    return state.Soldiers?.length || 0;
+    return state.Soldiers.reduce((acc, soldier) => soldier.amount + acc, 0);
 };
 
 export const getStatStrings = (stats: Stats | Partial<Stats>) => Object.keys(stats).map((stat) => {

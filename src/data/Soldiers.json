@@ -192,7 +192,8 @@
             },
             "gear": [
                 "Carbine",
-                "Grenades",
+                "Fragmentation Grenade",
+                "Smoke Grenade",
                 "Heavy Armour",
                 "Hand Weapon"
             ],
@@ -211,7 +212,8 @@
             },
             "gear": [
                 "Carbine",
-                "Grenades",
+                "Fragmentation Grenade",
+                "Smoke Grenade",
                 "Light Armour",
                 "Hand Weapon"
             ],
@@ -285,7 +287,7 @@
                 "Health": 14
             },
             "gear": [
-                "Rapid-fire",
+                "Rapid Fire",
                 "Pistol",
                 "Heavy Armour",
                 "Knife"

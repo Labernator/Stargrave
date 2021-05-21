@@ -1,7 +1,8 @@
 .app-body {
-  height: calc(100vh - 1rem);
+  height: calc(100vh - 1.5rem);
   width: calc(100vw - 1rem);
   font-family: Montserrat;
+  position: relative;
 }
 
 .backgrounds-image {
@@ -41,6 +42,14 @@
   width: 50%;
 }
 
+.chapter-header {
+  font-size: 1.5rem;
+  padding: 0.7rem 0.5rem 0.7rem 0rem;
+  font-weight: bold;
+  clear: both;
+  text-align: center;
+  white-space: pre-wrap;
+}
 /* Builder Statusbar */
 
 .builder-statusbar {
@@ -59,7 +68,6 @@
 }
 
 .statusbar {
-  display: inline-grid;
   width: 100%;
 }
 
@@ -69,7 +77,6 @@
   padding: 0.2rem 0.4rem;
   font-weight: bold;
   font-size: 1.5rem;
-  grid-area: 1 / 1 / 1 / 3;
   text-align: center;
 }
 
@@ -80,6 +87,8 @@
   display: grid;
   font-weight: bold;
   font-size: 1.5rem;
+  float: left;
+  height: 2.3rem;
 }
 
 .toolbar-icon {
@@ -172,9 +181,9 @@
   border: 0.15rem solid;
   border-radius: 0.25rem;
   padding: 0.2rem 0.4rem;
-  margin-left: 0.3rem;
+  margin-bottom: 0.15rem;
   float: left;
-  width: calc(100vw - 2.6rem);
+  width: calc(100vw - 2.1rem);
   font-size: 0.75rem;
 }
 .character-title {
@@ -261,9 +270,20 @@
   grid-area: 2 / 1 / 2 /3;
   font-weight: bold;
   font-size: 1.5rem;
+  width: 100%;
 }
 
+.character-tile-table {
+  padding: 0.2rem 0rem;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: bold;
+  width: 100%;
+}
 
+.centered-text {
+  text-align: center;
+}
 
 .add-image {
   padding: 1rem 40%;
@@ -359,7 +379,21 @@
   margin: 0.15rem;
   border-radius: 0.25rem;
   text-align: center;
+  position: relative;
 }
+.soldier-cost {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-weight: bold;
+}
+.soldier-type {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-weight: bold;
+}
+
 .add-character-background:hover {
   font-weight: bold;
   border-color: #e18a07;
@@ -384,8 +418,8 @@
   place-self: center;
 }
 
-.add-character-background-text {
-  padding: 0.75rem;
+.medium-text {
+  font-size: 0.75rem;
 }
 
 .background-selected {
@@ -407,18 +441,9 @@
   font-size: 1.1rem;
 }
 
-/* .background-stat-selection:hover {
-  font-weight: bold;
-  border-color: #e18a07;
-} */
-
 .background-stat-selected {
   background-color: #e18a07;
 }
-
-/* .background-stat-selection.background-stat-selected:hover {
-  border-color: #d3d3d3;
-} */
 
 
 .improved-stat {
@@ -426,30 +451,28 @@
   font-weight: bold;
 }
 
-
-.dialog-button {
-  float: right;
-  padding: 0.5rem 1rem;
-  min-width: 10rem;
+.btn {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0.3rem 1.3rem;
+  background-color: rgb(225, 138, 7);
   border: 0.15rem solid;
-  margin: 0.3rem;
   border-radius: 0.25rem;
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
+  float: left;
+  place-self: center;
+}
+.soldier-selection-amount {
+  display: inline-grid;
+  width: 100%;
+  grid-template-columns: 30% 40% 30%;
+  padding-top: 1rem
 }
 
-.dialog-sub-header {
-  clear: both;
+.very-large-text {
+  font-size: 3rem;
+  place-self: center;
   font-weight: bold;
-  border-bottom: 0.15rem solid;
-  float: left;
-  margin-left: 0.8rem;
-}
-
-.section-div {
-  clear: both;
-  float: left;
 }
 
 .dialog-btn {
@@ -461,7 +484,7 @@
   border-radius: 0.25rem;
   text-align: center;
   position: absolute;
-  bottom: 0.5rem;
+  bottom: 0rem;
 }
 
 .carousel-btn {
@@ -474,11 +497,11 @@
 }
 
 .back-btn {
-  left: 0.5rem;
+  left: 0rem;
 }
 
 .confirm-btn {
-  right: 0.5rem;
+  right: 0rem;
 }
 
 .disabled {
@@ -512,11 +535,13 @@
   float: left;
   width: calc(100% - 1.3rem);
   font-size: 1.1rem;
+  position: relative;
 }
 
 .noncore-power {
   width: calc(100% - 5.3rem);
   margin: 0rem 0.4rem 0.4rem 2rem;
+  position: relative;
 }
 
 .background-power-selection {
@@ -533,12 +558,12 @@
 .gear-selection {
   padding: 0.3rem;
   border: 0.15rem solid;
-  margin: 0rem 0.4rem 0.4rem 0rem;
+  margin: 0rem 0rem 0.4rem 0rem;
   border-radius: 0.25rem;
   text-align: center;
   float: left;
   font-size: 1rem;
-  width: calc(50% - 1.3rem);
+  width: calc(100% - 0.95rem);
 }
 
 .selected {
@@ -554,20 +579,6 @@
   font-size: 0.8rem;
   padding-left: 0.5rem;
 }
-
-.selected-row {
-  background-color: #e18a07;
-}
-
-.close-dialog {
-  width: 2rem;
-  position: fixed;
-  top: 1.3rem;
-  right: 0.5rem;
-  background: #e18a07;
-  border-radius: 1rem;
-}
-
 
 .power-preview-section {
   padding: 0.2rem 0.4rem;
@@ -588,11 +599,7 @@
   font-size: 0.85rem;
 }
 
-.power-preview-text {
-  font-size: 0.75rem;
-}
-
-.power-preview-large-text {
+.large-text {
   font-size: 0.9rem;
   padding-top: 1rem;
 }
@@ -607,25 +614,7 @@
   padding-top: 0.5rem;
 }
 
-.power-card {
-  padding: 0.5rem;
-  width: calc(33% - 1.5rem);
-  text-align: center;
-  height: 10rem;
-  border: 0.15rem solid;
-  margin: 0.15rem;
-  float: left;
-  border-radius: 0.25rem;
-}
-
-.background-description {
-  float: left;
-  font-size: 0.85rem;
-  padding: 0rem 1rem;
-  white-space: break-spaces;
-}
-
-.single-selection-gear{
+.single-selection-gear {
   width: calc(50%);
   float: left;
 }
@@ -649,10 +638,11 @@
   border: none;
   border-radius: 0rem;
   border-bottom: 1px solid;
-  padding-right: 0rem;
-  width: 100%;
+  width: calc(100% - 0.6rem);
 }
-
+.gear-label-name {
+  font-weight: bold;
+}
 
 .full-width {
   width: calc(100% - 1.3rem)
@@ -665,6 +655,15 @@
   height: 3.5rem;
 }
 
+.info-click-area-non-core {
+  position: absolute;
+  right: 0.5rem;
+  width: 3.5rem;
+  top: 0rem;
+  height: 3.4rem;
+}
+
+
 .info-corner {
   position: absolute;
   right: 1.3rem;
@@ -672,6 +671,25 @@
   border-top: 2.3rem solid #e18a07;
   width: 0;
   height: 0;
+}
+
+.info-corner-soldiers {
+  position: absolute;
+  right: 1.3rem;
+  border-left: 1.3rem solid transparent;
+  border-top: 1.3rem solid #e18a07;
+  width: 0;
+  height: 0;
+  top: 0.5rem;
+}
+
+.soldier-selection {
+  float: left;
+  width: calc(50% - 1rem);
+  border: 0.15rem solid;
+  margin: 0.15rem;
+  padding: 0.3rem;
+  border-radius: 0.25rem;
 }
 
 .info-corner-text {
@@ -683,8 +701,8 @@
   font-family: monospace;
 }
 
-.noncore-info {
-  right: 3.3rem;
+.info-icon {
+  height: 1rem;
 }
 
 .noncore-click-info {
@@ -701,6 +719,27 @@
 
 .carousel {
   float: left;
-  height: 28rem;
+  height: 32rem;
   width: 100%;
+}
+
+.medium {
+  height: 37rem;
+}
+
+.large {
+  height: 43rem;
+}
+
+.file-uploader {
+  display: grid;
+}
+
+.file-uploader-icon {
+  place-self: center;
+  width: 50%;
+}
+
+.vertical-splitter {
+  height: 50%;
 }
