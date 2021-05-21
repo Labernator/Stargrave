@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Stargrave/static/css/main.c1c7fa2b.chunk.css",
-    "main.js": "/Stargrave/static/js/main.00b4eb12.chunk.js",
-    "main.js.map": "/Stargrave/static/js/main.00b4eb12.chunk.js.map",
+    "main.css": "/Stargrave/static/css/main.d57b3dec.chunk.css",
+    "main.js": "/Stargrave/static/js/main.2333ec5b.chunk.js",
+    "main.js.map": "/Stargrave/static/js/main.2333ec5b.chunk.js.map",
     "runtime-main.js": "/Stargrave/static/js/runtime-main.120ced82.js",
     "runtime-main.js.map": "/Stargrave/static/js/runtime-main.120ced82.js.map",
     "static/js/2.e924c6da.chunk.js": "/Stargrave/static/js/2.e924c6da.chunk.js",
     "static/js/2.e924c6da.chunk.js.map": "/Stargrave/static/js/2.e924c6da.chunk.js.map",
     "index.html": "/Stargrave/index.html",
-    "static/css/main.c1c7fa2b.chunk.css.map": "/Stargrave/static/css/main.c1c7fa2b.chunk.css.map",
+    "static/css/main.d57b3dec.chunk.css.map": "/Stargrave/static/css/main.d57b3dec.chunk.css.map",
     "static/js/2.e924c6da.chunk.js.LICENSE.txt": "/Stargrave/static/js/2.e924c6da.chunk.js.LICENSE.txt",
     "static/media/Add.94030173.png": "/Stargrave/static/media/Add.94030173.png",
     "static/media/ArmouredTrooper.47e7ee5c.png": "/Stargrave/static/media/ArmouredTrooper.47e7ee5c.png",
@@ -53,7 +53,7 @@
   "entrypoints": [
     "static/js/runtime-main.120ced82.js",
     "static/js/2.e924c6da.chunk.js",
-    "static/css/main.c1c7fa2b.chunk.css",
-    "static/js/main.00b4eb12.chunk.js"
+    "static/css/main.d57b3dec.chunk.css",
+    "static/js/main.2333ec5b.chunk.js"
   ]
 }
