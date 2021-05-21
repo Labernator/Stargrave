@@ -9,7 +9,7 @@ import { CrewState } from "../types/State";
 export const FileOperationsPage = () => {
     const { store } = useContext(ReactReduxContext);
     const state = store.getState() as CrewState;
-    const [fileName, setFileName] = useState<string>();
+    const [fileName, setFileName] = useState<string>(`${state.Title} ${state.Captain?.name}  (lvl ${state.Captain?.level || 15})`);
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -56,12 +56,13 @@ export const FileOperationsPage = () => {
             </label>
         </div>
         <div className="vertical-splitter">
-            <div style={{ marginTop: "10rem", borderTop: "0.15rem solid" }} className="chapter-header">Tap to save your warband to file</div>
-            <div className="modal-header">Change the file name if you wish</div>
-            <NameComponent inputCallback={setFileName} currentStateValue={`${fileName || `${state.Title} ${state.Captain?.name}  (lvl ${state.Captain?.level || 15})` || "Unnamed_Crew (lvl 15)"}`} tooltip={"The file name"} />
+            <div style={{ borderTop: "0.15rem solid" }} className="chapter-header">Tap to save your warband to file</div>
             <div style={{ display: "grid" }}>
                 <img className="file-uploader-icon" src={SaveIcon} onClick={saveToFileNew} />
             </div>
+            <div className="modal-header">Change the file name if you wish</div>
+            <NameComponent inputCallback={setFileName} currentStateValue={`${fileName}`} tooltip={"The file name"} />
+
         </div>
         <button
             onClick={(event) => {

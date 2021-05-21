@@ -5,7 +5,7 @@ import { Carousel } from "../components/characterDialog/Carousel";
 import { SoldierComponent } from "../components/SoldierComponent";
 import { StatusbarComponent } from "../components/statusbar/StatusBarComponent";
 import { Character, Soldier } from "../types/Characters";
-import { CarouselSize, CrewState } from "../types/State";
+import { CrewState } from "../types/State";
 import { numberOfSoldiers } from "../Utils";
 
 export const CrewOverview = ({ shipName, captain, firstMate, soldiers }: { shipName: string; captain: Character | undefined; firstMate: Character | undefined; soldiers: Soldier[] | undefined }) =>
@@ -16,7 +16,6 @@ export const CrewOverview = ({ shipName, captain, firstMate, soldiers }: { shipN
                 <div key="crewRoster" id="crewRoster" style={{ paddingTop: "0.5rem" }}>
                     <Carousel
                         splitSize={4}
-                        size={CarouselSize.large}
                         inputDivs={[
                             <CharacterComponent key="captainComponent" isCaptain={true} />,
                             <CharacterComponent key="firstMateComponent" isCaptain={false} />,

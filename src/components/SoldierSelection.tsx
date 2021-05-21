@@ -6,7 +6,7 @@ import { AddIcon, getSoldierImage, MinusIcon } from "../images";
 import { ADD_SOLDIERS } from "../redux/actions";
 import { Soldier } from "../types/Characters";
 import { SoldierGroups, SoldierMetadata } from "../types/Metadata";
-import { CarouselSize, CrewState } from "../types/State";
+import { CrewState } from "../types/State";
 import { Carousel } from "./characterDialog/Carousel";
 import { SoldierComponent } from "./SoldierComponent";
 import { CrewSizeComponent } from "./statusbar/CrewSizeComponent";
@@ -37,12 +37,14 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
     </div>;
 
     return <React.Fragment>
-        <div className="statusbar-tiles" style={{ width: "calc(100% - 1.1rem)", height: "3rem" }}>
-            <div className="toolbar-two-column-header-text">Hire your crew</div>
-            <div className="small-text">{"You need to hire 8 Soldiers. \n Only 4 may be Specialists"}</div>
+        <div key="statusbar" id="statusbar" className="statusbar">
+            <div className="statusbar-tiles" style={{ height: "3rem" }}>
+                <div className="toolbar-two-column-header-text">Hire your crew</div>
+                <div className="small-text">{"You need to hire 8 Soldiers. \n Only 4 may be Specialists"}</div>
+            </div>
+            <CrewSizeComponent externalStyles={{ width: "calc(35% - 1.1rem)" }} virtualCrewSize={soldierCount() + 2} />
+            <TreasuryComponent virtualCredits={credits - hiringCost()} />
         </div>
-        <CrewSizeComponent externalStyles={{ width: "calc(50% - 1.1rem)" }} virtualCrewSize={soldierCount() + 2} />
-        <TreasuryComponent externalStyles={{ width: "calc(50% - 1.1rem)" }} virtualCredits={credits - hiringCost()} />
         {previewSoldier ?
             <React.Fragment>
                 <div className="modal-header">Soldier details</div>
@@ -74,7 +76,7 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
                         }}><img style={{ width: "3rem" }} src={MinusIcon} /></div>
                 </div>
             </React.Fragment> :
-            <Carousel splitSize={10} inputDivs={listOfSoldiers.map(renderSoldierTile)} size={CarouselSize.medium} />}
+            <Carousel splitSize={10} inputDivs={listOfSoldiers.map(renderSoldierTile)} />}
         {specialistCount() > 4 ?
             <div>You are not allowed to have more than 4 'Specialist' Soldiers in your crew</div> :
             null}

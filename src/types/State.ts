@@ -14,9 +14,3 @@ export const InitialCrewState: CrewState = {
     Soldiers: [],
     Title: "",
 };
-
-export enum CarouselSize {
-    small,
-    medium,
-    large,
-}

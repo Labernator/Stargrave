@@ -1,8 +1,7 @@
 import { useState } from "react";
 import ReactSwipe from "react-swipe";
-import { CarouselSize } from "../../types/State";
 
-export const Carousel = ({ inputDivs, splitSize, size }: { inputDivs: JSX.Element[] | null; splitSize: number; size?: CarouselSize }) => {
+export const Carousel = ({ inputDivs, splitSize }: { inputDivs: JSX.Element[] | null; splitSize: number }) => {
     let reactSwipeEl: ReactSwipe;
     const cnt = inputDivs?.length || 0;
     const sectionCnt = Math.ceil(cnt / splitSize);
@@ -17,7 +16,7 @@ export const Carousel = ({ inputDivs, splitSize, size }: { inputDivs: JSX.Elemen
     return (
         <div>
             <ReactSwipe
-                className={size === CarouselSize.large ? "carousel large" : size === CarouselSize.medium ? "carousel medium" : "carousel"}
+                className={"carousel"}
                 swipeOptions={{
                     continuous: false,
                 }}
