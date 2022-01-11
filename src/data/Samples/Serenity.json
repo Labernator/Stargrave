@@ -1,0 +1,295 @@
+{
+    "Credits": 50,
+    "Soldiers": [
+        {
+            "type": "Sniper",
+            "cost": 100,
+            "stats": {
+                "Move": 6,
+                "Fight": 3,
+                "Shoot": 4,
+                "Armour": 10,
+                "Will": 3,
+                "Health": 14
+            },
+            "gear": [
+                "Carbine",
+                "Light Armour",
+                "Hand Weapon"
+            ],
+            "group": "Specialist",
+            "amount": 1,
+            "gearSlots": 1
+        },
+        {
+            "type": "Codebreaker",
+            "cost": 75,
+            "stats": {
+                "Move": 6,
+                "Fight": 3,
+                "Shoot": 2,
+                "Armour": 10,
+                "Will": 2,
+                "Health": 14
+            },
+            "gear": [
+                "Carbine",
+                "Deck",
+                "Light Armour",
+                "Knife"
+            ],
+            "group": "Specialist",
+            "amount": 1,
+            "gearSlots": 1
+        },
+        {
+            "type": "Casecracker",
+            "cost": 75,
+            "stats": {
+                "Move": 6,
+                "Fight": 3,
+                "Shoot": 2,
+                "Armour": 10,
+                "Will": 2,
+                "Health": 14
+            },
+            "gear": [
+                "Carbine",
+                "Picks",
+                "Light Armour",
+                "Knife"
+            ],
+            "group": "Specialist",
+            "amount": 1,
+            "gearSlots": 1
+        },
+        {
+            "type": "Trooper",
+            "stats": {
+                "Move": 5,
+                "Fight": 2,
+                "Shoot": 3,
+                "Armour": 11,
+                "Will": 0,
+                "Health": 14
+            },
+            "cost": 50,
+            "gear": [
+                "Carbine",
+                "Heavy Armour",
+                "Knife"
+            ],
+            "group": "Standard",
+            "amount": 1,
+            "gearSlots": 1
+        },
+        {
+            "type": "Sentry",
+            "cost": 50,
+            "stats": {
+                "Move": 5,
+                "Fight": 3,
+                "Shoot": 2,
+                "Armour": 11,
+                "Will": 0,
+                "Health": 14
+            },
+            "gear": [
+                "Carbine",
+                "Heavy Armour",
+                "Hand Weapon"
+            ],
+            "group": "Standard",
+            "amount": 1,
+            "gearSlots": 1
+        },
+        {
+            "type": "Runner",
+            "cost": 0,
+            "stats": {
+                "Move": 7,
+                "Fight": 2,
+                "Shoot": 1,
+                "Armour": 9,
+                "Will": 1,
+                "Health": 12
+            },
+            "gear": [
+                "Pistol",
+                "Knife"
+            ],
+            "group": "Standard",
+            "amount": 2,
+            "gearSlots": 1
+        },
+        {
+            "type": "Recruit",
+            "cost": 0,
+            "stats": {
+                "Move": 6,
+                "Fight": 2,
+                "Shoot": 2,
+                "Armour": 10,
+                "Will": 0,
+                "Health": 12
+            },
+            "gear": [
+                "Pistol",
+                "Light Armour",
+                "Knife"
+            ],
+            "group": "Standard",
+            "amount": 1,
+            "gearSlots": 1
+        }
+    ],
+    "Title": "Serenity",
+    "Captain": {
+        "stats": {
+            "Move": 7,
+            "Fight": 4,
+            "Shoot": 2,
+            "Armour": 9,
+            "Will": 4,
+            "Health": 16
+        },
+        "level": 15,
+        "gearSlots": 6,
+        "type": "Captain",
+        "name": "Malcom 'Mal' Reynolds",
+        "background": "RoboticsExpert",
+        "powers": [
+            {
+                "name": "Create Robot",
+                "activation": 13,
+                "strain": 0,
+                "category": "Out of Game (A)",
+                "effect": "The player may immediately add one robot soldier to their crew for no cost. This soldier can be of any type except Armoured Trooper, but the crew is still subject to the normal limitation on soldiers and specialist soldiers."
+            },
+            {
+                "name": "Drone",
+                "activation": 9,
+                "strain": 1,
+                "category": "Touch",
+                "effect": "Place a drone next to the activator. This drone counts as a temporary member of the crew and may activate and move as normal. For the rest of the game, the figure may draw line of sight from the drone, instead of the figure when using a power. This includes using Touch powers. A figure may only have one active drone at a time."
+            },
+            {
+                "name": "Energy Shield",
+                "activation": 12,
+                "strain": 0,
+                "category": "Self-only",
+                "effect": "A small energy shield forms around the user. The shield absorbs the next 3 points of damage from any shooting attack, that would injure the activator. Once 3 points of damage have been absorbed, the power is cancelled."
+            },
+            {
+                "name": "Remote Firing",
+                "activation": 10,
+                "strain": 0,
+                "category": "Line of Sight",
+                "effect": "This power allows the user to select one robot in the same crew that is within line of sight. That robot makes an immediate +3 Shooting attack against any legal target within 12”. This attack does not count as the robot’s activation, nor does it cost the robot an action."
+            },
+            {
+                "name": "Repair Robot",
+                "activation": 10,
+                "strain": 0,
+                "category": "Line of Sight",
+                "effect": "This power restores up to 5 points of lost Health to a target robot within 6”. This power cannot take a figure above its starting health."
+            }
+        ],
+        "gear": [
+            {
+                "name": "Carbine",
+                "gearSlots": 2
+            },
+            {
+                "name": "Combat Armour",
+                "gearSlots": 2
+            },
+            {
+                "name": "Filter Mask",
+                "gearSlots": 0
+            },
+            {
+                "name": "Flamethrower",
+                "gearSlots": 2
+            },
+            {
+                "name": "Hand Weapon",
+                "gearSlots": 0
+            },
+            {
+                "name": "Pistol",
+                "gearSlots": 0
+            }
+        ]
+    },
+    "FirstMate": {
+        "stats": {
+            "Move": 7,
+            "Fight": 2,
+            "Shoot": 3,
+            "Armour": 9,
+            "Will": 3,
+            "Health": 15
+        },
+        "level": 0,
+        "gearSlots": 5,
+        "type": "FirstMate",
+        "name": "Zoe Washburne",
+        "background": "Rogue",
+        "powers": [
+            {
+                "name": "Bait and Switch",
+                "activation": 14,
+                "strain": 2,
+                "category": "Line of Sight",
+                "effect": "This power may only be used against a soldiert carrying a loot token. That figure must take an immediate will roll (TN 14). If failed, the figure drops the loot token and the activator may move the token up to 4” in any direction."
+            },
+            {
+                "name": "Concealed Firearm",
+                "activation": 12,
+                "strain": 1,
+                "category": "Self-only",
+                "effect": "This power may only be used while the figure is in combat. This figure may make a single +5 shooting attack against any other figure in the combat. If this attack damages the target, it is immediately pushed back 1” and stunned, even if the attack did less than 4 damage."
+            },
+            {
+                "name": "Fling",
+                "activation": 12,
+                "strain": 1,
+                "category": [
+                    "Self-only",
+                    "Touch"
+                ],
+                "effect": "This power can be used in two ways. The activator may use it while standing within 1” of a member of their crew, in which case they may immediately move that crewmember 6” in any direction, including up. However, the figure that was moved is immediately stunned. Alternatively, it can be used while in combat against a specific enemy figure. The target figure must make an immediate Fight Roll (TN16). If it fails, the activator may move the target figure up to 6” in any horizontal direction. The figure takes no Damage (unless there is another reason it would, such as falling), but is stunned. This power may not be used on any figure that has the Large attribute."
+            },
+            {
+                "name": "Fortune",
+                "activation": 14,
+                "strain": 0,
+                "category": "Self-only",
+                "effect": "Place a fortune token either next to the figure or on your crew sheet next to the figure's entry. At any point the player may discard this token to reroll a Combat Roll, Shooting Roll or Stat Roll made by that figure. If used, the figure must take the result of the reroll. No figure may have more than one fortune token at any time."
+            }
+        ],
+        "gear": [
+            {
+                "name": "Knife",
+                "gearSlots": 0
+            },
+            {
+                "name": "Light Armour",
+                "gearSlots": 1
+            },
+            {
+                "name": "Picks",
+                "gearSlots": 1
+            },
+            {
+                "name": "Shotgun",
+                "gearSlots": 2
+            },
+            {
+                "name": "Smoke Grenade",
+                "gearSlots": 1
+            }
+        ]
+    }
+}

@@ -3,7 +3,7 @@ import * as BackgroundList from "./data/Backgrounds.json";
 import * as GearItems from "./data/Gear.json";
 import * as PowerList from "./data/Powers.json";
 import { BackgroundMetadata } from "./types/Background";
-import { CharactersEnum, Gear, ModifiedGear, Power, Stats, StatsEnum } from "./types/Characters";
+import { Character, CharactersEnum, Gear, ModifiedGear, Power, Soldier, Stats, StatsEnum } from "./types/Characters";
 
 const allPowers: Power[] = PowerList.Powers;
 const allBackgrounds: BackgroundMetadata[] = BackgroundList.backgrounds;
@@ -38,6 +38,8 @@ const getBackground = (name: string) => allBackgrounds.find((background) => back
 export const isCorePower = (powerName: string, backgroundName: string) => !!getBackground(backgroundName).corePowers.find((power) => power === powerName);
 
 export const isCaptain = (type: string) => type === CharactersEnum.Captain;
+
+export const isCharacter = (crewMember: Character | Soldier): crewMember is Character => crewMember.type === CharactersEnum.Captain || crewMember.type === CharactersEnum.FirstMate;
 
 export const getNonCorePowers = (backgroundName: string, isCaptainCharacter: boolean) =>
     allPowers.filter((power) => !getBackground(backgroundName).corePowers.includes(power.name)).

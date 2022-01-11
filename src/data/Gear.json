@@ -135,5 +135,279 @@
             "armourModifier": 0,
             "notes": "May only carry weapons that take up less than 2 gear slot"
         }
+    ],
+    "advanced": [
+        {
+            "advancedWeapons": [
+                {
+                    "name": "Stinging Hand Weapon",
+                    "type": "Weapon",
+                    "damageModifier": 1,
+                    "maxRange": "Melee",
+                    "gearSlots": 1,
+                    "cost": 300,
+                    "sell": 120
+                },
+                {
+                    "name": "Balanced Hand Weapon",
+                    "type": "Weapon",
+                    "maxRange": "Melee",
+                    "gearSlots": 1,
+                    "notes": "+1 Fight",
+                    "cost": 400,
+                    "sell": 200
+                },
+                {
+                    "name": "Compact Carbine",
+                    "type": "Weapon",
+                    "maxRange": 24,
+                    "gearSlots": 1,
+                    "cost": 300,
+                    "sell": 120
+                },
+                {
+                    "name": "Balanced Carbine",
+                    "type": "Weapon",
+                    "maxRange": 24,
+                    "gearSlots": 2,
+                    "notes": "+1 Shoot",
+                    "cost": 500,
+                    "sell": 250
+                },
+                {
+                    "name": "Stinging Carbine",
+                    "type": "Weapon",
+                    "maxRange": 24,
+                    "gearSlots": 2,
+                    "damageModifier": 1,
+                    "cost": 400,
+                    "sell": 160
+                },
+                {
+                    "name": "Complete Carbine",
+                    "type": "Weapon",
+                    "maxRange": 24,
+                    "gearSlots": 1,
+                    "damageModifier": 1,
+                    "notes": "+1 Shoot",
+                    "cost": 1000,
+                    "sell": 400
+                },
+                {
+                    "name": "Compact Stinging Carbine",
+                    "type": "Weapon",
+                    "maxRange": 24,
+                    "gearSlots": 1,
+                    "damageModifier": 1,
+                    "cost": 500,
+                    "sell": 250
+                },
+                {
+                    "name": "Stinging Pistol",
+                    "type": "Weapon",
+                    "maxRange": 10,
+                    "gearSlots": 1,
+                    "damageModifier": 1,
+                    "cost": 250,
+                    "sell": 100
+                },
+                {
+                    "name": "Balanced Pistol",
+                    "type": "Weapon",
+                    "maxRange": 10,
+                    "gearSlots": 1,
+                    "notes": "+1 Shoot",
+                    "cost": 400,
+                    "sell": 200
+                },
+                {
+                    "name": "Stretched Pistol",
+                    "type": "Weapon",
+                    "maxRange": 14,
+                    "gearSlots": 1,
+                    "cost": 200,
+                    "sell": 80
+                },
+                {
+                    "name": "Stretched Stinging Pistol",
+                    "type": "Weapon",
+                    "maxRange": 14,
+                    "gearSlots": 1,
+                    "damageModifier": 1,
+                    "cost": 400,
+                    "sell": 80
+                },
+                {
+                    "name": "Balanced Pistol",
+                    "type": "Weapon",
+                    "maxRange": 14,
+                    "gearSlots": 1,
+                    "notes": "+1 Shoot",
+                    "cost": 400,
+                    "sell": 200
+                },
+                {
+                    "name": "Stretched Shotgun",
+                    "type": "Weapon",
+                    "maxRange": 16,
+                    "damageModifier": 1,
+                    "gearSlots": 2,
+                    "cost": 250,
+                    "sell": 120
+                },
+                {
+                    "name": "Balanced Shotgun",
+                    "type": "Weapon",
+                    "maxRange": 12,
+                    "damageModifier": 1,
+                    "notes": "+1 Shoot",
+                    "gearSlots": 2,
+                    "cost": 500,
+                    "sell": 250
+                },
+                {
+                    "name": "Compact Shotgun",
+                    "type": "Weapon",
+                    "maxRange": 12,
+                    "damageModifier": 1,
+                    "gearSlots": 1,
+                    "cost": 300,
+                    "sell": 150
+                },
+                {
+                    "name": "Stinging Shotgun",
+                    "type": "Weapon",
+                    "maxRange": 12,
+                    "damageModifier": 2,
+                    "gearSlots": 2,
+                    "cost": 300,
+                    "sell": 150
+                },
+                {
+                    "name": "Compact Rapid Fire",
+                    "type": "Weapon",
+                    "maxRange": 24,
+                    "damageModifier": 2,
+                    "gearSlots": 2,
+                    "notes": "2 Targets, -1 Move unless wearing heavy or combat armour",
+                    "cost": 400,
+                    "sell": 160
+                },
+                {
+                    "name": "Stinging Rapid Fire",
+                    "type": "Weapon",
+                    "maxRange": 24,
+                    "damageModifier": 3,
+                    "gearSlots": 3,
+                    "notes": "2 Targets, -1 Move unless wearing heavy or combat armour",
+                    "cost": 600,
+                    "sell": 300
+                },
+                {
+                    "name": "Stinging Fragmentation Grenade",
+                    "type": "Weapon",
+                    "maxRange": 6,
+                    "damageModifier": 1,
+                    "gearSlots": 1,
+                    "notes": "3” diameter damage",
+                    "cost": 400,
+                    "sell": 160
+                },
+                {
+                    "name": "Balanced Grenade Launcher",
+                    "type": "Weapon",
+                    "maxRange": 16,
+                    "gearSlots": 3,
+                    "cost": 400,
+                    "sell": 160
+                },
+                {
+                    "name": "Flamethrower",
+                    "type": "Weapon",
+                    "damageModifier": 3,
+                    "maxRange": "Template",
+                    "gearSlots": 2,
+                    "notes": "-1 Move unless wearing heavy or combat armour. Target Armour and cover modifiers",
+                    "cost": 500,
+                    "sell": 200
+                }
+            ]
+        },
+        {
+            "advancedTech": [
+                {
+                    "name": "Advanced Deck",
+                    "type": "Equipment",
+                    "gearSlots": 1,
+                    "notes": "+8 to unlock data-loot",
+                    "cost": 160,
+                    "sell": 100
+                },
+                {
+                    "name": "Advanced Picks",
+                    "type": "Equipment",
+                    "gearSlots": 1,
+                    "notes": "+8 to unlock  physical-loot",
+                    "cost": 160,
+                    "sell": 100
+                },
+                {
+                    "name": "Integrated Filter Mask",
+                    "type": "Equipment",
+                    "gearSlots": 0,
+                    "notes": "Never affected by gases or low oxygen levels",
+                    "cost": 160,
+                    "sell": 100
+                },
+                {
+                    "name": "Nano-surgery Kit",
+                    "type": "Equipment",
+                    "gearSlots": 1,
+                    "notes": "Like Medic Kit but additionally heals 1 HP",
+                    "completeNotes": "Spend an action to attend to any figure within 2”, provided neither figure is in combat. This action may replace the move action. The recipient figure is immediately cured of any toxins, recovers from stun and is not longer treated as wounded. Has no effect on robots. There is no limit to how often this can be used.",
+                    "cost": 300,
+                    "sell": 120
+                },
+                {
+                    "name": "Light Energy Armour",
+                    "type": "Armour",
+                    "gearSlots": 1,
+                    "armourModifier": 1,
+                    "notes": "+1 Fight against Shooting attacks",
+                    "cost": 300,
+                    "sell": 120
+                },
+                {
+                    "name": "Heavy Energy Armour",
+                    "type": "Armour",
+                    "gearSlots": 1,
+                    "armourModifier": 2,
+                    "notes": "-1 Move, +1 Fight against Shooting attacks",
+                    "cost": 400,
+                    "sell": 160
+                },
+                {
+                    "name": "AWS Combat Armour",
+                    "type": "Armour",
+                    "gearSlots": 2,
+                    "armourModifier": 4,
+                    "notes": "75cr upkeep fee. Includes hand weapon, shotgun and filter mask."
+                },
+                {
+                    "name": "Energy Shield",
+                    "type": "Armour",
+                    "gearSlots": 1,
+                    "armourModifier": 1,
+                    "notes": "+1 Fight against Shooting attacks (does not stack with energy armour)"
+                }
+
+            ]
+        },
+        {
+            "alienTech": [
+
+            ]
+        }
+
     ]
 }

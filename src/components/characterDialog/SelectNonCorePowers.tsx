@@ -1,12 +1,8 @@
-import React, { useState } from "react";
-import * as Backgrounds from "../../data/Backgrounds.json";
-import { BackgroundEnum, BackgroundModifications, BackgroundOptions } from "../../types/Background";
+import React, { useEffect, useState } from "react";
+import { BackgroundModifications } from "../../types/Background";
 import { Power } from "../../types/Characters";
 import { getNonCorePowers, isCorePower } from "../../Utils";
 import { Carousel } from "./Carousel";
-
-const backgroundInformation = Backgrounds.backgrounds as BackgroundOptions[];
-const getBackgroundInfos = (background: BackgroundEnum) => backgroundInformation.find((bg) => bg.name === background) as BackgroundOptions;
 
 export const SelectNonCorePowers = (
     { background, corePowers, isCaptain, updatePowers }:
@@ -15,8 +11,13 @@ export const SelectNonCorePowers = (
     const [selectedPowers, setSelectedPowers] = useState<Power[]>([]);
     const [previewPower, setPreviewPower] = useState<Power | undefined>(undefined);
     const [filteredPowerList, setFilteredPowerList] = useState<Power[]>(getNonCorePowers(background.name, isCaptain));
+    const [lastPreviewPower, setLastPreviewPower] = useState<Power | undefined>(undefined);
+    useEffect(() => {
+        if (previewPower) {
+            setLastPreviewPower(previewPower);
+        }
+    }, [previewPower]);
     const isPowerSelected = (power: Power) => !!selectedPowers.find((pwr) => pwr.name === power.name);
-    const infos = getBackgroundInfos(background.name);
     const maxCorePowersSelected = () => {
         let powersRemaining2 = isCaptain ? 4 : 3;
         if (selectedPowers.filter((power) => !isCorePower(power.name, background.name)).length === 2) {
@@ -58,37 +59,40 @@ export const SelectNonCorePowers = (
                         dropdownOptions={{ placeholder: "Filter by Activation", id: "power-activation-filter" }}
                         callbackFn={(item) => setFilteredPowerList(getNonCorePowers(background.name, isCaptain).filter((power) => power.activation === parseInt(item, 10)))} />
                 </div> */}
-                <Carousel splitSize={8} inputDivs={background ? filteredPowerList.map((power) =>
-                    <div
-                        onClick={() => {
-                            if (isPowerSelected(power)) {
-                                const idx = selectedPowers.findIndex((pwr) => pwr.name === power.name);
-                                if (idx !== -1) {
-                                    setSelectedPowers([...selectedPowers.slice(0, idx), ...selectedPowers.slice(idx + 1, selectedPowers.length)]);
+                <Carousel
+                    splitSize={8}
+                    resetPage={lastPreviewPower ? Math.ceil(filteredPowerList.findIndex((pwr) => pwr.name === lastPreviewPower?.name) / 8) : 1}
+                    inputDivs={background ? filteredPowerList.map((power) =>
+                        <div
+                            onClick={() => {
+                                if (isPowerSelected(power)) {
+                                    const idx = selectedPowers.findIndex((pwr) => pwr.name === power.name);
+                                    if (idx !== -1) {
+                                        setSelectedPowers([...selectedPowers.slice(0, idx), ...selectedPowers.slice(idx + 1, selectedPowers.length)]);
+                                    }
+                                } else {
+                                    if (maxCorePowersSelected()) {
+                                        return;
+                                    }
+                                    setSelectedPowers([...selectedPowers, { ...power, activation: power.activation }]);
                                 }
-                            } else {
-                                if (maxCorePowersSelected()) {
-                                    return;
-                                }
-                                setSelectedPowers([...selectedPowers, { ...power, activation: power.activation }]);
-                            }
-                        }}
-                        className={isPowerSelected(power) ? "power-selection selected" : maxCorePowersSelected() ? "power-selection disabled" : "power-selection"}
-                        key={`add_dialog_x_stat_${power.name}`}>
+                            }}
+                            className={isPowerSelected(power) ? "power-selection selected" : maxCorePowersSelected() ? "power-selection disabled" : "power-selection"}
+                            key={`add_dialog_x_stat_${power.name}`}>
 
-                        <div className={isPowerSelected(power) ? "info-corner inverted" : "info-corner"} />
-                        <div className="info-corner-text">i</div>
-                        <div>{power.name}</div>
-                        <div style={{ fontSize: "0.8rem" }}>{power.activation} / {power.strain} / {Array.isArray(power.category) ? `${power.category.join(", ")}` : power.category}</div>
-                        <div className="info-click-area-non-core"
-                            onClick={(event) => {
-                                setPreviewPower(isCaptain ? power : { ...power, activation: power.activation + 2 });
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }} />
-                    </div>
+                            <div className={isPowerSelected(power) ? "info-corner inverted" : "info-corner"} />
+                            <div className="info-corner-text">i</div>
+                            <div>{power.name}</div>
+                            <div style={{ fontSize: "0.8rem" }}>{power.activation} / {power.strain} / {Array.isArray(power.category) ? `${power.category.join(", ")}` : power.category}</div>
+                            <div className="info-click-area-non-core"
+                                onClick={(event) => {
+                                    setPreviewPower(isCaptain ? power : { ...power, activation: power.activation + 2 });
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }} />
+                        </div>
 
-                ) : null}
+                    ) : null}
 
                 />
 

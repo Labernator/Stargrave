@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as SoldierList from "../data/Soldiers.json";
@@ -17,6 +17,12 @@ const listOfSoldiers = SoldierList.Soldiers as SoldierMetadata[];
 const SoldierSelection = ({ credits }: { credits: number }) => {
     const [soldiers, setSoldiers] = useState<Soldier[]>([]);
     const [previewSoldier, setPreviewSoldier] = useState<SoldierMetadata>();
+    const [lastPreviewSoldier, setLastPreviewSoldier] = useState<SoldierMetadata | undefined>(undefined);
+    useEffect(() => {
+        if (previewSoldier) {
+            setLastPreviewSoldier(previewSoldier);
+        }
+    }, [previewSoldier]);
     const dispatch = useDispatch();
     const history = useHistory();
     const getCurrentSoldierAmount = (soldierType: string) => soldiers.find((soldier) => soldier.type === soldierType)?.amount || 0;
@@ -29,9 +35,9 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
         key={`add-character-${soldier.type}`}
         className={getCurrentSoldierAmount(soldier.type) > 0 ? "add-character-background selected" : "add-character-background"}
         onClick={() => setPreviewSoldier(soldier)}>
-        <img style={{ paddingTop: "0.5rem" }} className="add-character-background-icons" src={getSoldierImage(soldier.type)} alt={`add-character-${soldier.type}-icon`} />
+        <img style={{ paddingTop: "0.35rem" }} className="add-character-background-icons" src={getSoldierImage(soldier.type)} alt={`add-character-${soldier.type}-icon`} />
         <div className="soldier-cost">{`${soldier.cost} \xA5`}</div>
-        <div style={{ paddingTop: "0.5rem" }} className="large-text">{`${soldier.type}`}</div>
+        <div style={{ paddingTop: "0.35rem" }} className="large-text">{`${soldier.type}`}</div>
         {soldier.group === SoldierGroups.Specialist ? <div className="medium-text">Specialist</div> : null}
         {getCurrentSoldierAmount(soldier.type) > 0 ? <div className="soldier-type">{getCurrentSoldierAmount(soldier.type)}x</div> : null}
     </div>;
@@ -76,7 +82,7 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
                         }}><img style={{ width: "3rem" }} src={MinusIcon} /></div>
                 </div>
             </React.Fragment> :
-            <Carousel splitSize={10} inputDivs={listOfSoldiers.map(renderSoldierTile)} />}
+            <Carousel splitSize={10} resetPage={lastPreviewSoldier ? Math.ceil(listOfSoldiers.findIndex((soldier) => soldier.type === lastPreviewSoldier?.type) / 10) : 1} inputDivs={listOfSoldiers.map(renderSoldierTile)} />}
         {specialistCount() > 4 ?
             <div>You are not allowed to have more than 4 'Specialist' Soldiers in your crew</div> :
             null}

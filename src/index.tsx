@@ -4,13 +4,7 @@ import { connect, Provider } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { compose, createStore } from "redux";
 import "./App.css";
-import { CaptainCreationPage } from "./pages/CaptainCreationPage";
-import { CrewPage } from "./pages/CrewPage";
-import { FileOperationsPage } from "./pages/FileOperationsPage";
-import { FirstMateCreationPage } from "./pages/FirstMateCreationPage";
-import { LandingPage } from "./pages/LandingPage";
-import { ShipNamePage } from "./pages/SetShipNamePage";
-import { SoldierSelectionPage } from "./pages/SoldierSelectionPage";
+import { CaptainCreationPage, CrewPage, FileOperationsPage, FirstMateCreationPage, LandingPage, PdfExportPage, ShipNamePage, SoldierSelectionPage } from "./pages";
 import { stateReducer } from "./redux/reducer";
 
 const App = () =>
@@ -23,6 +17,7 @@ const App = () =>
         <Route path="/SoldierSelection" component={SoldierSelectionPage} />
         <Route path="/CrewOverview" component={CrewPage} />
         <Route path="/FileOperations" component={FileOperationsPage} />
+        <Route path="/PdfExport" component={PdfExportPage} />
         <Route path="/" component={LandingPage} />
       </Switch>
     </div>

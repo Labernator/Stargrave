@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import * as Crew from "../data/Samples/Firefly.sg";
+import * as Crew from "../data/Samples/Serenity.json";
 import { CreateCrewIcon, ImportCrewIcon, UseSampleIcon } from "../images";
 import { SET_CREW } from "../redux/actions";
 import { CrewState, InitialCrewState } from "../types/State";
@@ -11,7 +11,7 @@ export const LandingPage = () => {
     const dispatch = useDispatch();
 
     return <div className="landing-page ">
-        <div className="landing-page-title">Stargrave Crew Configuration</div>
+        <div className="chapter-header">Stargrave Crew Configuration</div>
         <label htmlFor="file-uploader" className="landing-page-tile">
             <input
                 id="file-uploader"

@@ -6,11 +6,10 @@ import { SoldierComponent } from "../components/SoldierComponent";
 import { StatusbarComponent } from "../components/statusbar/StatusBarComponent";
 import { Character, Soldier } from "../types/Characters";
 import { CrewState } from "../types/State";
-import { numberOfSoldiers } from "../Utils";
 
 export const CrewOverview = ({ shipName, captain, firstMate, soldiers }: { shipName: string; captain: Character | undefined; firstMate: Character | undefined; soldiers: Soldier[] | undefined }) =>
     <React.Fragment>
-        {captain && firstMate && soldiers && numberOfSoldiers() === 8 ?
+        {captain && firstMate && soldiers ?
             <React.Fragment>
                 <StatusbarComponent key="statusbarComponent" />
                 <div key="crewRoster" id="crewRoster" style={{ paddingTop: "0.5rem" }}>

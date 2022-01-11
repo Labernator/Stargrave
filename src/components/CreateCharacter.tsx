@@ -13,6 +13,7 @@ import { SET_CAPTAIN, SET_FIRST_MATE } from "../redux/actions";
 import { BackgroundModifications } from "../types/Background";
 import { Character, ModifiedGear, Power, Stats, StatsEnum } from "../types/Characters";
 import { getStatsWithGear, isCaptain } from "../Utils";
+import { CharacterOverview } from "./characterDialog/CharacterOverview";
 // tslint:disable-next-line: cyclomatic-complexity
 export const CharacterCreation = ({ baseCharacter }: { baseCharacter: Character }) => {
     const [character, setCharacter] = useState<Character>(baseCharacter);
@@ -20,6 +21,7 @@ export const CharacterCreation = ({ baseCharacter }: { baseCharacter: Character 
     const [updatedStats, setUpdatedStats] = useState<Partial<Stats>>({});
     const [selectedPowers, setSelectedPowers] = useState<Power[]>([]);
     const [statsSelected, setStatsSelected] = useState<boolean>(false);
+    const [gearSelected, setGearSelected] = useState<boolean>(false);
     const [powersUpgraded, setPowersUpgraded] = useState<boolean>(false);
     const [gear, setGear] = useState<ModifiedGear[]>([]);
     const dispatch = useDispatch();
@@ -32,6 +34,9 @@ export const CharacterCreation = ({ baseCharacter }: { baseCharacter: Character 
     const finishPowerUpgrades = (powers: Power[]) => {
         setPowersUpgraded(true);
         setSelectedPowers(powers);
+    };
+    const finishGearSelection = () => {
+        setGearSelected(true);
     };
     const finishCreation = () => {
         dispatch({
@@ -47,10 +52,10 @@ export const CharacterCreation = ({ baseCharacter }: { baseCharacter: Character 
         isCaptainCharacter ? history.push("/FirstMateCreation", { isCaptain: false }) : history.push("/SoldierSelection");
     };
     return <React.Fragment>
-        <CharacterStatusbar
+        {!gearSelected ? <CharacterStatusbar
             character={background ? { ...character, stats: getStatsWithGear(character.stats, updatedStats, gear), background: background.name, powers: [] } : character}
             gearSlotsUsed={gear.reduce((acc, gearItem) => acc + gearItem.gearSlots, 0)}
-        />
+        /> : null}
         {!character.name ? <SelectName
             character={character}
             updateAndContinue={(val: Character) => { setCharacter(val); }}
@@ -73,8 +78,19 @@ export const CharacterCreation = ({ baseCharacter }: { baseCharacter: Character 
         {background && statsSelected && selectedPowers.length > 0 && selectedPowers.length === (isCaptainCharacter ? 5 : 4) && !powersUpgraded ?
             <SelectPowerUpgrades powers={selectedPowers} upgradePowers={finishPowerUpgrades} />
             : null}
-        {background && statsSelected && powersUpgraded ?
-            <SelectGear isCaptain={isCaptainCharacter} updateGear={setGear} finish={finishCreation} />
+        {background && statsSelected && powersUpgraded && !gearSelected ?
+            <SelectGear isCaptain={isCaptainCharacter} updateGear={setGear} finish={finishGearSelection} />
+            : null}
+        {background && statsSelected && powersUpgraded && gearSelected ?
+            <CharacterOverview
+                character={{
+                    ...character,
+                    stats: improvedStats(),
+                    background: background?.name,
+                    powers: selectedPowers,
+                    gear,
+                }}
+                finish={finishCreation} />
             : null}
         {character.name ?
             <button
@@ -82,6 +98,7 @@ export const CharacterCreation = ({ baseCharacter }: { baseCharacter: Character 
                     if (background && statsSelected && selectedPowers.length > 0 && powersUpgraded) {
                         setGear([]);
                         setPowersUpgraded(false);
+                        setGearSelected(false);
                         setSelectedPowers([]);
                         return;
                     }

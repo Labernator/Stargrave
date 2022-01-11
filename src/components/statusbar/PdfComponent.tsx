@@ -1,13 +1,9 @@
-import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { PdfIcon } from "../../images";
 
 export const PdfComponent = () => {
-    const [openDialog, setOpenDialog] = useState<boolean>(false);
-    const openHistory = () => {
-        setOpenDialog(true);
-    };
-
-    return <div className="statusbar-tiles" onClick={openHistory} title="Click to open dialog to save/load a crew">
+    const history = useHistory();
+    return <div className="statusbar-tiles" onClick={() => history.push("/PdfExport")} title="Click to open export pdf dialog">
         <img
             src={PdfIcon}
             style={{ paddingLeft: "0.2rem" }}
