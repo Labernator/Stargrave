@@ -71,6 +71,7 @@
   border: 0.15rem solid;
   border-radius: 0.25rem;
   padding: 0.2rem 0.4rem;
+  margin-bottom: 0.2rem;
   display: grid;
   font-weight: bold;
   font-size: 1.5rem;
@@ -360,9 +361,9 @@
   padding: 0.3rem;
   float: left;
   display: grid;
-  width: calc(50% - 1.2rem);
+  width: calc(50% - 3rem);
   border: 0.15rem solid;
-  margin: 0.15rem;
+  margin: 1rem;
   border-radius: 0.25rem;
   text-align: center;
   position: relative;
@@ -448,8 +449,8 @@
   border: 0.15rem solid;
   border-radius: 0.25rem;
   text-align: center;
-  position: absolute;
   bottom: 0rem;
+  margin-top: 1em;
 }
 
 .carousel-btn {
@@ -462,11 +463,13 @@
 }
 
 .back-btn {
-  left: 0rem;
+  float: left;
+  margin-bottom: 1rem;
 }
 
 .confirm-btn {
-  right: 0rem;
+  float: right;
+  margin-bottom: 1rem;
 }
 
 .disabled {
@@ -483,7 +486,7 @@
   border-radius: 0.25rem;
   text-align: center;
   float: left;
-  width: calc(100% - 1.3rem);
+  width: calc(100% - 1rem);
   font-size: 1.1rem;
   position: relative;
 }
@@ -667,6 +670,7 @@
   border: 0.15rem solid;
   border-radius: 0.25rem;
   padding: 0.2rem 0.4rem;
+  margin-bottom: 0.2rem;
   font-weight: bold;
   font-size: 1.5rem;
   text-align: center;
