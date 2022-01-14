@@ -62,17 +62,6 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
                         onClick={() => {
                             const soldierIdx = soldiers.findIndex((sol) => sol.type === previewSoldier.type);
                             if (soldierIdx !== -1) {
-                                setSoldiers([...soldiers.slice(0, soldierIdx), { ...soldiers[soldierIdx], amount: soldiers[soldierIdx].amount + 1 }, ...soldiers.slice(soldierIdx + 1)]);
-                            } else {
-                                setSoldiers([...soldiers, { ...previewSoldier, amount: 1, gearSlots: 1 }]);
-                            }
-                        }}><img style={{ width: "3rem" }} src={AddIcon} /></div>
-                    <div className="very-large-text">{getCurrentSoldierAmount(previewSoldier.type)}</div>
-                    <div
-                        className="btn"
-                        onClick={() => {
-                            const soldierIdx = soldiers.findIndex((sol) => sol.type === previewSoldier.type);
-                            if (soldierIdx !== -1) {
                                 if (soldiers[soldierIdx].amount === 1) {
                                     setSoldiers(soldiers.filter((sol) => sol.type !== previewSoldier.type));
                                 } else {
@@ -80,6 +69,17 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
                                 }
                             }
                         }}><img style={{ width: "3rem" }} src={MinusIcon} /></div>
+                    <div className="very-large-text">{getCurrentSoldierAmount(previewSoldier.type)}</div>
+                    <div
+                        className="btn"
+                        onClick={() => {
+                            const soldierIdx = soldiers.findIndex((sol) => sol.type === previewSoldier.type);
+                            if (soldierIdx !== -1) {
+                                setSoldiers([...soldiers.slice(0, soldierIdx), { ...soldiers[soldierIdx], amount: soldiers[soldierIdx].amount + 1 }, ...soldiers.slice(soldierIdx + 1)]);
+                            } else {
+                                setSoldiers([...soldiers, { ...previewSoldier, amount: 1, gearSlots: 1 }]);
+                            }
+                        }}><img style={{ width: "3rem" }} src={AddIcon} /></div>
                 </div>
             </React.Fragment> :
             <Carousel splitSize={10} resetPage={lastPreviewSoldier ? Math.ceil(listOfSoldiers.findIndex((soldier) => soldier.type === lastPreviewSoldier?.type) / 10) : 1} inputDivs={listOfSoldiers.map(renderSoldierTile)} />}
