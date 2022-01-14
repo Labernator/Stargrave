@@ -462,6 +462,10 @@
   grid-area: 1;
 }
 
+.close-btn {
+  margin-left: 0.5rem;
+}
+
 .back-btn {
   float: left;
   margin-bottom: 1rem;
