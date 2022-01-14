@@ -3,7 +3,7 @@ import * as Characters from "../data/Characters.json";
 import { Character, Stats, StatsEnum } from "../types/Characters";
 import { CharacterMetadata } from "../types/Metadata";
 import { getStatStrings, isCaptain } from "../Utils";
-import { InputComponent } from "./InputControl";
+import { InputComponent } from "./InputComponent";
 
 const baseCaptain = Characters.Captain as CharacterMetadata;
 const baseFirstMate = Characters.FirstMate as CharacterMetadata;

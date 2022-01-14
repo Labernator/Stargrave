@@ -20,13 +20,18 @@ export const InputComponent = ({ currentState, tooltip, cssClass, callback }: { 
         }
     };
 
+    const checkInput = (event: React.FormEvent<HTMLInputElement>) => {
+        setName(event.currentTarget.value);
+        callback(event.currentTarget.value);
+    };
+
     return inputVisible ?
         <input
             ref={inputRef}
             className={cssClass}
             id="NameInput"
-            onChange={(event: React.FormEvent<HTMLInputElement>) => setName(event.currentTarget.value)}
-            onKeyDown={checkEnter}
+            onChange={checkInput}
+            onKeyUp={checkEnter}
             onBlur={() => {
                 callback(name);
                 setInputVisible(false);

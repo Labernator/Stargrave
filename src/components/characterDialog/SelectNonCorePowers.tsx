@@ -103,8 +103,8 @@ export const SelectNonCorePowers = (
                 event.preventDefault();
                 event.stopPropagation();
             }}
-            className={"dialog-btn back-btn foreground"}
-        >Back</button> : null}
+            className={"dialog-btn close-btn foreground"}
+        >Close</button> : null}
         <button
             onClick={() => selectedPowers.length === powersRemaining ? updatePowers([...selectedPowers, ...corePowers].sort((a, b) => (a.name.localeCompare(b.name)))) : undefined}
             className={selectedPowers.length === powersRemaining ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}

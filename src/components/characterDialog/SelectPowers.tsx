@@ -76,8 +76,8 @@ export const SelectPowers = (
                 event.preventDefault();
                 event.stopPropagation();
             }}
-            className={"dialog-btn back-btn foreground"}
-        >Back</button> : null}
+            className={"dialog-btn close-btn foreground"}
+        >Close</button> : null}
         <button
             onClick={() => minPowersSelected() ? updatePowers(selectedPowers.sort((a, b) => (a.name.localeCompare(b.name)))) : undefined}
             className={minPowersSelected() ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}

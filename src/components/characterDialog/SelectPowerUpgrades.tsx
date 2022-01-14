@@ -58,8 +58,8 @@ export const SelectPowerUpgrades = ({ powers, upgradePowers }: { powers: Power[]
                 event.preventDefault();
                 event.stopPropagation();
             }}
-            className={"dialog-btn back-btn foreground"}
-        >Back</button> : null}
+            className={"dialog-btn close-btn foreground"}
+        >Close</button> : null}
         <button
             onClick={() => selectedPowers.length === 2 ? upgradePowers(updatedArray()) : undefined}
             className={selectedPowers.length === 2 ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}

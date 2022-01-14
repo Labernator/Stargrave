@@ -12,7 +12,7 @@ export const ShipNamePage = () => {
         <div className="chapter-header">Welcome to Stargarve - Science Fiction wargames in the ravaged galaxy</div>
         {/* <div className="modal-header">This nifty little tool is supposed to guide you through the process of creating your crew for a game or even a campaign of Stargrave.</div> */}
         <div className="modal-header">
-            In the following screens you will design yourself a captain that is leading your crew, configure a loyal first mate to assist your fearless leader and hire disposable bodies (crewmen) to help you to complete your objectives
+            In the following screens you will design yourself a captain that is leading your crew, configure a loyal first mate to assist your fearless leader and hire disposable bodies (crewmen) to help you to complete your objectives.
             </div>
         <div className="modal-header">But first things first. Your crew needs a ship to get to their missions. What is the name of your ship?</div>
         <NameComponent inputCallback={setName} currentStateValue={name} tooltip={"Your ship needs a name"} />

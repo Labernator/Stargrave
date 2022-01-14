@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { LeaveIcon, StarshipIcon } from "../../images";
 import { SET_CREW, SET_CREWNAME } from "../../redux/actions";
 import { CrewState, InitialCrewState } from "../../types/State";
-import { InputComponent } from "../InputControl";
+import { InputComponent } from "../InputComponent";
 
 export const ShipnameComponent = () => {
     const { store } = useContext(ReactReduxContext);
