@@ -1,4 +1,4 @@
-import { InputComponent } from "./InputControl";
+import { InputComponent } from "./InputComponent";
 
 export const NameComponent = ({ currentStateValue, tooltip, inputCallback }: { currentStateValue: string; tooltip: string; inputCallback(name: string): void }) =>
     <div className="statusbar-name">
