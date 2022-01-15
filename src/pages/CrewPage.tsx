@@ -30,11 +30,17 @@ export const CrewOverview = ({ shipName, captain, firstMate, soldiers }: { shipN
         }
     </React.Fragment>;
 
-const mapStateToProps = (state: CrewState) => ({
-    shipName: state.Title,
-    captain: state.Captain,
-    firstMate: state.FirstMate,
-    soldiers: state.Soldiers,
-});
+const mapStateToProps = (state: CrewState) => {
+    if (state.ShipName && state.Captain?.name && state.Captain?.level) {
+        const myStorage = localStorage;
+        myStorage.setItem(`${state.ShipName}_${state.Captain?.name}_${state.Captain?.level}_${state.Credits}`, JSON.stringify(state));
+    }
+    return {
+        shipName: state.ShipName,
+        captain: state.Captain,
+        firstMate: state.FirstMate,
+        soldiers: state.Soldiers,
+    };
+};
 
 export const CrewPage = connect(mapStateToProps)(CrewOverview);

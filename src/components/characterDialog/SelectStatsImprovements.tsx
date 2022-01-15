@@ -20,7 +20,7 @@ export const SelectStatsImprovements = ({ background, updateStatsCallback, updat
     return <React.Fragment>
         <div style={{ marginTop: "0.5rem" }} className="modal-header">Granted Stats Improvements</div>
         {Object.entries(statModificationsForBackground.mandatory).map(([statName, statValue]) =>
-            <div className="background-stat-selection background-stat-selected" key={`add_captain_dialog_mand_stat_${statName}`}>+{statValue} {statName}</div>
+            <div className="background-stat-selection selected" key={`add_captain_dialog_mand_stat_${statName}`}>+{statValue} {statName}</div>
         )}
         <div className="modal-header">{`Optional Stats Improvements \n (choose ${statModificationsForBackground.chooseOptionals} of the following)`}</div>
         {Object.entries(statModificationsForBackground.optional).map(([statName, statValue]) =>
@@ -35,7 +35,7 @@ export const SelectStatsImprovements = ({ background, updateStatsCallback, updat
                         setSelections([...selections, { [statName]: statValue }]);
                     }
                 }}
-                className={isStatSelected(statName) ? "background-stat-selection background-stat-selected" : maxStatsReached() ? "background-stat-selection disabled" : "background-stat-selection"}
+                className={isStatSelected(statName) ? "background-stat-selection selected" : maxStatsReached() ? "background-stat-selection disabled" : "background-stat-selection"}
                 key={`add_captain_dialog_opt_stat_${statName}`}>
                 +{statValue} {statName}
             </div>

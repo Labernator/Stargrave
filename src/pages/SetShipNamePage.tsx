@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { NameComponent } from "../components/NameComponent";
-import { SET_CREWNAME } from "../redux/actions";
+import { SET_SHIPNAME } from "../redux/actions";
 
 export const ShipNamePage = () => {
     const [name, setName] = useState<string>("");
@@ -18,7 +18,7 @@ export const ShipNamePage = () => {
         <NameComponent inputCallback={setName} currentStateValue={name} tooltip={"Your ship needs a name"} />
         <button
             onClick={() => {
-                dispatch({ type: SET_CREWNAME, payload: name });
+                dispatch({ type: SET_SHIPNAME, payload: name });
                 history.push("/CaptainCreation");
             }}
             className={name ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}

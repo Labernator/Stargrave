@@ -7,8 +7,8 @@ export function stateReducer(state: CrewState = InitialCrewState, action: ReduxA
     switch (action.type) {
         case ReduxActions.SET_CREW:
             return action.payload;
-        case ReduxActions.SET_CREWNAME:
-            return { ...state, Title: action.payload };
+        case ReduxActions.SET_SHIPNAME:
+            return { ...state, ShipName: action.payload };
         case ReduxActions.SET_CAPTAINS_NAME:
             return { ...state, Captain: { ...state.Captain as Character, name: action.payload } };
         case ReduxActions.SET_CAPTAIN:

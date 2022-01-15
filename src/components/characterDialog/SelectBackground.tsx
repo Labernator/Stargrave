@@ -12,7 +12,7 @@ export const SelectBackground = ({ character, updateAndContinue }: { character: 
     const [background, setBackground] = useState<BackgroundModifications | undefined>();
     const renderBackgroundTile = (bg: BackgroundEnum) => <div
         key={`add-character-${bg}`}
-        className={bg === background?.name ? "add-character-background background-selected" : "add-character-background"}
+        className={bg === background?.name ? "add-character-background selected" : "add-character-background"}
         onClick={() => setBackground(
             bg === background?.name ?
                 undefined :

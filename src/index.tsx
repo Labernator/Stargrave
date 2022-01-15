@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { compose, createStore } from "redux";
 import "./App.css";
 import { CaptainCreationPage, CrewPage, FileOperationsPage, FirstMateCreationPage, LandingPage, PdfExportPage, ShipNamePage, SoldierSelectionPage } from "./pages";
+import { FileSystemPage } from "./pages/FileSystem";
 import { stateReducer } from "./redux/reducer";
 
 const App = () =>
@@ -17,6 +18,7 @@ const App = () =>
         <Route path="/SoldierSelection" component={SoldierSelectionPage} />
         <Route path="/CrewOverview" component={CrewPage} />
         <Route path="/FileOperations" component={FileOperationsPage} />
+        <Route path="/FileSystem" component={FileSystemPage} />
         <Route path="/PdfExport" component={PdfExportPage} />
         <Route path="/" component={LandingPage} />
       </Switch>

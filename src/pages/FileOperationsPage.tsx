@@ -3,13 +3,12 @@ import { ReactReduxContext, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { NameComponent } from "../components/NameComponent";
 import { ImportCrewIcon, SaveIcon } from "../images";
-import { SET_CREW } from "../redux/actions";
 import { CrewState } from "../types/State";
 
 export const FileOperationsPage = () => {
     const { store } = useContext(ReactReduxContext);
     const state = store.getState() as CrewState;
-    const [fileName, setFileName] = useState<string>(`${state.Title} ${state.Captain?.name}  (lvl ${state.Captain?.level || 15})`);
+    const [fileName, setFileName] = useState<string>(`${state.ShipName} ${state.Captain?.name}  (lvl ${state.Captain?.level || 15})`);
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -29,14 +28,19 @@ export const FileOperationsPage = () => {
         anchor.click();
         window.URL.revokeObjectURL(url);
         document.body.removeChild(document.getElementById("ClickableDownloadAnchor") as Node);
+
+        if (state.ShipName && state.Captain?.name && state.Captain?.level) {
+            const myStorage = localStorage;
+            myStorage.setItem(`${state.ShipName}_${state.Captain?.name}_${state.Captain?.level}_${state.Credits}`, json);
+        }
         history.push("/CrewOverview");
         e.preventDefault();
         e.stopPropagation();
     };
     return <React.Fragment>
         <div className="vertical-splitter">
-            <div className="chapter-header">Tap to load another warband from file</div>
-            <label htmlFor="file-uploader" className="file-uploader">
+            <div className="chapter-header">Tap to load another warband from file or local storage</div>
+            {/* <label htmlFor="file-uploader" className="file-uploader">
                 <input
                     id="file-uploader"
                     type="file"
@@ -50,10 +54,19 @@ export const FileOperationsPage = () => {
                         };
                         reader.readAsText((document.querySelector("#file-uploader") as HTMLInputElement)?.files?.item(0) as File);
                     }}
-                />
+                /> */}
 
-                <img alt="ImportWarband" className="file-uploader-icon" src={ImportCrewIcon} />
-            </label>
+            <img
+                alt="ImportWarband"
+                className="file-uploader-icon"
+                src={ImportCrewIcon}
+                onClick={(event) => {
+                    history.push("/FileSystem");
+                    event.preventDefault();
+                    event.stopPropagation();
+                }}
+            />
+            {/* </label> */}
         </div>
         <div className="vertical-splitter">
             <div style={{ borderTop: "0.15rem solid" }} className="chapter-header">Tap to save your warband to file</div>

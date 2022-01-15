@@ -6,7 +6,7 @@ export const SET_CAPTAINS_NAME = "SET_CAPTAINS_NAME";
 export const SET_FIRST_MATE = "SET_FIRST_MATE";
 export const SET_CAPTAIN = "SET_CAPTAIN";
 export const SET_CREW = "SET_CREW";
-export const SET_CREWNAME = "SET_CREWNAME";
+export const SET_SHIPNAME = "SET_SHIPNAME";
 
 interface SetCrew {
     type: typeof SET_CREW;
@@ -14,7 +14,7 @@ interface SetCrew {
 }
 
 interface SetCrewName {
-    type: typeof SET_CREWNAME;
+    type: typeof SET_SHIPNAME;
     payload: string;
 }
 

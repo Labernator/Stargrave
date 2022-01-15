@@ -12,7 +12,7 @@ import { CrewState } from "../types/State";
 export const PdfExportPage = () => {
     const { store } = useContext(ReactReduxContext);
     const state = store.getState() as CrewState;
-    const [fileName, setFileName] = useState<string>(`CrewList ${state.Title} ${state.Captain?.name}  (lvl ${state.Captain?.level || 15})`);
+    const [fileName, setFileName] = useState<string>(`CrewList ${state.ShipName} ${state.Captain?.name}  (lvl ${state.Captain?.level || 15})`);
 
     const history = useHistory();
 

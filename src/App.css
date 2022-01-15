@@ -38,7 +38,7 @@
 }
 
 .landing-page-icon {
-  width: 50%;
+  width: 48%;
 }
 
 .chapter-header {
@@ -392,10 +392,6 @@
   font-size: 0.75rem;
 }
 
-.background-selected {
-  background-color: #e18a07;
-}
-
 .background-stat-selection {
   padding: 1rem 0.5rem;
   float: left;
@@ -406,10 +402,6 @@
   text-align: center;
   font-weight: bold;
   font-size: 1.1rem;
-}
-
-.background-stat-selected {
-  background-color: #e18a07;
 }
 
 .improved-stat {
@@ -691,4 +683,23 @@
   font-size: 12px;
   position: absolute;
   top: -10000px;
+}
+
+.storage-table {
+  border: 1px solid black;
+}
+.storage-table > caption {
+  font-size: 1.5rem;
+  padding: 0.7rem 0.5rem 0.7rem 0rem;
+  font-weight: bold;
+  clear: both;
+  text-align: center;
+  white-space: pre-wrap;
+}
+.storage-table > thead > tr {
+  font-weight: bold;
+}
+.storage-table > thead > tr > td{
+  font-weight: bold;
+  border-bottom: 1px solid black;
 }

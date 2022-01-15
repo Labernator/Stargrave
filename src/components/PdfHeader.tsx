@@ -9,7 +9,7 @@ export const PdfHeaderComponent = () => {
 
     return <div style={{ float: "left", fontSize: "1rem" }} key="pdf-header" id="pdf-header" className="pdf-header">
         <div style={{ float: "left", width: "100%", paddingBottom: "1rem", borderBottom: "1px solid black" }}>
-            <div style={{ float: "left", width: "50%" }}><div className="pdf-header-title">Ship Name</div><div>{state.Title}</div></div>
+            <div style={{ float: "left", width: "50%" }}><div className="pdf-header-title">Ship Name</div><div>{state.ShipName}</div></div>
             <div style={{ float: "left", width: "25%" }}><div className="pdf-header-title">Credits</div><div>{state.Credits}</div></div>
             <div style={{ float: "left", width: "25%" }}><div className="pdf-header-title">Experience</div><div>{state.Experience}</div></div >
         </div>

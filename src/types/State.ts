@@ -6,13 +6,13 @@ export interface CrewState {
     Captain?: Character;
     FirstMate?: Character;
     Soldiers: Soldier[];
-    Title: string;
+    ShipName: string;
     Experience: number;
 }
 
 export const InitialCrewState: CrewState = {
     Credits: 400,
     Soldiers: [],
-    Title: "",
+    ShipName: "",
     Experience: 0,
 };

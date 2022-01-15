@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ReactReduxContext, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { LeaveIcon, StarshipIcon } from "../../images";
-import { SET_CREW, SET_CREWNAME } from "../../redux/actions";
+import { SET_CREW, SET_SHIPNAME } from "../../redux/actions";
 import { CrewState, InitialCrewState } from "../../types/State";
 import { InputComponent } from "../InputComponent";
 
@@ -15,9 +15,9 @@ export const ShipnameComponent = () => {
     return <div className="shipname">
         <img style={{ paddingLeft: "0.6rem" }} className="shipname-icon" src={StarshipIcon}></img>
         <InputComponent
-            callback={(name: string) => dispatch({ type: SET_CREWNAME, payload: name })}
-            currentState={state.Title}
-            tooltip={state.Title} cssClass="input-field" />
+            callback={(name: string) => dispatch({ type: SET_SHIPNAME, payload: name })}
+            currentState={state.ShipName}
+            tooltip={state.ShipName} cssClass="input-field" />
         <img
             className="shipname-icon"
             src={LeaveIcon}
