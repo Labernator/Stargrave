@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import * as Crew from "../data/Samples/Serenity.json";
 import { CreateCrewIcon, ImportCrewIcon, UseSampleIcon } from "../images";
 import { SET_CREW } from "../redux/actions";
-import { CrewState, InitialCrewState } from "../types/State";
+import { CrewState, InitialCrewState } from "../types";
 
 export const LandingPage = () => {
 

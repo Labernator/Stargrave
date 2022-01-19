@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ReactReduxContext } from "react-redux";
-import { CrewState } from "../types/State";
+import { CrewState } from "../types";
 
 export const PdfHeaderComponent = () => {
 

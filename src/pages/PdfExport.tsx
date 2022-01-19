@@ -6,8 +6,7 @@ import { useHistory } from "react-router-dom";
 import { NameComponent } from "../components/NameComponent";
 import { PdfRenderer } from "../components/PdfRenderer";
 import { PdfIcon } from "../images";
-import { Character } from "../types/Characters";
-import { CrewState } from "../types/State";
+import { Character, CrewState } from "../types";
 
 export const PdfExportPage = () => {
     const { store } = useContext(ReactReduxContext);
@@ -37,7 +36,7 @@ export const PdfExportPage = () => {
         <div className="pdf-container"><PdfRenderer crewMembers={[state.Captain as Character, state.FirstMate as Character, ...state.Soldiers]} /></div>
         <div className="chapter-header">Export your warband to pdf</div>
         <div style={{ display: "grid", paddingTop: "2rem", paddingBottom: "2rem" }}>
-            <img className="file-uploader-icon" src={PdfIcon} onClick={exportPdf} />
+            <img alt="file upload" className="file-uploader-icon" src={PdfIcon} onClick={exportPdf} />
         </div>
         <div className="modal-header">Change the file name if you wish</div>
         <NameComponent inputCallback={setFileName} currentStateValue={`${fileName}`} tooltip={"The file name"} />

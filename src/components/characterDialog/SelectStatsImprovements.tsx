@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as Backgrounds from "../../data/Backgrounds.json";
-import { BackgroundEnum, BackgroundModifications, BackgroundOptions } from "../../types/Background";
-import { Stats, StatsEnum } from "../../types/Characters";
+import { BackgroundEnum, BackgroundModifications, BackgroundOptions, Stats, StatsEnum } from "../../types";
 
 const backgroundInformation = Backgrounds.backgrounds as BackgroundOptions[];
 const getBackgroundInfos = (background: BackgroundEnum) => backgroundInformation.find((bg) => bg.name === background) as BackgroundOptions;

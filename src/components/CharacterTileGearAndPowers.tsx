@@ -1,5 +1,5 @@
 import React from "react";
-import { Character, Gear, ModifiedGear, Soldier } from "../types/Characters";
+import { Character, Gear, ModifiedGear, Soldier } from "../types";
 import { getGearDetails } from "../Utils";
 
 const renderGear = (gear: Gear[] | ModifiedGear[], renderSoldier?: boolean, isPdf?: boolean) => <table className="character-tile-table" style={{ width: "100%" }}>

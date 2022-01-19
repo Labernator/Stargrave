@@ -1,6 +1,5 @@
 import * as Characters from "../data/Characters.json";
-import { Character, Stats, StatsEnum } from "../types/Characters";
-import { CharacterMetadata } from "../types/Metadata";
+import { Character, CharacterMetadata, Stats, StatsEnum } from "../types";
 import { getStatStrings, getStatsWithGear, isCaptain } from "../Utils";
 
 const baseCaptain = Characters.Captain as CharacterMetadata;

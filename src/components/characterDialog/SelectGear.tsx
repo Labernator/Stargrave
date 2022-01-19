@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as GearItems from "../../data/Gear.json";
-import { Gear, ModifiedGear } from "../../types/Characters";
+import { Gear, ModifiedGear } from "../../types";
 import { gearSortAlgorithm, getActualNotes, getDamageModifierString, getGearDetails } from "../../Utils";
 import { GearDropDown } from "./GearDropdown";
 

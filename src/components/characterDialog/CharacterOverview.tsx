@@ -1,5 +1,5 @@
 import React from "react";
-import { Character } from "../../types/Characters";
+import { Character } from "../../types";
 import { isCaptain } from "../../Utils";
 import { CharacterStatusBarTable } from "../CharacterStatusBarTable";
 import { CharacterTileGearAndPowers } from "../CharacterTileGearAndPowers";

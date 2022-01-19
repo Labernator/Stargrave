@@ -1,5 +1,5 @@
 import React from "react";
-import { ModifiedPower } from "../types/Characters";
+import { ModifiedPower } from "../types";
 import { getPower } from "../Utils";
 export const PowerLabels = ({ powers, isCaptain }: { powers: ModifiedPower[] | undefined; isCaptain: boolean }) =>
     <React.Fragment>

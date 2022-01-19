@@ -1,5 +1,4 @@
-import { Character, Soldier } from "../types/Characters";
-import { CrewState } from "../types/State";
+import { Character, CrewState, Soldier } from "../types";
 
 export const ADD_SOLDIERS = "ADD_SOLDIERS";
 export const SET_CAPTAINS_NAME = "SET_CAPTAINS_NAME";

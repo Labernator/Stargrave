@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Character } from "../../types/Characters";
+import { Character } from "../../types";
 import { isCaptain } from "../../Utils";
 import { NameComponent } from "../NameComponent";
 

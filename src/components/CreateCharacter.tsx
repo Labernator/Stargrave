@@ -10,8 +10,7 @@ import { SelectPowerUpgrades } from "../components/characterDialog/SelectPowerUp
 import { SelectStatsImprovements } from "../components/characterDialog/SelectStatsImprovements";
 import { CharacterStatusbar } from "../components/statusbar/CharacterStatusBar";
 import { SET_CAPTAIN, SET_FIRST_MATE } from "../redux/actions";
-import { BackgroundModifications } from "../types/Background";
-import { Character, ModifiedGear, Power, Stats, StatsEnum } from "../types/Characters";
+import { BackgroundModifications, Character, ModifiedGear, Power, Stats, StatsEnum } from "../types";
 import { getStatsWithGear, isCaptain } from "../Utils";
 import { CharacterOverview } from "./characterDialog/CharacterOverview";
 // tslint:disable-next-line: cyclomatic-complexity

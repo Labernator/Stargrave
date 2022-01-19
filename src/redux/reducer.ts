@@ -1,5 +1,4 @@
-import { Character } from "../types/Characters";
-import { CrewState, InitialCrewState } from "../types/State";
+import { Character, CrewState, InitialCrewState } from "../types";
 import * as ReduxActions from "./actions";
 
 // tslint:disable-next-line: cyclomatic-complexity

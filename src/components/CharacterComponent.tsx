@@ -1,5 +1,5 @@
 import { store } from "..";
-import { Character } from "../types/Characters";
+import { Character } from "../types";
 import { CharacterStatusBarTable } from "./CharacterStatusBarTable";
 import { CharacterTileGearAndPowers } from "./CharacterTileGearAndPowers";
 import { CharacterTileHeader } from "./CharacterTileHeader";

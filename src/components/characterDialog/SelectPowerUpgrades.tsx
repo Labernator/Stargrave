@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Power } from "../../types/Characters";
+import { Power } from "../../types";
 
 export const SelectPowerUpgrades = ({ powers, upgradePowers }: { powers: Power[]; upgradePowers(value: Power[]): void }) => {
     const [selectedPowers, setSelectedPowers] = useState<Power[]>([]);

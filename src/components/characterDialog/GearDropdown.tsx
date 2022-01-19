@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Gear } from "../../types/Characters";
+import { Gear } from "../../types";
 import { useComponentVisible } from "../../UseComponentVisible";
 import { GearLabel } from "../GearLabels";
 

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as Backgrounds from "../../data/Backgrounds.json";
-import { BackgroundEnum, BackgroundModifications, BackgroundOptions } from "../../types/Background";
-import { Power } from "../../types/Characters";
+import { BackgroundEnum, BackgroundModifications, BackgroundOptions, Power } from "../../types";
 import { getPowerInfos } from "../../Utils";
 
 const backgroundInformation = Backgrounds.backgrounds as BackgroundOptions[];

@@ -1,7 +1,7 @@
 import { CSSProperties, useContext } from "react";
 import { ReactReduxContext } from "react-redux";
 import { TreasuryIcon } from "../../images";
-import { CrewState } from "../../types/State";
+import { CrewState } from "../../types";
 
 export const TreasuryComponent = ({ externalStyles, virtualCredits }: { externalStyles?: CSSProperties; virtualCredits?: number }) => {
     const { store } = useContext(ReactReduxContext);

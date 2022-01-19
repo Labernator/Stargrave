@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ReactReduxContext, useDispatch } from "react-redux";
+import { ReactReduxContext } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { NameComponent } from "../components/NameComponent";
 import { ImportCrewIcon, SaveIcon } from "../images";
-import { CrewState } from "../types/State";
+import { CrewState } from "../types";
 
 export const FileOperationsPage = () => {
     const { store } = useContext(ReactReduxContext);
@@ -11,7 +11,6 @@ export const FileOperationsPage = () => {
     const [fileName, setFileName] = useState<string>(`${state.ShipName} ${state.Captain?.name}  (lvl ${state.Captain?.level || 15})`);
 
     const history = useHistory();
-    const dispatch = useDispatch();
 
     useEffect(() => {
         document.getElementById("NameInput")?.focus();
@@ -40,24 +39,8 @@ export const FileOperationsPage = () => {
     return <React.Fragment>
         <div className="vertical-splitter">
             <div className="chapter-header">Tap to load another warband from file or local storage</div>
-            {/* <label htmlFor="file-uploader" className="file-uploader">
-                <input
-                    id="file-uploader"
-                    type="file"
-                    accept=".sg"
-                    style={{ display: "none" }}
-                    onChange={() => {
-                        const reader = new FileReader();
-                        reader.onload = (ev: ProgressEvent<FileReader>) => {
-                            dispatch({ type: SET_CREW, payload: JSON.parse(ev.target?.result as string) });
-                            history.push("/CrewOverview");
-                        };
-                        reader.readAsText((document.querySelector("#file-uploader") as HTMLInputElement)?.files?.item(0) as File);
-                    }}
-                /> */}
-
             <img
-                alt="ImportWarband"
+                alt="file upload"
                 className="file-uploader-icon"
                 src={ImportCrewIcon}
                 onClick={(event) => {
@@ -66,12 +49,11 @@ export const FileOperationsPage = () => {
                     event.stopPropagation();
                 }}
             />
-            {/* </label> */}
         </div>
         <div className="vertical-splitter">
             <div style={{ borderTop: "0.15rem solid" }} className="chapter-header">Tap to save your warband to file</div>
             <div style={{ display: "grid" }}>
-                <img className="file-uploader-icon" src={SaveIcon} onClick={saveToFileNew} />
+                <img alt="save to file" className="file-uploader-icon" src={SaveIcon} onClick={saveToFileNew} />
             </div>
             <div className="modal-header">Change the file name if you wish</div>
             <NameComponent inputCallback={setFileName} currentStateValue={`${fileName}`} tooltip={"The file name"} />

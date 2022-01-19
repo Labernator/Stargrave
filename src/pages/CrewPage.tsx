@@ -4,8 +4,7 @@ import { CharacterComponent } from "../components/CharacterComponent";
 import { Carousel } from "../components/characterDialog/Carousel";
 import { SoldierComponent } from "../components/SoldierComponent";
 import { StatusbarComponent } from "../components/statusbar/StatusBarComponent";
-import { Character, Soldier } from "../types/Characters";
-import { CrewState } from "../types/State";
+import { Character, CrewState, Soldier } from "../types";
 
 export const CrewOverview = ({ shipName, captain, firstMate, soldiers }: { shipName: string; captain: Character | undefined; firstMate: Character | undefined; soldiers: Soldier[] | undefined }) =>
     <React.Fragment>

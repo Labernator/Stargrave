@@ -1,4 +1,4 @@
-import { Soldier } from "../types/Characters";
+import { Soldier } from "../types";
 import { SoldierStatusBarTable } from "./CharacterStatusBarTable";
 import { SoldierTileGearAndPowers } from "./CharacterTileGearAndPowers";
 import { SoldierTileHeader } from "./CharacterTileHeader";

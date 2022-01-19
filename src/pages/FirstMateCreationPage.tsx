@@ -1,6 +1,6 @@
 import { CharacterCreation } from "../components/CreateCharacter";
 import * as Characters from "../data/Characters.json";
-import { CharacterMetadata } from "../types/Metadata";
+import { CharacterMetadata } from "../types";
 
 export const FirstMateCreationPage = () => {
     const baseFirstMate = Characters.FirstMate as CharacterMetadata;

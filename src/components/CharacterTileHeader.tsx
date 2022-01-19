@@ -1,4 +1,4 @@
-import { Character, Soldier } from "../types/Characters";
+import { Character, Soldier } from "../types";
 import { isCaptain } from "../Utils";
 
 export const CharacterTileHeader = ({ character }: { character: Character }) =>

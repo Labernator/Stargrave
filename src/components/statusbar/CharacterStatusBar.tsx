@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
-import { Character } from "../../types/Characters";
-import { CrewState } from "../../types/State";
+import { Character, CrewState } from "../../types";
 import { isCaptain } from "../../Utils";
 import { CharacterStatusBarTable } from "../CharacterStatusBarTable";
 

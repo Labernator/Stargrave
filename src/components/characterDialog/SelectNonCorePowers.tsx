@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BackgroundModifications } from "../../types/Background";
-import { Power } from "../../types/Characters";
+import { BackgroundModifications, Power } from "../../types";
 import { getNonCorePowers, isCorePower } from "../../Utils";
 import { Carousel } from "./Carousel";
 
@@ -10,7 +9,6 @@ export const SelectNonCorePowers = (
 ) => {
     const [selectedPowers, setSelectedPowers] = useState<Power[]>([]);
     const [previewPower, setPreviewPower] = useState<Power | undefined>(undefined);
-    const [filteredPowerList, setFilteredPowerList] = useState<Power[]>(getNonCorePowers(background.name, isCaptain));
     const [lastPreviewPower, setLastPreviewPower] = useState<Power | undefined>(undefined);
     useEffect(() => {
         if (previewPower) {
@@ -47,22 +45,10 @@ export const SelectNonCorePowers = (
                     {`Choose ${powersRemaining} additional ${powersRemaining === 1 ? "Power" : "Powers"}`}
                     <div className="modal-sub-header">{"Swipe or use the page buttons to see more entries"}</div>
                 </div>
-                {/* <div className="single-selection-gear">
-                    <PowerFilter
-                        list={Object.values(PowerCategory)}
-                        dropdownOptions={{ placeholder: "Filter by Category", id: "power-category-filter" }}
-                        callbackFn={(item) => setFilteredPowerList(getNonCorePowers(background.name, isCaptain).filter((power) => Array.isArray(power.category) ? power.category.find((cat) => cat === item) : power.category === item))} />
-                </div>
-                <div className="single-selection-gear">
-                    <PowerFilter
-                        list={getNonCorePowers(background.name, isCaptain).map((power) => `${power.activation}`).filter((val, idx, arr) => idx === arr.indexOf(val)).sort((a, b) => parseInt(a, 10) - parseInt(b, 10))}
-                        dropdownOptions={{ placeholder: "Filter by Activation", id: "power-activation-filter" }}
-                        callbackFn={(item) => setFilteredPowerList(getNonCorePowers(background.name, isCaptain).filter((power) => power.activation === parseInt(item, 10)))} />
-                </div> */}
                 <Carousel
                     splitSize={8}
-                    resetPage={lastPreviewPower ? Math.ceil(filteredPowerList.findIndex((pwr) => pwr.name === lastPreviewPower?.name) / 8) : 1}
-                    inputDivs={background ? filteredPowerList.map((power) =>
+                    resetPage={lastPreviewPower ? Math.ceil(getNonCorePowers(background.name, isCaptain).findIndex((pwr) => pwr.name === lastPreviewPower?.name) / 8) : 1}
+                    inputDivs={background ? getNonCorePowers(background.name, isCaptain).map((power) =>
                         <div
                             onClick={() => {
                                 if (isPowerSelected(power)) {

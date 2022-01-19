@@ -3,7 +3,7 @@ import { ReactReduxContext, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { LeaveIcon, StarshipIcon } from "../../images";
 import { SET_CREW, SET_SHIPNAME } from "../../redux/actions";
-import { CrewState, InitialCrewState } from "../../types/State";
+import { CrewState, InitialCrewState } from "../../types";
 import { InputComponent } from "../InputComponent";
 
 export const ShipnameComponent = () => {
@@ -13,12 +13,13 @@ export const ShipnameComponent = () => {
     const state = store.getState() as CrewState;
 
     return <div className="shipname">
-        <img style={{ paddingLeft: "0.6rem" }} className="shipname-icon" src={StarshipIcon}></img>
+        <img alt="shipname icon" style={{ paddingLeft: "0.6rem" }} className="shipname-icon" src={StarshipIcon}></img>
         <InputComponent
             callback={(name: string) => dispatch({ type: SET_SHIPNAME, payload: name })}
             currentState={state.ShipName}
             tooltip={state.ShipName} cssClass="input-field" />
         <img
+            alt="leave icon"
             className="shipname-icon"
             src={LeaveIcon}
             onClick={() => {

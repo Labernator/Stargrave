@@ -1,5 +1,5 @@
 import React from "react";
-import { Gear, ModifiedGear } from "../types/Characters";
+import { Gear, ModifiedGear } from "../types";
 import { getActualNotes, getDamageModifierString } from "../Utils";
 export const GearLabel = ({ gear, gearList }: { gear: Gear; gearList: Array<ModifiedGear | string> }) =>
     <React.Fragment>

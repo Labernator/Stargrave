@@ -1,5 +1,5 @@
 import React from "react";
-import { Character, Soldier } from "../types/Characters";
+import { Character, Soldier } from "../types";
 import { isCharacter } from "../Utils";
 import { CharacterComponent } from "./CharacterComponent";
 import { PdfHeaderComponent } from "./PdfHeader";

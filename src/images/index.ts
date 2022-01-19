@@ -1,5 +1,4 @@
-import { BackgroundEnum } from "../types/Background";
-import { SoldierEnum } from "../types/Characters";
+import { BackgroundEnum, SoldierEnum } from "../types";
 import BiomorphPng from "./Biomorph.png";
 import CreateCrewPng from "./CreateCrew.png";
 import CyborgPng from "./Cyborg.png";

@@ -4,9 +4,7 @@ import { useHistory } from "react-router-dom";
 import * as SoldierList from "../data/Soldiers.json";
 import { AddIcon, getSoldierImage, MinusIcon } from "../images";
 import { ADD_SOLDIERS } from "../redux/actions";
-import { Soldier } from "../types/Characters";
-import { SoldierGroups, SoldierMetadata } from "../types/Metadata";
-import { CrewState } from "../types/State";
+import { CrewState, Soldier, SoldierGroups, SoldierMetadata } from "../types";
 import { Carousel } from "./characterDialog/Carousel";
 import { SoldierComponent } from "./SoldierComponent";
 import { CrewSizeComponent } from "./statusbar/CrewSizeComponent";
@@ -68,7 +66,7 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
                                     setSoldiers([...soldiers.slice(0, soldierIdx), { ...soldiers[soldierIdx], amount: soldiers[soldierIdx].amount - 1 }, ...soldiers.slice(soldierIdx + 1)]);
                                 }
                             }
-                        }}><img style={{ width: "3rem" }} src={MinusIcon} /></div>
+                        }}><img alt="minusicon" style={{ width: "3rem" }} src={MinusIcon} /></div>
                     <div className="very-large-text">{getCurrentSoldierAmount(previewSoldier.type)}</div>
                     <div
                         className="btn"
@@ -79,7 +77,7 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
                             } else {
                                 setSoldiers([...soldiers, { ...previewSoldier, amount: 1, gearSlots: 1 }]);
                             }
-                        }}><img style={{ width: "3rem" }} src={AddIcon} /></div>
+                        }}><img alt="plusicon" style={{ width: "3rem" }} src={AddIcon} /></div>
                 </div>
             </React.Fragment> :
             <Carousel splitSize={10} resetPage={lastPreviewSoldier ? Math.ceil(listOfSoldiers.findIndex((soldier) => soldier.type === lastPreviewSoldier?.type) / 10) : 1} inputDivs={listOfSoldiers.map(renderSoldierTile)} />}

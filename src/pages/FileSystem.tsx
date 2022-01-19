@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { SET_CREW } from "../redux/actions";
-import { CrewState, InitialCrewState } from "../types/State";
+import { CrewState, InitialCrewState } from "../types";
 
 export const FileSystemPage = () => {
     const [selectedStorage, setSelectedStorage] = useState<CrewState>();

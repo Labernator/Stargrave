@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import * as Backgrounds from "../../data/Backgrounds.json";
 import { getBackgroundImage } from "../../images/index";
-import { BackgroundEnum, BackgroundModifications, BackgroundOptions } from "../../types/Background";
-import { Character } from "../../types/Characters";
+import { BackgroundEnum, BackgroundModifications, BackgroundOptions, Character } from "../../types";
 import { isCaptain } from "../../Utils";
 
 const backgroundInformation = Backgrounds.backgrounds as BackgroundOptions[];

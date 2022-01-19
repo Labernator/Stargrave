@@ -2,8 +2,7 @@ import { store } from ".";
 import * as BackgroundList from "./data/Backgrounds.json";
 import * as GearItems from "./data/Gear.json";
 import * as PowerList from "./data/Powers.json";
-import { BackgroundMetadata } from "./types/Background";
-import { Character, CharactersEnum, Gear, ModifiedGear, Power, Soldier, Stats, StatsEnum } from "./types/Characters";
+import { BackgroundMetadata, Character, CharactersEnum, Gear, ModifiedGear, Power, Soldier, Stats, StatsEnum } from "./types";
 
 const allPowers: Power[] = PowerList.Powers;
 const allBackgrounds: BackgroundMetadata[] = BackgroundList.backgrounds;
@@ -42,8 +41,7 @@ export const isCaptain = (type: string) => type === CharactersEnum.Captain;
 export const isCharacter = (crewMember: Character | Soldier): crewMember is Character => crewMember.type === CharactersEnum.Captain || crewMember.type === CharactersEnum.FirstMate;
 
 export const getNonCorePowers = (backgroundName: string, isCaptainCharacter: boolean) =>
-    allPowers.filter((power) => !getBackground(backgroundName).corePowers.includes(power.name)).
-        map((power) => isCaptainCharacter ? { ...power, activation: power.activation + 2 } : { ...power, activation: power.activation + 4 });
+    allPowers.filter((power) => !getBackground(backgroundName).corePowers.includes(power.name)).map((power) => isCaptainCharacter ? { ...power, activation: power.activation + 2 } : { ...power, activation: power.activation + 4 });
 
 export const getStatsMaximums = () => ({ "Move": 7, "Fight": 6, "Shoot": 6, "Will": 8, "Health": 25, "Armour": 14 });
 
