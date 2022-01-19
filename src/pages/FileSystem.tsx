@@ -65,8 +65,27 @@ export const FileSystemPage = () => {
                 event.stopPropagation();
             }}
             className={selectedStorage !== undefined ? "dialog-btn" : "dialog-btn disabled"}
-            style={{ float: "left", width: "100%" }}
-        >Load crew from local storage</button>
+            style={{ float: "left", width: "45%" }}
+        >Load crew</button>
+        <button
+            onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                if (selectedStorage) {
+                    const key = `${selectedStorage.ShipName}_${selectedStorage.Captain?.name}_${selectedStorage.Captain?.level}_${selectedStorage.Credits}`;
+                    localStorage.removeItem(key);
+                    // Not the finest craft, but to make this proper,
+                    // need to be wrapped with some kind of React state,
+                    // so the React app will re-render the UI after
+                    // changing stuff in the local storage. Maybe there
+                    // is a neat and easy way for this, but I ended up
+                    // just reload the page for that case.
+                    window.location.reload();
+                }
+            }}
+            className={selectedStorage !== undefined ? "dialog-btn dialog-btn-danger" : "dialog-btn disabled"}
+            style={{ float: "right", width: "45%" }}
+        >Remove crew</button>
         <button
             onClick={(event) => {
                 dispatch({ type: SET_CREW, payload: InitialCrewState });
@@ -75,6 +94,7 @@ export const FileSystemPage = () => {
                 event.stopPropagation();
             }}
             className={"dialog-btn back-btn"}
+            style={{ float: "left", width: "25%" }}
         >Back</button>
     </React.Fragment>;
 };

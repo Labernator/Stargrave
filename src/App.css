@@ -445,6 +445,11 @@
   margin-top: 1em;
 }
 
+.dialog-btn-danger {
+  background-color: rgb(150, 0, 0) !important;
+  color: white;
+}
+
 .carousel-btn {
   font-size: 1rem;
   background-color: rgb(225, 138, 7);
