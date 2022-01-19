@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { SET_CREW } from "../redux/actions";
@@ -6,6 +6,7 @@ import { CrewState, InitialCrewState } from "../types";
 
 export const FileSystemPage = () => {
     const [selectedStorage, setSelectedStorage] = useState<CrewState>();
+    useEffect(() => undefined, [selectedStorage]);
     const isStorageSelected = (state: CrewState) =>
         state.Credits === selectedStorage?.Credits &&
         state.ShipName === selectedStorage.ShipName &&
@@ -65,8 +66,21 @@ export const FileSystemPage = () => {
                 event.stopPropagation();
             }}
             className={selectedStorage !== undefined ? "dialog-btn" : "dialog-btn disabled"}
-            style={{ float: "left", width: "100%" }}
-        >Load crew from local storage</button>
+            style={{ float: "left", width: "45%" }}
+        >Load crew</button>
+        <button
+            onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                if (selectedStorage) {
+                    const key = `${selectedStorage.ShipName}_${selectedStorage.Captain?.name}_${selectedStorage.Captain?.level}_${selectedStorage.Credits}`;
+                    localStorage.removeItem(key);
+                    setSelectedStorage(undefined);
+                }
+            }}
+            className={selectedStorage !== undefined ? "dialog-btn dialog-btn-danger" : "dialog-btn disabled"}
+            style={{ float: "right", width: "45%" }}
+        >Remove crew</button>
         <button
             onClick={(event) => {
                 dispatch({ type: SET_CREW, payload: InitialCrewState });
@@ -75,6 +89,7 @@ export const FileSystemPage = () => {
                 event.stopPropagation();
             }}
             className={"dialog-btn back-btn"}
+            style={{ float: "left", width: "25%" }}
         >Back</button>
     </React.Fragment>;
 };

@@ -703,3 +703,9 @@
   font-weight: bold;
   border-bottom: 1px solid black;
 }
+
+.dialog-btn-danger {
+  background-color: rgb(150, 0, 0) !important;
+  color: white;
+  border-color: black;
+}
