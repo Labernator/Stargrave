@@ -1,17 +1,14 @@
 import React from "react";
-import * as Characters from "../data/Characters.json";
-import { Character, CharacterMetadata, Stats, StatsEnum } from "../types";
-import { getStatStrings, isCaptain } from "../Utils";
+import { Character, Stats, StatsEnum } from "../types";
+import { isCaptain } from "../Utils";
 import { InputComponent } from "./InputComponent";
-
-const baseCaptain = Characters.Captain as CharacterMetadata;
-const baseFirstMate = Characters.FirstMate as CharacterMetadata;
+import { StatsRenderer } from "./StatsRenderer";
 
 export const CharacterTable = (
     { character, statModifications, setNameCallback }:
         { character: Character; statModifications: Partial<Stats>; setNameCallback(value: React.SetStateAction<string>): void }
 ) => {
-    const improvedStats = () => Object.keys(character.stats).reduce(
+    const improvedStats = (): Stats => Object.keys(character.stats).reduce(
         (acc, stat) => ({ ...acc, [stat]: character.stats[stat as StatsEnum] + (statModifications[stat as StatsEnum] || 0) }),
         { "Move": 0, "Fight": 0, "Shoot": 0, "Armour": 0, "Will": 0, "Health": 0 }
     );
@@ -41,13 +38,7 @@ export const CharacterTable = (
                 <td key={`add_dialog_name_${character.name}`}>
                     <InputComponent callback={setNameCallback} currentState={character.name} tooltip={`Your ${isCaptain(character.type) ? "captain" : "first mate"} needs a proper name`} cssClass="dialog-input-field" />
                 </td>
-                {getStatStrings(improvedStats()).map((stat) =>
-                    <td
-                        className={improvedStats()[Object.keys(stat)[0] as StatsEnum] !== (isCaptain(character.type) ? baseCaptain : baseFirstMate).stats[Object.keys(stat)[0] as StatsEnum] ? "improved-stat" : ""}
-                        key={`add_dialog_${character.name}_stat_${Object.keys(stat)[0]}`}>
-                        {stat[Object.keys(stat)[0]]}
-                    </td>
-                )}
+                <StatsRenderer member={character} stats={improvedStats()} />
                 <td>{character.level}</td>
                 {character.background ? <td>{character.background}</td> : null}
             </tr>

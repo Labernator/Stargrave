@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { connect, useDispatch } from "react-redux";
+import React, { useContext, useEffect, useState } from "react";
+import { ReactReduxContext, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as SoldierList from "../data/Soldiers.json";
 import { AddIcon, getSoldierImage, MinusIcon } from "../images";
 import { ADD_SOLDIERS } from "../redux/actions";
 import { CrewState, Soldier, SoldierGroups, SoldierMetadata } from "../types";
-import { Carousel } from "./characterDialog/Carousel";
+import { Carousel } from "./common/Carousel";
 import { SoldierComponent } from "./SoldierComponent";
 import { CrewSizeComponent } from "./statusbar/CrewSizeComponent";
 import { TreasuryComponent } from "./statusbar/TreasuryComponent";
 
 const listOfSoldiers = SoldierList.Soldiers as SoldierMetadata[];
 
-const SoldierSelection = ({ credits }: { credits: number }) => {
+export const SoldierSelectionComponent = () => {
+    const { store } = useContext(ReactReduxContext);
+    const state = store.getState() as CrewState;
     const [soldiers, setSoldiers] = useState<Soldier[]>([]);
     const [previewSoldier, setPreviewSoldier] = useState<SoldierMetadata>();
     const [lastPreviewSoldier, setLastPreviewSoldier] = useState<SoldierMetadata | undefined>(undefined);
@@ -23,11 +25,11 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
     }, [previewSoldier]);
     const dispatch = useDispatch();
     const history = useHistory();
-    const getCurrentSoldierAmount = (soldierType: string) => soldiers.find((soldier) => soldier.type === soldierType)?.amount || 0;
+    const getCurrentSoldierAmount = (soldierType: string) => soldiers.filter((soldier) => soldier.type === soldierType)?.length || 0;
     const soldierCount = () => soldiers.reduce((acc, soldier) => soldier.amount + acc, 0);
     const specialistCount = () => soldiers.filter((soldier) => soldier.group === SoldierGroups.Specialist).reduce((acc, specialist) => specialist.amount + acc, 0);
     const hiringCost = () => soldiers.reduce((acc, soldier) => acc + (soldier.amount * soldier.cost), 0);
-    const canSubmit = () => soldierCount() <= 8 && specialistCount() <= 4 && hiringCost() <= credits;
+    const canSubmit = () => soldierCount() <= 8 && specialistCount() <= 4 && hiringCost() <= state.Credits;
 
     const renderSoldierTile = (soldier: SoldierMetadata) => <div
         key={`add-character-${soldier.type}`}
@@ -46,25 +48,23 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
                 <div className="toolbar-two-column-header-text">Hire your crew</div>
                 <div className="small-text">{"You need to hire 8 Soldiers. \n Only 4 may be Specialists"}</div>
             </div>
-            <CrewSizeComponent externalStyles={{ width: "calc(35% - 1.1rem)" }} virtualCrewSize={soldierCount() + 2} />
-            <TreasuryComponent virtualCredits={credits - hiringCost()} />
+            <CrewSizeComponent externalStyles={{ width: "calc(35% - 1.1rem)" }} virtualCrewSize={soldierCount() + state.Soldiers.reduce((sum, sol) => sum + sol.amount, 2)} />
+            <TreasuryComponent virtualCredits={state.Credits - hiringCost()} />
         </div>
         {previewSoldier ?
             <React.Fragment>
                 <div className="modal-header">Soldier details</div>
-                <SoldierComponent soldier={{ ...previewSoldier, amount: 0, gearSlots: 1 }} />
+                <SoldierComponent soldier={{ ...previewSoldier, amount: 0, gearSlots: 1, id: 1 }} />
                 <div className="modal-header">Use the Plus/Minus buttons below to hire some of these soldiers if they suit your needs</div>
                 <div className="soldier-selection-amount">
                     <div
                         className="btn"
                         onClick={() => {
-                            const soldierIdx = soldiers.findIndex((sol) => sol.type === previewSoldier.type);
-                            if (soldierIdx !== -1) {
-                                if (soldiers[soldierIdx].amount === 1) {
-                                    setSoldiers(soldiers.filter((sol) => sol.type !== previewSoldier.type));
-                                } else {
-                                    setSoldiers([...soldiers.slice(0, soldierIdx), { ...soldiers[soldierIdx], amount: soldiers[soldierIdx].amount - 1 }, ...soldiers.slice(soldierIdx + 1)]);
-                                }
+                            const soldiersOfType = soldiers.filter((sol) => sol.type === previewSoldier.type);
+                            if (soldiersOfType.length === 1) {
+                                setSoldiers(soldiers.filter((sol) => sol.type !== previewSoldier.type));
+                            } else {
+                                setSoldiers(soldiers.filter((sol) => sol.type !== previewSoldier.type || sol.id !== soldiersOfType.length));
                             }
                         }}><img alt="minusicon" style={{ width: "3rem" }} src={MinusIcon} /></div>
                     <div className="very-large-text">{getCurrentSoldierAmount(previewSoldier.type)}</div>
@@ -73,9 +73,10 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
                         onClick={() => {
                             const soldierIdx = soldiers.findIndex((sol) => sol.type === previewSoldier.type);
                             if (soldierIdx !== -1) {
-                                setSoldiers([...soldiers.slice(0, soldierIdx), { ...soldiers[soldierIdx], amount: soldiers[soldierIdx].amount + 1 }, ...soldiers.slice(soldierIdx + 1)]);
+                                setSoldiers([...soldiers, { ...previewSoldier, amount: 1, gearSlots: 1, id: soldiers.filter((sol) => sol.type === previewSoldier.type).length + 1 }]);
+                                // setSoldiers([...soldiers.slice(0, soldierIdx), { ...soldiers[soldierIdx], amount: soldiers[soldierIdx].amount + 1 }, ...soldiers.slice(soldierIdx + 1)]);
                             } else {
-                                setSoldiers([...soldiers, { ...previewSoldier, amount: 1, gearSlots: 1 }]);
+                                setSoldiers([...soldiers, { ...previewSoldier, amount: 1, gearSlots: 1, id: 1 }]);
                             }
                         }}><img alt="plusicon" style={{ width: "3rem" }} src={AddIcon} /></div>
                 </div>
@@ -85,7 +86,7 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
             <div>You are not allowed to have more than 4 'Specialist' Soldiers in your crew</div> :
             null}
         {soldierCount() > 8 ? <div>You are not allowed to have more than 8 Soldiers in total in your crew</div> : null}
-        {hiringCost() > credits ? <div>{"You don't have enough credits ( \xA5 ) to hire all of these crew men"} </div> : null}
+        {hiringCost() > state.Credits ? <div>{"You don't have enough credits ( \xA5 ) to hire all of these crew men"} </div> : null}
         {previewSoldier ? <button
             onClick={(event) => {
                 setPreviewSoldier(undefined);
@@ -107,7 +108,3 @@ const SoldierSelection = ({ credits }: { credits: number }) => {
                 Confirm Staffing</button>}
     </React.Fragment>;
 };
-
-const mapStateToProps = (state: CrewState) => ({ credits: state.Credits });
-
-export const SoldierSelectionComponent = connect(mapStateToProps)(SoldierSelection);

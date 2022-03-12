@@ -1,9 +1,7 @@
-import * as Characters from "../data/Characters.json";
-import { Character, CharacterMetadata, Stats, StatsEnum } from "../types";
-import { getStatStrings, getStatsWithGear, isCaptain } from "../Utils";
+import { Character, CharactersEnum, Stats, StatsEnum } from "../types";
+import { getStatsWithGear, isCaptain } from "../Utils";
+import { StatsRenderer } from "./StatsRenderer";
 
-const baseCaptain = Characters.Captain as CharacterMetadata;
-const baseFirstMate = Characters.FirstMate as CharacterMetadata;
 const getColGroup = (showName?: boolean) =>
     showName ? <colgroup>
         <col style={{ width: "15%" }} />
@@ -48,14 +46,8 @@ export const StatusBarTable = (
             <tbody>
                 <tr>
                     {showNameAndType ? <td>{character.name}</td> : null}
-                    {showNameAndType ? <td>{`${isCaptain(character.type) ? "Captain" : "First Mate"}`}</td> : null}
-                    {getStatStrings(getStatsWithGear(character.stats, statModifications, character.gear)).map((stat) =>
-                        <td
-                            className={getStatsWithGear(character.stats, statModifications, character.gear)[Object.keys(stat)[0] as StatsEnum] !== (isCaptain(character.type) ? baseCaptain : baseFirstMate).stats[Object.keys(stat)[0] as StatsEnum] ? "improved-stat" : ""}
-                            key={`add_dialog_${character.name}_stat_${Object.keys(stat)[0]}`}>
-                            {stat[Object.keys(stat)[0]]}
-                        </td>
-                    )}
+                    {showNameAndType ? <td>{`${isCaptain(character.type) ? CharactersEnum.Captain : "First Mate"}`}</td> : null}
+                    <StatsRenderer member={character} stats={getStatsWithGear(character.stats, statModifications, character.gear)} />
                     <td>{character.level}</td>
                     <td>{character.background || "?"}</td>
                     <td>{`${gearSlotsUsed}/${character.gearSlots}`}</td>

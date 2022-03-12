@@ -1,9 +1,6 @@
-import * as Characters from "../data/Characters.json";
-import { Character, CharacterMetadata, Soldier, StatsEnum } from "../types";
-import { getStatStrings, getStatsWithGear, isCaptain } from "../Utils";
-
-const baseCaptain = Characters.Captain as CharacterMetadata;
-const baseFirstMate = Characters.FirstMate as CharacterMetadata;
+import { Character, Soldier, StatsEnum } from "../types";
+import { getStatsWithGear } from "../Utils";
+import { StatsRenderer } from "./StatsRenderer";
 
 export const CharacterStatusBarTable = ({ character, gearSlotsUsed, isTileTable }: { character: Character; gearSlotsUsed: number; isTileTable?: boolean }) =>
     <table className={isTileTable ? "character-tile-table" : "character-statusbar-table"}>
@@ -24,13 +21,7 @@ export const CharacterStatusBarTable = ({ character, gearSlotsUsed, isTileTable 
         </thead>
         <tbody>
             <tr className={isTileTable ? "centered-text" : ""}>
-                {getStatStrings(getStatsWithGear(character.stats, {}, character.gear)).map((stat) =>
-                    <td
-                        className={getStatsWithGear(character.stats, {}, character.gear)[Object.keys(stat)[0] as StatsEnum] !== (isCaptain(character.type) ? baseCaptain : baseFirstMate).stats[Object.keys(stat)[0] as StatsEnum] ? "improved-stat" : ""}
-                        key={`add_dialog_${character.name}_stat_${Object.keys(stat)[0]}`}>
-                        {stat[Object.keys(stat)[0]]}
-                    </td>
-                )}
+                <StatsRenderer member={character} stats={getStatsWithGear(character.stats, {}, character.gear)} />
                 <td>{`${gearSlotsUsed}/${character.gearSlots}`}</td>
             </tr>
         </tbody>
@@ -55,12 +46,7 @@ export const SoldierStatusBarTable = ({ soldier, gearSlotsUsed, isTileTable }: {
         </thead>
         <tbody>
             <tr className={isTileTable ? "centered-text" : ""}>
-                {getStatStrings(soldier.stats).map((stat) =>
-                    <td
-                        key={`add_dialog_${soldier.type}_stat_${Object.keys(stat)[0]}`}>
-                        {stat[Object.keys(stat)[0]]}
-                    </td>
-                )}
+                <StatsRenderer member={soldier} stats={soldier.stats} />
                 <td>{`${gearSlotsUsed}/1`}</td>
             </tr>
         </tbody>

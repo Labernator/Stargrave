@@ -1,6 +1,6 @@
 import React from "react";
 import { Character, Gear, ModifiedGear, Soldier } from "../types";
-import { getGearDetails } from "../Utils";
+import { getGeneralGearDetails } from "../Utils";
 
 const renderGear = (gear: Gear[] | ModifiedGear[], renderSoldier?: boolean, isPdf?: boolean) => <table className="character-tile-table" style={{ width: "100%" }}>
     <colgroup>
@@ -37,5 +37,5 @@ export const CharacterTileGearAndPowers = ({ character, isPdf }: { character: Ch
 
 export const SoldierTileGearAndPowers = ({ soldier, isPdf }: { soldier: Soldier; isPdf?: boolean }) =>
     <React.Fragment>
-        {soldier.gear ? renderGear(soldier.gear.map(getGearDetails), true, isPdf) : null}
+        {soldier.gear ? renderGear(soldier.gear.map(getGeneralGearDetails), true, isPdf) : null}
     </React.Fragment>;

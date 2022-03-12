@@ -2,11 +2,16 @@ import { store } from ".";
 import * as BackgroundList from "./data/Backgrounds.json";
 import * as GearItems from "./data/Gear.json";
 import * as PowerList from "./data/Powers.json";
-import { BackgroundMetadata, Character, CharactersEnum, Gear, ModifiedGear, Power, Soldier, Stats, StatsEnum } from "./types";
+import { AdvancedTech, AdvancedWeapons, BackgroundEnum, BackgroundMetadata, BackgroundOptions, Character, CharactersEnum, Gear, LevelImprovements, ModifiedGear, ModifiedPower, Power, Soldier, Stats, StatsEnum, StatStrings } from "./types";
 
 const allPowers: Power[] = PowerList.Powers;
 const allBackgrounds: BackgroundMetadata[] = BackgroundList.backgrounds;
 const allGear: Gear[] = GearItems.general;
+const advancedWeapons: AdvancedWeapons[] = GearItems.advancedWeapons;
+const advancedTech: AdvancedTech[] = GearItems.advancedTech;
+const alienArtefacts = GearItems.alienTech;
+
+export const getBackgroundInfos = (background: BackgroundEnum) => allBackgrounds.find((bg) => bg.name === background) as BackgroundOptions;
 
 export const numberOfCrewMembers = () => {
     const state = store.getState();
@@ -18,17 +23,18 @@ export const numberOfSoldiers = () => {
     return state.Soldiers.reduce((acc, soldier) => soldier.amount + acc, 0);
 };
 
-export const getStatStrings = (stats: Stats | Partial<Stats>) => Object.keys(stats).map((stat) => {
-    switch (stat) {
-        case "Fight":
-        case "Shoot":
-        case "Will":
-            return { [stat]: stats[stat] as number < 0 ? `${stats[stat]}` : `+${stats[stat]}` };
-        default:
-            return { [stat]: `${stats[stat as StatsEnum]}` };
-    }
+export const getCurrentStatStrings = (stats: Stats, currentHealth?: number): StatStrings => ({
+    [StatsEnum.Move]: stats.Move.toString(),
+    [StatsEnum.Fight]: `+${stats.Fight.toString()}`,
+    [StatsEnum.Shoot]: `+${stats.Shoot.toString()}`,
+    [StatsEnum.Armour]: stats.Armour.toString(),
+    [StatsEnum.Will]: `+${stats.Will.toString()}`,
+    [StatsEnum.Health]: currentHealth ? currentHealth.toString() : stats.Health.toString(),
 });
+
 export const getPower = (name: string) => allPowers.find((power) => power.name === name) as Power;
+
+export const getUnselectedPowers = (powerNames: ModifiedPower[]) => allPowers.filter((power) => !powerNames.some((pwr) => pwr.name === power.name));
 
 export const getPowerInfos = (powerNames: string[]): Power[] => powerNames.map(getPower);
 
@@ -45,12 +51,24 @@ export const getNonCorePowers = (backgroundName: string, isCaptainCharacter: boo
 
 export const getStatsMaximums = () => ({ "Move": 7, "Fight": 6, "Shoot": 6, "Will": 8, "Health": 25, "Armour": 14 });
 
-export const getGearDetails = (gearName: string | ModifiedGear) => {
+export const getGeneralGearDetails = (gearName: string | ModifiedGear) => {
     const foundGear = allGear.find((gear) => (typeof (gearName) === "string" ? gearName : gearName.name) === gear.name) as Gear;
     if (typeof (gearName) !== "string") {
         foundGear.gearSlots = gearName.gearSlots;
     }
     return foundGear;
+};
+
+export const getAdvancedWeapons = () => advancedWeapons;
+export const getAdvancedTech = () => advancedTech;
+export const getAlienArtefacts = () => alienArtefacts;
+
+export const getGearByType = (gearType: string) => {
+    switch (gearType) {
+        case "Armour": return allGear.filter((gear) => gear.type === "Armour");
+        case "Weapon": return allGear.filter((gear) => gear.type === "Weapon");
+        case "Equipment": return allGear.filter((gear) => gear.type === "Equipment");
+    }
 };
 
 export const getActualNotes = (gearList: Array<string | ModifiedGear>, gearItem: Gear) => {
@@ -123,3 +141,58 @@ export const gearSortAlgorithm = (gear: Gear) => {
     }
     return count;
 };
+
+export const getAdvancePerLevel = (level: number) => {
+    const rest = (level) % 10;
+    switch (rest) {
+        case 1:
+        case 3:
+        case 4:
+        case 6:
+        case 8:
+        case 9:
+            return LevelImprovements.LowerActivation;
+        case 2:
+        case 7:
+            return LevelImprovements.ImproveStat;
+        case 5:
+            return LevelImprovements.NewPower;
+        case 0:
+            return LevelImprovements.NewPowerOrImproveStat;
+        default:
+    }
+};
+
+export const getBaseCaptain = (): Character => ({
+    name: "",
+    stats: {
+        "Move": 6,
+        "Fight": 3,
+        "Shoot": 2,
+        "Armour": 9,
+        "Will": 3,
+        "Health": 16,
+    },
+    level: 15,
+    gearSlots: 6,
+    type: CharactersEnum.Captain,
+    powers: [],
+    gear: [],
+});
+
+export const getBaseFirstMate = (): Character => ({
+    name: "",
+    stats: {
+        "Move": 6,
+        "Fight": 2,
+        "Shoot": 2,
+        "Armour": 9,
+        "Will": 2,
+        "Health": 14,
+    },
+    level: 0,
+    gearSlots: 5,
+    type: CharactersEnum.FirstMate,
+    powers: [],
+    gear: [],
+});

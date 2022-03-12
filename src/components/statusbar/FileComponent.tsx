@@ -6,7 +6,7 @@ export const FileComponent = () => {
     return <div className="statusbar-tiles" onClick={() => history.push("/FileOperations")} title="Click to open dialog to save/load a crew">
         <img
             src={SaveIcon}
-            style={{ paddingLeft: "0.2rem" }}
+            style={{ paddingLeft: "0.2rem", placeSelf: "center" }}
             className="toolbar-icon"
             id={"SaveIcon"}
             alt={"SaveIcon"}>

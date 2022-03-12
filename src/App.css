@@ -1,6 +1,20 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 .app-body {
-  height: calc(100vh - 1.5rem);
-  width: calc(100vw - 1rem);
+  height: calc(100vh);
+  /* width: calc(100vw - 1rem); */
   font-family: Montserrat;
   position: relative;
 }
@@ -125,8 +139,6 @@
   border-radius: 0.25rem;
   padding: 0.2rem 0.4rem;
   margin-bottom: 0.15rem;
-  float: left;
-  width: calc(100vw - 2.1rem);
   font-size: 0.75rem;
 }
 
@@ -289,6 +301,122 @@
   margin-top: 1em;
 }
 
+.xp-btn {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.4rem 0.5rem;
+  border: 0.15rem solid;
+  border-radius: 0.25rem;
+  text-align: center;
+  bottom: 0rem;
+  margin: 0.2em 0rem;
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+
+.loot-btn {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.4rem 0.5rem;
+  border: 0.15rem solid;
+  border-radius: 0.25rem;
+  /* text-align: center; */
+  bottom: 0rem;
+  margin: 0.2em 0rem;
+  display: flex;
+  /* grid-template-columns: 50% 50%; */
+  flex-direction: column;
+}
+
+.pdf-xp-checkbox-container {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.4rem 0.5rem;
+  bottom: 0rem;
+  margin: 0.2em 0rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pdf-xp-checkbox {
+  border: 2px solid black;
+  width: 1rem;
+  margin: 0.2rem;
+  height: 1rem;
+  float: left;
+  line-height: 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.pdf-xp-total {
+  border: 2px solid black;
+  width: 22rem;
+  margin: 0.3rem;
+  height: 6rem;
+  float: left;
+}
+
+.pdf-switch {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 0.15rem solid;
+  border-radius: 0.25rem;
+  text-align: center;
+  bottom: 0rem;
+  margin: 0.2em 0rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.pdf-threeway-switch {
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  border: 0.15rem solid;
+  border-radius: 0.25rem;
+  text-align: center;
+  bottom: 0rem;
+  margin: 0.2em 0rem;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+.pdf-sub-switch {
+  padding: 0.4rem 0.5rem;
+}
+
+.injuries-btn {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.4rem 0.5rem;
+  border: 0.15rem solid;
+  border-radius: 0.25rem;
+  text-align: center;
+  bottom: 0rem;
+  margin: 0.2em 0rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.improvement-btn {
+  font-size: 1.0rem;
+  /* font-weight: bold; */
+  padding: 0.4rem 0.5rem;
+  border: 0.15rem solid;
+  border-radius: 0.25rem;
+  /* text-align: center; */
+  bottom: 0rem;
+  margin-top: 0.2em;
+  display: grid;
+  /* grid-template-columns: 75% 25%; */
+}
+
+.improvement-token {
+  padding: 0.4rem 0.5rem;
+  border: 0.15rem solid;
+  border-radius: 0.25rem;
+  margin: 0.2rem 0rem;
+}
+
 .carousel-btn {
   font-size: 1rem;
   background-color: rgb(225, 138, 7);
@@ -351,6 +479,16 @@
   float: left;
   font-size: 1rem;
   width: calc(100% - 0.95rem);
+}
+
+.loot-selection {
+  padding: 0.3rem;
+  border: 0.15rem solid;
+  margin: 0rem 0rem 0.4rem 0rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  font-size: 1rem;
+  width: 45%;
 }
 
 .selected {
@@ -416,7 +554,7 @@
   border: 2px solid #343434;
   z-index: 1;
   overflow-y: auto;
-  max-height: 200px;
+  /* max-height: 200px; */
 }
 
 .dropdown-input {
@@ -430,8 +568,9 @@
   border-radius: 0rem;
   border-bottom: 1px solid;
   width: calc(100% - 0.6rem);
+  padding: 1rem 0rem;
 }
-.gear-label-name {
+.emphasized {
   font-weight: bold;
 }
 
@@ -497,17 +636,13 @@
   padding-bottom: 1rem
 }
 
-.file-uploader {
-  display: grid;
-}
-
-.file-uploader-icon {
+.file-ops-icon {
   place-self: center;
-  width: 50%;
+  width: 30%;
 }
 
 .vertical-splitter {
-  height: 40%;
+  height: 30%;
 }
 
 .shipname-icon {
@@ -527,8 +662,8 @@
 }
 
 .pdf-container {
-  width: 21cm;
-  height: 29.7cm;
+  width: 29.7cm;
+  height: 21cm;
   margin: 10mm;
   padding: 10mm;
   font-family: sans-serif;
@@ -536,7 +671,20 @@
   position: absolute;
   top: -10000px;
 }
-
+.pdf-container-clone {
+  width: 29.7cm;
+  height: 21cm;
+  margin: 10mm;
+  padding: 10mm;
+  font-family: sans-serif;
+  font-size: 12px;
+  position: absolute;
+  top: -10000px;
+}
+.pdf-divider {
+  width: 50%;
+  float:left;
+}
 .medium-pdf-text {
   font-size: 0.9rem;
   font-weight: normal;
@@ -599,4 +747,77 @@
   background-color: rgb(150, 0, 0) !important;
   color: white;
   border-color: black;
+}
+
+.experience-label {
+  font-size: 1.5rem;
+  place-self: center;
+}
+.experience-input {
+  border-width: thin;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: calc(100% - 0.2rem);
+  font-family: Montserrat;
+  text-align: center;
+}
+
+.experience-input-error {
+  border-color: rgb(150, 0, 0) ;
+}
+
+
+.transaction-list {
+  font-size: 1.2rem;
+  /* font-weight: bold; */
+  padding: 0.4rem 0.5rem;
+  bottom: 0rem;
+  margin: 0.2em 0rem;
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+
+.transaction-sum {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.4rem 0.5rem;
+  border-top: 0.15rem solid;
+  text-align: center;
+  bottom: 0rem;
+  margin: 0.2em 0rem;
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+
+.power-card {
+  border: 0.05rem solid;
+  display: grid;
+  width: 21rem;
+  height: 14rem;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  text-align: center;
+  justify-self: center;
+  background: #fcfcfc;
+  float: left;
+}
+
+.power-card-header {
+  grid-area: 1 / 1;
+  align-self: end;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.power-card-second-header {
+  grid-area: 2 / 1;
+  align-self: start;
+  font-size: 0.87rem;
+}
+
+.power-card-text {
+  grid-area: 3 / 1;
+  align-self: start;
+  font-size: 0.78rem;
 }

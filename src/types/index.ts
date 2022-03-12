@@ -60,6 +60,7 @@ export interface Background {
 }
 
 export type Stats = { [key in StatsEnum]: number; };
+export type StatStrings = { [key in StatsEnum]: string; };
 export interface BackgroundMetadata {
     name: string;
     statModifications: {
@@ -117,7 +118,26 @@ export interface Gear extends ModifiedGear {
     maxRange?: string | number;
     armourModifier?: number;
 }
-
+export interface AdvancedWeapons extends ModifiedGear {
+    type: string;
+    notes?: string;
+    damageModifier?: number;
+    maxRange?: string | number;
+    armourModifier?: number;
+    cost: number;
+    sell: number;
+}
+export interface AdvancedTech extends ModifiedGear {
+    type: string;
+    notes?: string;
+    damageModifier?: number;
+    maxRange?: string | number;
+    armourModifier?: number;
+    cost: number;
+    sell: number;
+    shipGear?: boolean;
+    characterOnly?: boolean;
+}
 export interface Character {
     name: string;
     stats: Stats;
@@ -125,8 +145,10 @@ export interface Character {
     gearSlots: number;
     type: string;
     background?: string;
-    powers?: ModifiedPower[];
-    gear?: ModifiedGear[];
+    powers: ModifiedPower[];
+    gear: ModifiedGear[];
+    missNextGame?: boolean;
+    currentHealth?: number;
 }
 
 export interface Soldier {
@@ -137,6 +159,8 @@ export interface Soldier {
     gear: string[];
     group: SoldierGroups;
     amount: number;
+    id: number;
+    currentHealth?: number;
 }
 
 export interface SoldierMetadata {
@@ -153,19 +177,49 @@ export interface CharacterMetadata {
     gearSlots: number;
     type: string;
 }
-
+export interface Transaction {
+    credits: number;
+    sign: boolean;
+    record: string;
+}
 export interface CrewState {
     Credits: number;
-    Captain?: Character;
-    FirstMate?: Character;
+    Captain: Character;
+    FirstMate: Character;
     Soldiers: Soldier[];
     ShipName: string;
     Experience: number;
+    ExperienceRecords: number[];
+    CreditRecords: Transaction[];
+    ShipsHold: any[];
 }
 
 export const InitialCrewState: CrewState = {
     Credits: 400,
     Soldiers: [],
     ShipName: "",
+    Captain: { name: "", level: 15, stats: { Move: 6, Fight: 3, Shoot: 2, Will: 3, Armour: 9, Health: 16 }, gearSlots: 6, type: CharactersEnum.Captain, powers: [], gear: [] },
+    FirstMate: { name: "", level: 0, stats: { Move: 6, Fight: 2, Shoot: 2, Will: 2, Armour: 9, Health: 14 }, gearSlots: 5, type: CharactersEnum.FirstMate, powers: [], gear: [] },
     Experience: 0,
+    ExperienceRecords: [0],
+    CreditRecords: [{ credits: 400, sign: true, record: "Initial Crew Treasury" }],
+    ShipsHold: [],
 };
+
+export enum LevelImprovements {
+    LowerActivation = "Lower an Activation Number",
+    ImproveStat = "Improve a Stat",
+    NewPower = "Learn a new Power",
+    NewPowerOrImproveStat = "New Power or Improve Stat",
+}
+
+export interface LevelUpState {
+    captainLevels: number;
+    firstMateLevels: number;
+    choice?: LevelImprovements.NewPower | LevelImprovements.ImproveStat;
+}
+
+export interface DropdownOptions {
+    placeholder: string | Gear;
+    id: string;
+}

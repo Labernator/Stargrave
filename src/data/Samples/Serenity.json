@@ -1,5 +1,13 @@
 {
-    "Credits": 50,
+    "Credits": 150,
+    "Experience": 0,
+    "ExperienceRecords": [0],
+    "CreditRecords": [
+        { "credits": 400, "sign": true, "record": "Initial Crew Treasury" },
+        { "credits": 100, "sign": false, "record": "Hired 1 Sniper" },
+        { "credits": 75, "sign": false, "record": "Hired 1 Casecracker" },
+        { "credits": 75, "sign": false, "record": "Hired 1 CodeBreaker" }
+    ],
     "Soldiers": [
         {
             "type": "Sniper",
@@ -19,7 +27,8 @@
             ],
             "group": "Specialist",
             "amount": 1,
-            "gearSlots": 1
+            "gearSlots": 1,
+            "id": 1
         },
         {
             "type": "Codebreaker",
@@ -40,7 +49,8 @@
             ],
             "group": "Specialist",
             "amount": 1,
-            "gearSlots": 1
+            "gearSlots": 1,
+            "id": 1
         },
         {
             "type": "Casecracker",
@@ -61,47 +71,8 @@
             ],
             "group": "Specialist",
             "amount": 1,
-            "gearSlots": 1
-        },
-        {
-            "type": "Trooper",
-            "stats": {
-                "Move": 5,
-                "Fight": 2,
-                "Shoot": 3,
-                "Armour": 11,
-                "Will": 0,
-                "Health": 14
-            },
-            "cost": 50,
-            "gear": [
-                "Carbine",
-                "Heavy Armour",
-                "Knife"
-            ],
-            "group": "Standard",
-            "amount": 1,
-            "gearSlots": 1
-        },
-        {
-            "type": "Sentry",
-            "cost": 50,
-            "stats": {
-                "Move": 5,
-                "Fight": 3,
-                "Shoot": 2,
-                "Armour": 11,
-                "Will": 0,
-                "Health": 14
-            },
-            "gear": [
-                "Carbine",
-                "Heavy Armour",
-                "Hand Weapon"
-            ],
-            "group": "Standard",
-            "amount": 1,
-            "gearSlots": 1
+            "gearSlots": 1,
+            "id": 1
         },
         {
             "type": "Runner",
@@ -120,27 +91,8 @@
             ],
             "group": "Standard",
             "amount": 2,
-            "gearSlots": 1
-        },
-        {
-            "type": "Recruit",
-            "cost": 0,
-            "stats": {
-                "Move": 6,
-                "Fight": 2,
-                "Shoot": 2,
-                "Armour": 10,
-                "Will": 0,
-                "Health": 12
-            },
-            "gear": [
-                "Pistol",
-                "Light Armour",
-                "Knife"
-            ],
-            "group": "Standard",
-            "amount": 1,
-            "gearSlots": 1
+            "gearSlots": 1,
+            "id": 1
         }
     ],
     "ShipName": "Serenity",
