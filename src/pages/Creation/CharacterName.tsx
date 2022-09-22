@@ -28,7 +28,7 @@ export const CharacterNamePage = () => {
                     history.push("/CharacterBackground", characterType);
                 }
             }}
-            className={name ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}
+            className={name ? "page-btn selected" : "page-btn disabled"}
         >Confirm</button>
         <CustomBackButtonComponent dispatchFunction={() => dispatch({ type: SET_SHIPNAME, payload: "" })} />
     </React.Fragment>;

@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { CustomBackButtonComponent } from "../../components/common/CustomBackButton";
 import { CharacterStatsHeader } from "../../components/statusbar/CharacterStatsHeader";
 import { SET_CAPTAINS_POWERS, SET_CAPTAINS_STATS, SET_FIRSTMATE_POWERS, SET_FIRSTMATE_STATS } from "../../redux/actions";
-import { BackgroundEnum, CharactersEnum, CrewState, Power } from "../../types";
+import { BackgroundEnum, CharactersEnum, CrewState, ModifiedPower, Power } from "../../types";
 import { getBackgroundInfos, getBaseCaptain, getBaseFirstMate, getPowerInfos } from "../../Utils";
 
 export const CharacterPowerSelectionPage = () => {
@@ -84,11 +84,14 @@ export const CharacterPowerSelectionPage = () => {
                 <button
                     onClick={() => {
                         if (minPowersSelected()) {
-                            dispatch({ type: characterType === CharactersEnum.Captain ? SET_CAPTAINS_POWERS : SET_FIRSTMATE_POWERS, payload: selectedPowers.sort((a, b) => (a.name.localeCompare(b.name))) });
+                            dispatch({
+                                type: characterType === CharactersEnum.Captain ? SET_CAPTAINS_POWERS : SET_FIRSTMATE_POWERS,
+                                payload: selectedPowers.map((pow): ModifiedPower => ({ name: pow.name, activation: pow.activation })).sort((a, b) => (a.name.localeCompare(b.name))),
+                            });
                             history.push("/CharacterNonCorePowerSelection", characterType);
                         }
                     }}
-                    className={minPowersSelected() ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}
+                    className={minPowersSelected() ? "page-btn selected" : "page-btn disabled"}
                 >Confirm</button>
                 <CustomBackButtonComponent
                     dispatchFunction={() => characterType === CharactersEnum.Captain ? dispatch({ type: SET_CAPTAINS_STATS, payload: getBaseCaptain().stats }) : dispatch({ type: SET_FIRSTMATE_STATS, payload: getBaseFirstMate().stats })}

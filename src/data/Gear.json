@@ -59,33 +59,12 @@
             "gearSlots": 2
         },
         {
-            "name": "Shotgun",
-            "type": "Weapon",
-            "maxRange": 12,
-            "damageModifier": 1,
-            "gearSlots": 2
-        },
-        {
             "name": "Rapid Fire",
             "type": "Weapon",
             "maxRange": 24,
             "damageModifier": 2,
             "gearSlots": 3,
             "notes": "2 Targets, -1 Move unless wearing heavy or combat armour"
-        },
-        {
-            "name": "Fragmentation Grenade",
-            "type": "Weapon",
-            "maxRange": 6,
-            "gearSlots": 1,
-            "notes": "3” diameter damage"
-        },
-        {
-            "name": "Smoke Grenade",
-            "type": "Weapon",
-            "maxRange": 6,
-            "gearSlots": 1,
-            "notes": "4” diameter smoke"
         },
         {
             "name": "Grenade Launcher",
@@ -101,6 +80,20 @@
             "maxRange": "Template",
             "gearSlots": 2,
             "notes": "-1 Move unless wearing heavy or combat armour. Target Armour and cover modifiers"
+        },
+        {
+            "name": "Grenades",
+            "type": "Weapon",
+            "maxRange": 6,
+            "gearSlots": 1,
+            "notes": "Fragmentation and Smoke Grenades"
+        },
+        {
+            "name": "Shotgun",
+            "type": "Weapon",
+            "maxRange": 12,
+            "damageModifier": 1,
+            "gearSlots": 2
         },
         {
             "name": "No Armour",
@@ -138,196 +131,217 @@
     ],
     "advancedWeapons": [
         {
-            "name": "Stinging Hand Weapon",
+            "name": "Hand Weapon (+1 dmg)",
             "type": "Weapon",
             "damageModifier": 1,
             "maxRange": "Melee",
             "gearSlots": 1,
             "cost": 300,
-            "sell": 120
+            "sell": 120,
+            "equivalent": "Hand Weapon"
         },
         {
-            "name": "Balanced Hand Weapon",
+            "name": "Hand Weapon (+1 Fight)",
             "type": "Weapon",
             "maxRange": "Melee",
             "gearSlots": 1,
             "notes": "+1 Fight",
             "cost": 400,
-            "sell": 200
+            "sell": 200,
+            "equivalent": "Hand Weapon"
         },
         {
-            "name": "Compact Carbine",
+            "name": "Carbine (1 Slot)",
             "type": "Weapon",
             "maxRange": 24,
             "gearSlots": 1,
             "cost": 300,
-            "sell": 120
+            "sell": 120,
+            "equivalent": "Carbine"
         },
         {
-            "name": "Balanced Carbine",
+            "name": "Carbine (+1 Shoot)",
             "type": "Weapon",
             "maxRange": 24,
             "gearSlots": 2,
             "notes": "+1 Shoot",
             "cost": 500,
-            "sell": 250
+            "sell": 250,
+            "equivalent": "Carbine"
         },
         {
-            "name": "Stinging Carbine",
+            "name": "Carbine (+1 dmg)",
             "type": "Weapon",
             "maxRange": 24,
             "gearSlots": 2,
             "damageModifier": 1,
             "cost": 400,
-            "sell": 160
+            "sell": 160,
+            "equivalent": "Carbine"
         },
         {
-            "name": "Complete Carbine",
+            "name": "Carbine (1 Slot, +1 dmg, +1 Shoot)",
             "type": "Weapon",
             "maxRange": 24,
             "gearSlots": 1,
             "damageModifier": 1,
             "notes": "+1 Shoot",
             "cost": 1000,
-            "sell": 400
+            "sell": 400,
+            "equivalent": "Carbine"
         },
         {
-            "name": "Compact Stinging Carbine",
+            "name": "Carbine (+1 dmg, 1 slot)",
             "type": "Weapon",
             "maxRange": 24,
             "gearSlots": 1,
             "damageModifier": 1,
             "cost": 500,
-            "sell": 250
+            "sell": 250,
+            "equivalent": "Carbine"
         },
         {
-            "name": "Stinging Pistol",
+            "name": "Pistol (+1 dmg)",
             "type": "Weapon",
             "maxRange": 10,
             "gearSlots": 1,
             "damageModifier": 1,
             "cost": 250,
-            "sell": 100
+            "sell": 100,
+            "equivalent": "Pistol"
         },
         {
-            "name": "Balanced Pistol",
+            "name": "Pistol (+1 Shoot)",
             "type": "Weapon",
             "maxRange": 10,
             "gearSlots": 1,
             "notes": "+1 Shoot",
             "cost": 400,
-            "sell": 200
+            "sell": 200,
+            "equivalent": "Pistol"
         },
         {
-            "name": "Stretched Pistol",
+            "name": "Pistol (Range 14)",
             "type": "Weapon",
             "maxRange": 14,
             "gearSlots": 1,
             "cost": 200,
-            "sell": 80
+            "sell": 80,
+            "equivalent": "Pistol"
         },
         {
-            "name": "Stretched Stinging Pistol",
+            "name": "Pistol (+1 dmg, Range 14)",
             "type": "Weapon",
             "maxRange": 14,
             "gearSlots": 1,
             "damageModifier": 1,
             "cost": 400,
-            "sell": 80
+            "sell": 80,
+            "equivalent": "Pistol"
         },
         {
-            "name": "Balanced Pistol",
+            "name": "Pistol (Range 14, +1 Shoot)",
             "type": "Weapon",
             "maxRange": 14,
             "gearSlots": 1,
             "notes": "+1 Shoot",
             "cost": 400,
-            "sell": 200
+            "sell": 200,
+            "equivalent": "Pistol"
         },
         {
-            "name": "Stretched Shotgun",
+            "name": "Shotgun (Range 16)",
             "type": "Weapon",
             "maxRange": 16,
             "damageModifier": 1,
             "gearSlots": 2,
             "cost": 250,
-            "sell": 120
+            "sell": 120,
+            "equivalent": "Shotgun"
         },
         {
-            "name": "Balanced Shotgun",
+            "name": "Shotgun (+1 Shoot)",
             "type": "Weapon",
             "maxRange": 12,
             "damageModifier": 1,
             "notes": "+1 Shoot",
             "gearSlots": 2,
             "cost": 500,
-            "sell": 250
+            "sell": 250,
+            "equivalent": "Shotgun"
         },
         {
-            "name": "Compact Shotgun",
+            "name": "Shotgun (1 Slot)",
             "type": "Weapon",
             "maxRange": 12,
             "damageModifier": 1,
             "gearSlots": 1,
             "cost": 300,
-            "sell": 150
+            "sell": 150,
+            "equivalent": "Shotgun"
         },
         {
-            "name": "Stinging Shotgun",
+            "name": "Shotgun (+2 dmg)",
             "type": "Weapon",
             "maxRange": 12,
             "damageModifier": 2,
             "gearSlots": 2,
             "cost": 300,
-            "sell": 150
+            "sell": 150,
+            "equivalent": "Shotgun"
         },
         {
-            "name": "Compact Rapid Fire",
+            "name": "Rapid Fire (2 Slots)",
             "type": "Weapon",
             "maxRange": 24,
             "damageModifier": 2,
             "gearSlots": 2,
             "notes": "2 Targets, -1 Move unless wearing heavy or combat armour",
             "cost": 400,
-            "sell": 160
+            "sell": 160,
+            "equivalent": "Rapid Fire"
         },
         {
-            "name": "Stinging Rapid Fire",
+            "name": "Rapid Fire (+3 dmg)",
             "type": "Weapon",
             "maxRange": 24,
             "damageModifier": 3,
             "gearSlots": 3,
             "notes": "2 Targets, -1 Move unless wearing heavy or combat armour",
             "cost": 600,
-            "sell": 300
+            "sell": 300,
+            "equivalent": "Rapid Fire"
         },
         {
-            "name": "Stinging Fragmentation Grenade",
+            "name": "Advanced Grenades (+1 dmg)",
             "type": "Weapon",
             "maxRange": 6,
             "damageModifier": 1,
             "gearSlots": 1,
             "notes": "3” diameter damage",
             "cost": 400,
-            "sell": 160
+            "sell": 160,
+            "equivalent": "Grenades"
         },
         {
-            "name": "Balanced Grenade Launcher",
+            "name": "Grenade Launcher (+0 Shoot)",
             "type": "Weapon",
             "maxRange": 16,
             "gearSlots": 3,
             "cost": 400,
-            "sell": 160
+            "sell": 160,
+            "equivalent": "Grenade Launcher"
         },
         {
-            "name": "Stinging Flamethrower",
+            "name": "Flamethrower (+3 dmg)",
             "type": "Weapon",
             "damageModifier": 3,
             "maxRange": "Template",
             "gearSlots": 2,
             "notes": "-1 Move unless wearing heavy or combat armour. Target Armour and cover modifiers",
             "cost": 500,
-            "sell": 200
+            "sell": 200,
+            "equivalent": "Flamethrower"
         }
     ],
     "advancedTech": [
@@ -337,7 +351,8 @@
             "gearSlots": 1,
             "notes": "+8 to unlock data-loot",
             "cost": 160,
-            "sell": 100
+            "sell": 100,
+            "list": 1
         },
         {
             "name": "Advanced Picks",
@@ -345,7 +360,8 @@
             "gearSlots": 1,
             "notes": "+8 to unlock  physical-loot",
             "cost": 160,
-            "sell": 100
+            "sell": 100,
+            "list": 1
         },
         {
             "name": "Integrated Filter Mask",
@@ -353,7 +369,8 @@
             "gearSlots": 0,
             "notes": "Never affected by gases or low oxygen levels",
             "cost": 160,
-            "sell": 100
+            "sell": 100,
+            "list": 1
         },
         {
             "name": "Nano-surgery Kit",
@@ -362,7 +379,8 @@
             "notes": "Like Medic Kit but additionally heals 1 HP",
             "completeNotes": "Spend an action to attend to any figure within 2”, provided neither figure is in combat. This action may replace the move action. The recipient figure is immediately cured of any toxins, recovers from stun and is not longer treated as wounded. Has no effect on robots. There is no limit to how often this can be used.",
             "cost": 300,
-            "sell": 120
+            "sell": 120,
+            "list": 1
         },
         {
             "name": "Light Energy Armour",
@@ -371,7 +389,9 @@
             "armourModifier": 1,
             "notes": "+1 Fight against Shooting attacks",
             "cost": 300,
-            "sell": 120
+            "sell": 120,
+            "list": 1,
+            "equivalent": "Light Armour"
         },
         {
             "name": "Heavy Energy Armour",
@@ -380,7 +400,9 @@
             "armourModifier": 2,
             "notes": "-1 Move, +1 Fight against Shooting attacks",
             "cost": 400,
-            "sell": 160
+            "sell": 160,
+            "list": 1,
+            "equivalent": "Heavy Armour"
         },
         {
             "name": "AWS Combat Armour",
@@ -389,7 +411,9 @@
             "armourModifier": 4,
             "notes": "75cr upkeep fee. Includes hand weapon, shotgun and filter mask.",
             "cost": 800,
-            "sell": 300
+            "sell": 300,
+            "list": 1,
+            "equivalent": "Combat Armour"
         },
         {
             "name": "Energy Shield",
@@ -398,16 +422,19 @@
             "armourModifier": 1,
             "notes": "+1 Fight against Shooting attacks (does not stack with energy armour)",
             "cost": 400,
-            "sell": 160
+            "sell": 160,
+            "list": 1,
+            "equivalent": "Shield"
         },
         {
             "name": "Combat Drugs (2)",
-            "type": "Misc",
+            "type": "Equipment",
             "gearSlots": 0,
             "notes": "Cannot be used by robots. Figure gains +1 Fight (not above +6) -1 Will for the next game",
             "cost": 100,
             "sell": 50,
-            "shipGear": true
+            "shipGear": true,
+            "list": 1
         },
         {
             "name": "Pain-masker",
@@ -415,7 +442,8 @@
             "gearSlots": 1,
             "notes": "Regain 4 Health. Takes up no gear slot if carried alongside a Medic Kit or Nano-Surgery Kit",
             "cost": 150,
-            "sell": 75
+            "sell": 75,
+            "list": 1
         },
         {
             "name": "Gravity Suppressor",
@@ -423,7 +451,8 @@
             "gearSlots": 1,
             "notes": "Never takes falling damage",
             "cost": 500,
-            "sell": 200
+            "sell": 200,
+            "list": 1
         },
         {
             "name": "Jump Pack",
@@ -431,16 +460,18 @@
             "gearSlots": 1,
             "notes": "Once per game, the wearer may make a move ignoring movement penalties for rough ground, climbing or carrying physical loot.",
             "cost": 500,
-            "sell": 200
+            "sell": 200,
+            "list": 1
         },
         {
             "name": "Improved Drone",
-            "type": "Misc",
+            "type": "Equipment",
             "gearSlots": 0,
             "notes": "Once per game, if a figure in the crew activates the Drone power, their Drone has +1 Fight and +1 Move. If the drone is reduced to 0 Health, roll a D20. On 1-4 the device is destroyed.",
             "cost": 500,
             "sell": 250,
-            "shipGear": true
+            "shipGear": true,
+            "list": 1
         },
         {
             "name": "Holographic Projector",
@@ -448,7 +479,9 @@
             "gearSlots": 1,
             "notes": "Wearer gains +1 to their Activation Roll for 'Holographic Wall'",
             "cost": 400,
-            "sell": 100
+            "sell": 100,
+            "list": 1,
+            "characterOnly": true
         },
         {
             "name": "Surge Battery",
@@ -456,7 +489,9 @@
             "gearSlots": 1,
             "notes": "Once per game, reduce the Strain of the 'Power Spike' power to 0.",
             "cost": 400,
-            "sell": 100
+            "sell": 100,
+            "list": 1,
+            "characterOnly": true
         },
         {
             "name": "Robot Repair Kit",
@@ -464,7 +499,9 @@
             "gearSlots": 1,
             "notes": "May spend one action to restore 2 Health to any Robot within 1” (both figures are not in combat!). Additionally when using the 'Repair Robot' power, it restores 6 Health (instead of 5)",
             "cost": 300,
-            "sell": 100
+            "sell": 100,
+            "list": 1,
+            "characterOnly": true
         },
         {
             "name": "Light Fragmentation Armour",
@@ -473,7 +510,9 @@
             "gearSlots": 1,
             "notes": "The figure gets +1 Armour against Fragmentation grenade attacks",
             "cost": 500,
-            "sell": 250
+            "sell": 250,
+            "list": 1,
+            "equivalent": "Light Armour"
         },
         {
             "name": "Heavy Fragmentation Armour",
@@ -482,24 +521,28 @@
             "gearSlots": 1,
             "notes": "The figure gets +1 Armour against Fragmentation grenade attacks. -1 Move",
             "cost": 500,
-            "sell": 250
+            "sell": 250,
+            "list": 1,
+            "equivalent": "Heavy Armour"
         },
         {
             "name": "Grapplewire",
             "type": "Equipment",
-            "gearSlots": 0,
+            "gearSlots": 1,
             "notes": "Once per game, this figure may force combat with another figure within 3”.",
             "cost": 300,
-            "sell": 150
+            "sell": 150,
+            "list": 1
         },
         {
             "name": "Anti-toxin (2)",
             "type": "Equipment",
-            "gearSlots": 0,
+            "gearSlots": 1,
             "notes": "The figure is cured of all toxins and poisons",
             "completeNotes": "Used as free action on self or used an action to attend to a figure within 1”. The figure is cured of all toxins and poisons.",
             "cost": 200,
-            "sell": 100
+            "sell": 100,
+            "list": 1
         },
         {
             "name": "Psychic Shield",
@@ -507,7 +550,8 @@
             "gearSlots": 1,
             "notes": "Immune to 'Suggestion' power.",
             "cost": 400,
-            "sell": 150
+            "sell": 150,
+            "list": 1
         },
         {
             "name": "Plasmablaster",
@@ -515,7 +559,8 @@
             "gearSlots": 1,
             "notes": "Once per game, the wearer may make a flamethrower attack.",
             "cost": 300,
-            "sell": 150
+            "sell": 150,
+            "list": 2
         },
         {
             "name": "Neural Chip",
@@ -523,7 +568,8 @@
             "gearSlots": 1,
             "notes": "Gain +1 Will.",
             "cost": 350,
-            "sell": 150
+            "sell": 150,
+            "list": 2
         },
         {
             "name": "Anti-Gravity Patch (3)",
@@ -531,7 +577,8 @@
             "gearSlots": 1,
             "notes": "Use on a physical-loot token within 1”. This token no longer causes movement penalties",
             "cost": 350,
-            "sell": 150
+            "sell": 150,
+            "list": 2
         },
         {
             "name": "Weapon Cage",
@@ -539,7 +586,8 @@
             "gearSlots": 0,
             "notes": "Attach to any weapon. It becomes indestructible.",
             "cost": 200,
-            "sell": 150
+            "sell": 150,
+            "list": 2
         },
         {
             "name": "Extended Magazine",
@@ -547,7 +595,8 @@
             "gearSlots": 1,
             "notes": "Does not suffer the Weapon Jam penalty for the first 1 rolled for a shooting attack per game.",
             "cost": 300,
-            "sell": 200
+            "sell": 200,
+            "list": 2
         },
         {
             "name": "Robot Antenna",
@@ -555,7 +604,9 @@
             "gearSlots": 1,
             "notes": "Once per game, add +1 to the activation roll of 'Remote Guidance' or 'Remote Firing'.",
             "cost": 400,
-            "sell": 150
+            "sell": 150,
+            "list": 2,
+            "characterOnly": true
         },
         {
             "name": "Jet Boots",
@@ -563,7 +614,8 @@
             "gearSlots": 1,
             "notes": "Once per game, the wearer may add +3 move for one activation or +10 to a move stat roll (may be made after the stat roll is made).",
             "cost": 300,
-            "sell": 120
+            "sell": 120,
+            "list": 2
         },
         {
             "name": "Gill Suit",
@@ -571,7 +623,8 @@
             "gearSlots": 1,
             "notes": "Gain the 'Amphibious' attribute",
             "cost": 300,
-            "sell": 120
+            "sell": 120,
+            "list": 2
         },
         {
             "name": "Liftgloves",
@@ -579,7 +632,8 @@
             "gearSlots": 1,
             "notes": "Add +8 to a Fight stat roll that has a target number (not a combat roll).",
             "cost": 300,
-            "sell": 120
+            "sell": 120,
+            "list": 2
         },
         {
             "name": "Hardsuit",
@@ -587,7 +641,8 @@
             "gearSlots": 1,
             "notes": "Only becomes stunned if takes 6 damage from shooting attacks instead of 4.",
             "cost": 400,
-            "sell": 200
+            "sell": 200,
+            "list": 2
         },
         {
             "name": "Pulse Disperser",
@@ -595,7 +650,9 @@
             "gearSlots": 1,
             "notes": "Once per game, for 'Electromagnetic Pulse' power reduce the Strain to 0.",
             "cost": 500,
-            "sell": 200
+            "sell": 200,
+            "list": 2,
+            "characterOnly": true
         },
         {
             "name": "Neutron Polarity Reverser",
@@ -604,7 +661,8 @@
             "notes": "May use 'Cancel Power' power even if it is not possessed by the character. Roll for activation as normal, using based activation number, adding the figures Will stat to the roll. May not Exert to use this power. On a natural 1, the device is destroyed.",
             "cost": 1000,
             "sell": 250,
-            "characterOnly": true
+            "characterOnly": true,
+            "list": 2
         },
         {
             "name": "Hotshift Pack",
@@ -612,7 +670,8 @@
             "gearSlots": 1,
             "notes": "Once per game, when making a shooting attack with a pistol, carbine or shotgun, the wearer may take two shots at two different targets (with one action). The weapon used with this ability cannot be fired again in the same game. On a shooting roll of 1, the device is destroyed.",
             "cost": 400,
-            "sell": 200
+            "sell": 200,
+            "list": 2
         },
         {
             "name": "Grapplegun",
@@ -620,7 +679,8 @@
             "gearSlots": 1,
             "notes": "Spend an action when standing next to a wall. Make a Shoot Roll (TN10). If successful, the figure immdediately climbs 8” straight up as a free action.",
             "cost": 500,
-            "sell": 250
+            "sell": 250,
+            "list": 2
         },
         {
             "name": "Robot Scrambler",
@@ -628,7 +688,8 @@
             "gearSlots": 1,
             "notes": "When winning a round of hand-to-hand combat with a robot, you may choose to not inflict damage, but use this device instead. The robot immediately makes Will Roll (TN20). If failed, the robot is removed as a casualty (but does not have to make a Survival Roll after the game).",
             "cost": 300,
-            "sell": 150
+            "sell": 150,
+            "list": 2
         },
         {
             "name": "Swiftsuit",
@@ -636,7 +697,8 @@
             "gearSlots": 1,
             "notes": "Gain +1 Move (may not take the figure above Move 7).",
             "cost": 500,
-            "sell": 250
+            "sell": 250,
+            "list": 2
         },
         {
             "name": "Ablative Armour Plates",
@@ -644,7 +706,8 @@
             "gearSlots": 1,
             "notes": "Absorbs the first 2 points of Damage this figure takes from external sources. After 2 points of Damage, this gear is destroyed.",
             "cost": 200,
-            "sell": 150
+            "sell": 150,
+            "list": 2
         },
         {
             "name": "Data Virus",
@@ -652,7 +715,8 @@
             "gearSlots": 1,
             "notes": "One use only (destroyed afterwards). Encrypt any data-token on the table. It now requires a Will Roll (TN26) to unlock.",
             "cost": 300,
-            "sell": 100
+            "sell": 100,
+            "list": 2
         },
         {
             "name": "Power Selector",
@@ -660,7 +724,8 @@
             "gearSlots": 1,
             "notes": "When making a shooting attack with a pistol, carbine or shotgun, the wearer may decide to gain -1 Shoot in order to gain +2 Damage. If activated, the device is destroyed a shoot roll of 1.",
             "cost": 300,
-            "sell": 125
+            "sell": 125,
+            "list": 2
         },
         {
             "name": "Pistol Belt",
@@ -668,168 +733,190 @@
             "gearSlots": 1,
             "notes": "The Figure may wear 2 Pistols at the same time using only one gear slot. Does not suffer the Weapon Jam penalty for the first 1 rolled for a Pistol shooting attack per game.",
             "cost": 300,
-            "sell": 125
+            "sell": 125,
+            "list": 2
         }
     ],
-    "alienTech": [{
-        "name": "Micro Transporter",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Target figures for power 'Bait and Switch' must make a Will Roll (TN16) instead of (TN14) to resist.",
-        "cost": 1000,
-        "sell": 300
-    },
-    {
-        "name": "Pickcaster",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, gain +2 on the activation roll for the 'Break Lock' power.",
-        "cost": 600,
-        "sell": 200
-    },
-    {
-        "name": "Mindshackles",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, target figures for power 'Animal Control' must make a Will Roll (TN22) instead of (TN16) to resist.",
-        "cost": 600,
-        "sell": 200
-    },
-    {
-        "name": "Dark Energy Crystal",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Reduce the Strain of the 'Dark Energy' power to 0.",
-        "cost": 800,
-        "sell": 250
-    },
-    {
-        "name": "Data Worm",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, reduce the Strain 'Data Jump', 'Data Knock' or 'Data Skip' to 0.",
-        "cost": 1000,
-        "sell": 400
-    },
-    {
-        "name": "Enhanced Energy Shield",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "For the first per game if the power 'Energy Shield' is activated, the shield absorbs 4 instead of 3 damage.",
-        "cost": 800,
-        "sell": 250
-    },
-    {
-        "name": "Robolock",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, reduce the Strain 'Data Jump', 'Data Knock' or 'Data Skip' to 0.",
-        "cost": 600,
-        "sell": 200
-    },
-    {
-        "name": "Sensory Tendrils",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, choose to either gain +2 on the activation roll for the 'Target Lock' power, or reduce its Strain to 0.",
-        "cost": 500,
-        "sell": 200
-    },
-    {
-        "name": "Binding Talisman",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, reduce the Strain 'Data Jump', 'Data Knock' or 'Data Skip' to 0.",
-        "cost": 600,
-        "sell": 300
-    },
-    {
-        "name": "Psychic Resonator",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, reduce the Strain 'Data Jump', 'Data Knock' or 'Data Skip' to 0.",
-        "cost": 800,
-        "sell": 300
-    },
-    {
-        "name": "Flicker Light",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, reduce the Strain 'Data Jump', 'Data Knock' or 'Data Skip' to 0.",
-        "cost": 600,
-        "sell": 300
-    },
-    {
-        "name": "Mindspike",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, reduce the Strain 'Data Jump', 'Data Knock' or 'Data Skip' to 0.",
-        "cost": 800,
-        "sell": 300
-    },
-    {
-        "name": "Phase Manipulator",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, reduce the Strain 'Data Jump', 'Data Knock' or 'Data Skip' to 0.",
-        "cost": 600,
-        "sell": 250
-    },
-    {
-        "name": "Focalizing Crystal",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, reduce the Strain 'Data Jump', 'Data Knock' or 'Data Skip' to 0.",
-        "cost": 750,
-        "sell": 200
-    },
-    {
-        "name": "Garkon Tick",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, reduce the Strain 'Data Jump', 'Data Knock' or 'Data Skip' to 0.",
-        "cost": 600,
-        "sell": 200
-    },
-    {
-        "name": "Reality Distorter",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, the wearer may attempt the 'Cancel Power' power as a free action.",
-        "cost": 650,
-        "sell": 250
-    },
-    {
-        "name": "Razor Derringer",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, choose to either gain +2 on the activation roll for the 'Concealed Firearm' power, or increase the attack generated to +6.",
-        "cost": 800,
-        "sell": 350
-    },
-    {
-        "name": "Hearthrike",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Does not suffer Armour Interference penalties while wearing light armour.",
-        "cost": 1000,
-        "sell": 300
-    },
-    {
-        "name": "Blessed Horthath",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, gain +2 on the activation roll for the 'Fortune' power.",
-        "cost": 600,
-        "sell": 350
-    },
-    {
-        "name": "Cursed Idress",
-        "type": "Equipment",
-        "gearSlots": 1,
-        "notes": "Once per game, choose to either gain +2 on the activation roll for the 'Puppet Master' power, or reduce its Strain to 1.",
-        "cost": 800,
-        "sell": 200
-    }
-]
+    "alienTech": [
+        {
+            "name": "Micro Transporter",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Target figures for power 'Bait and Switch' must make a Will Roll (TN16) instead of (TN14) to resist.",
+            "cost": 1000,
+            "sell": 300,
+            "characterOnly": true
+        },
+        {
+            "name": "Pickcaster",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, gain +2 on the activation roll for the 'Break Lock' power.",
+            "cost": 600,
+            "sell": 200,
+            "characterOnly": true
+        },
+        {
+            "name": "Mindshackles",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, target figures for power 'Animal Control' must make a Will Roll (TN22) instead of (TN16) to resist.",
+            "cost": 600,
+            "sell": 200,
+            "characterOnly": true
+        },
+        {
+            "name": "Dark Energy Crystal",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Reduce the Strain of the 'Dark Energy' power to 0.",
+            "cost": 800,
+            "sell": 250,
+            "characterOnly": true
+        },
+        {
+            "name": "Data Worm",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, reduce the Strain 'Data Jump', 'Data Knock' or 'Data Skip' to 0.",
+            "cost": 1000,
+            "sell": 400,
+            "characterOnly": true
+        },
+        {
+            "name": "Enhanced Energy Shield",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "For the first per game if the power 'Energy Shield' is activated, the shield absorbs 4 instead of 3 damage.",
+            "cost": 800,
+            "sell": 250,
+            "characterOnly": true
+        },
+        {
+            "name": "Robolock",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, target figures for power 'Control Robot' must make a Will Roll (TN22) instead of (TN15) to resist for the first roll. In subsequent turns, the roll is (TN15) again.",
+            "cost": 600,
+            "sell": 200,
+            "characterOnly": true
+        },
+        {
+            "name": "Sensory Tendrils",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, choose to either gain +2 on the activation roll for the 'Target Lock' power, or reduce its Strain to 0.",
+            "cost": 500,
+            "sell": 200,
+            "characterOnly": true
+        },
+        {
+            "name": "Binding Talisman",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, choose to either gain +2 on the activation roll for the 'Heal' power, or the power heals up to 7 lost points of Health.",
+            "cost": 600,
+            "sell": 300,
+            "characterOnly": true
+        },
+        {
+            "name": "Psychic Resonator",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, choose to either gain +2 on the activation roll for the 'Psychic Shield' power, or reduce its Strain to 1.",
+            "cost": 800,
+            "sell": 300,
+            "characterOnly": true
+        },
+        {
+            "name": "Flicker Light",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, choose to either gain +2 on the activation roll for the 'Quick Step' power, or reduce its Strain to 0.",
+            "cost": 600,
+            "sell": 300,
+            "characterOnly": true
+        },
+        {
+            "name": "Mindspike",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, after activating the 'Suggestion' power, you may increase the Will Roll to resist to (TN18).",
+            "cost": 800,
+            "sell": 300,
+            "characterOnly": true
+        },
+        {
+            "name": "Phase Manipulator",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, choose to either gain +2 on the activation roll for the 'Transport' power, or reduce its Strain to 0.",
+            "cost": 600,
+            "sell": 250,
+            "characterOnly": true
+        },
+        {
+            "name": "Focalizing Crystal",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, the wearer may activate the 'Void Blade' power without having to make an activation roll (no experience is gained thi way).",
+            "cost": 750,
+            "sell": 200,
+            "characterOnly": true
+        },
+        {
+            "name": "Garkon Tick",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, choose to either gain +2 on the activation roll for the 'Adrenalin Surge' power, or reduce its Strain to 1.",
+            "cost": 600,
+            "sell": 200,
+            "characterOnly": true
+        },
+        {
+            "name": "Reality Distorter",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, the wearer may attempt the 'Cancel Power' power as a free action.",
+            "cost": 650,
+            "sell": 250,
+            "characterOnly": true
+        },
+        {
+            "name": "Razor Derringer",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, choose to either gain +2 on the activation roll for the 'Concealed Firearm' power, or increase the attack generated to +6.",
+            "cost": 800,
+            "sell": 350,
+            "characterOnly": true
+        },
+        {
+            "name": "Hearthrike",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Does not suffer Armour Interference penalties while wearing light armour.",
+            "cost": 1000,
+            "sell": 300,
+            "characterOnly": true
+        },
+        {
+            "name": "Blessed Horthath",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, gain +2 on the activation roll for the 'Fortune' power.",
+            "cost": 600,
+            "sell": 350,
+            "characterOnly": true
+        },
+        {
+            "name": "Cursed Idress",
+            "type": "Equipment",
+            "gearSlots": 1,
+            "notes": "Once per game, choose to either gain +2 on the activation roll for the 'Puppet Master' power, or reduce its Strain to 1.",
+            "cost": 800,
+            "sell": 200,
+            "characterOnly": true
+        }
+    ]
 }

@@ -10,6 +10,6 @@ export const CustomBackButtonComponent = ({ dispatchFunction, customHistory }: {
             event.preventDefault();
             event.stopPropagation();
         }}
-        className={"dialog-btn back-btn"}
+        className={"page-btn"}
     >Back</button>;
 };

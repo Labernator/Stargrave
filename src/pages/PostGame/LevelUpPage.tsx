@@ -183,7 +183,7 @@ export const LevelUpCharacterPage = ({ isCaptainCharacter, pageState }: { isCapt
                 if (isCaptainCharacter && pageState.firstMateLevels) {
                     history.push("/LevelUpFirstMate", pageState);
                 } else {
-                    history.push("/LootDeclaration");
+                    history.push("/PhysicalLootDeclaration");
                 }
             }}
             className={allDoneFn() ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}

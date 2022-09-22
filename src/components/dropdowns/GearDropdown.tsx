@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { DropdownOptions, Gear, ModifiedGear } from "../../types";
 import { useComponentVisible } from "../../UseComponentVisible";
-import { getActualNotes, getDamageModifierString, getGeneralGearDetails } from "../../Utils";
+import { getActualNotes, getDamageModifierString } from "../../Utils";
+import { FlexContainer } from "../Containers";
 
 const GearLabel = ({ gear, gearList }: { gear: Gear; gearList: Array<ModifiedGear | string> }) =>
     <React.Fragment>
-        <div className="emphasized">{`${gear.name} ( ${gear.gearSlots} )`} </div>
+        <FlexContainer firstItem={gear.name} secondItem={`(${gear.gearSlots})`} />
         {gear.type === "Weapon" ? <div style={{ fontSize: "0.65rem" }}>
             {gear.maxRange === "Melee" || gear.maxRange === "Template" ? gear.maxRange : `Range: ${gear.maxRange}`} / {`${getDamageModifierString(gear)} dmg`}</div > :
             gear.type === "Armour" ? <div style={{ fontSize: "0.65rem" }}> {`+${gear.armourModifier || 0} Armour ${getActualNotes(gearList, gear) ? "/" : ""} ${getActualNotes(gearList, gear)}`}</div> : null}
@@ -13,10 +14,13 @@ const GearLabel = ({ gear, gearList }: { gear: Gear; gearList: Array<ModifiedGea
     </React.Fragment>;
 
 export const GearDropDown = ({ list, dropdownOptions, callbackFn }: { list: Gear[]; dropdownOptions: DropdownOptions; callbackFn(item: string): void }) => {
-    const [selectedItem, setSelectedItem] = useState<Gear>(getGeneralGearDetails(dropdownOptions.placeholder));
+    const [selectedItem, setSelectedItem] = useState<Gear>(dropdownOptions.placeholder);
     const getCssProps = () => {
         const position = document.getElementById(`dropdown-container-${dropdownOptions.id}`)?.getBoundingClientRect();
-        return { top: (position?.top || 0) + 42, left: (position?.left || 0), width: (position?.width || 0) };
+        if (position) {
+            return { top: (position.top || 0) + 42, left: (position.left || 0), width: (position.width - 5 || 0) };
+        }
+        return { top: 42, left: 0, width: 0 };
     };
     const renderGearList = () => list.filter((item: Gear) => (item.name !== selectedItem.name)).map((listItem) =>
         <div key={`dropdown-list-item-${dropdownOptions.id}-${listItem.name}`}
@@ -36,7 +40,7 @@ export const GearDropDown = ({ list, dropdownOptions, callbackFn }: { list: Gear
             className="gear-selection selected dropdown-input"
             onClick={openMenu}
             id={`dropdown-container-${dropdownOptions.id}`}>
-            <GearLabel gear={getGeneralGearDetails(dropdownOptions.placeholder)} gearList={list} />
+            <GearLabel gear={dropdownOptions.placeholder} gearList={list} />
         </div>
         <div ref={ref}>
             {isComponentVisible ?

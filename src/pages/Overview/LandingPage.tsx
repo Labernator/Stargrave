@@ -10,7 +10,7 @@ export const LandingPage = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    return <div className="landing-page ">
+    return <div className="flex-container" >
         <div className="chapter-header">Stargrave Crew Configuration</div>
         <div
             className="landing-page-tile"
@@ -18,18 +18,18 @@ export const LandingPage = () => {
                 dispatch({ type: SET_CREW, payload: InitialCrewState });
                 history.push("/ShipName");
             }}>
+            <div className="transaction-tile-header">Create new crew</div>
+            <img alt="CreateWarband" style={{ width: "35%" }} src={CreateCrewIcon} />
 
-            <img alt="CreateWarband" className="landing-page-icon" src={CreateCrewIcon} />
-            <div className="landing-page-header">Create new crew</div>
         </div>
         <div
             className="landing-page-tile"
             onClick={() => {
                 history.push("/FileSystem");
             }}>
+            <div className="transaction-tile-header">Load existing crew from file or local storage</div>
+            <img alt="SampleWarband" style={{ width: "35%" }} src={ImportCrewIcon} />
 
-            <img alt="SampleWarband" className="landing-page-icon" src={ImportCrewIcon} />
-            <div className="landing-page-header">Load existing crew from file or local storage</div>
         </div>
         <div
             className="landing-page-tile"
@@ -37,9 +37,9 @@ export const LandingPage = () => {
                 dispatch({ type: SET_CREW, payload: (Crew as any).default as CrewState });
                 history.push("/CrewOverview");
             }}>
+            <div className="transaction-tile-header">Load the sample crew of the Serenity</div>
+            <img alt="SampleWarband" style={{ width: "35%" }} src={UseSampleIcon} />
 
-            <img alt="SampleWarband" className="landing-page-icon" src={UseSampleIcon} />
-            <div className="landing-page-header">Load the sample crew of the Serenity</div>
         </div>
     </div >;
 };

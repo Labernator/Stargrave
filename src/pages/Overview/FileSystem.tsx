@@ -19,9 +19,8 @@ export const FileSystemPage = () => {
     const getStorageTable = () => {
         const myStorage: string[] = Object.values(localStorage);
         return <table className="storage-table">
-            <caption>Local storage</caption>
             <thead>
-                <tr><td>Ship name</td><td>Captains name</td><td>Captains level</td><td>Credits</td></tr>
+                <tr><td>Ship name</td><td>Captains name</td><td>Levels</td><td>Credits</td></tr>
             </thead>
             <tbody>
                 {myStorage.length > 0 ?
@@ -39,8 +38,8 @@ export const FileSystemPage = () => {
             </tbody>
         </table>;
     };
-    return <React.Fragment>
-        <label htmlFor="file-uploader" style={{ float: "left", width: "100%", marginBottom: "1rem", display: "grid" }}>
+    return <div className="flex-container">
+        <label htmlFor="file-uploader" className="flex-container">
             <input
                 id="file-uploader"
                 type="file"
@@ -55,8 +54,9 @@ export const FileSystemPage = () => {
                     reader.readAsText((document.querySelector("#file-uploader") as HTMLInputElement)?.files?.item(0) as File);
                 }}
             />
-            <button className="dialog-btn" onClick={() => document.getElementById("file-uploader")?.click()}>Load crew from file</button>
+            <button className="page-btn" onClick={() => document.getElementById("file-uploader")?.click()}>Load crew from file</button>
         </label>
+        <div className="chapter-header">Local Storage</div>
         <div>Click on any entry in the local storage list and confirm your choice with the button below. </div>
         {getStorageTable()}
         <button
@@ -66,8 +66,7 @@ export const FileSystemPage = () => {
                 event.preventDefault();
                 event.stopPropagation();
             }}
-            className={selectedStorage !== undefined ? "dialog-btn" : "dialog-btn disabled"}
-            style={{ float: "left", width: "45%" }}
+            className={selectedStorage !== undefined ? "page-btn selected" : "page-btn disabled"}
         >Load crew</button>
         <button
             onClick={(event) => {
@@ -79,8 +78,7 @@ export const FileSystemPage = () => {
                     setSelectedStorage(undefined);
                 }
             }}
-            className={selectedStorage !== undefined ? "dialog-btn dialog-btn-danger" : "dialog-btn disabled"}
-            style={{ float: "right", width: "45%" }}
+            className={selectedStorage !== undefined ? "page-btn dialog-btn-danger" : "page-btn disabled"}
         >Remove crew</button>
         <button
             onClick={(event) => {
@@ -89,8 +87,7 @@ export const FileSystemPage = () => {
                 event.preventDefault();
                 event.stopPropagation();
             }}
-            className={"dialog-btn back-btn"}
-            style={{ float: "left", width: "25%" }}
+            className={"page-btn"}
         >Back</button>
-    </React.Fragment>;
+    </div>;
 };

@@ -1,7 +1,8 @@
-import { BackgroundEnum, Character, CrewState, ModifiedGear, Power, Soldier, Stats } from "../types";
+import { BackgroundEnum, Character, CrewState, LootItem, ModifiedGear, ModifiedPower, ShipUpgrade, Soldier, Stats, Transaction } from "../types";
 
 export const ADD_XP = "ADD_XP";
 export const ADD_LOOT = "ADD_LOOT";
+export const BUY_LOOT = "BUY_LOOT";
 export const SPEND_XP = "SPEND_XP";
 export const REWIND_XP = "REWIND_XP";
 export const ADD_SOLDIERS = "ADD_SOLDIERS";
@@ -21,6 +22,12 @@ export const SET_CREW = "SET_CREW";
 export const SET_SHIPNAME = "SET_SHIPNAME";
 export const MODIFY_SOLDIER = "MODIFY_SOLDIER";
 export const REMOVE_SOLDIERS = "REMOVE_SOLDIERS";
+export const SELL_LOOT = "SELL_LOOT";
+export const ADD_CREDITS = "ADD_CREDITS";
+export const REMOVE_CREDITS = "REMOVE_CREDITS";
+export const CONVERT_INFORMATION = "CONVERT_INFORMATION";
+export const REMOVE_LOOT_FROM_CARGO_BAY = "REMOVE_LOOT_FROM_CARGO_BAY";
+export const SHIP_UPGRADE = "SHIP_UPGRADE";
 interface SetCrew {
     type: typeof SET_CREW;
     payload: CrewState;
@@ -64,7 +71,7 @@ interface SetCaptainsBackground {
 }
 interface SetCaptainsPowers {
     type: typeof SET_CAPTAINS_POWERS;
-    payload: Power[];
+    payload: ModifiedPower[];
 }
 
 interface SetCaptainsGear {
@@ -79,7 +86,7 @@ interface SetFirstMateGear {
 
 interface SetFirstMatePowers {
     type: typeof SET_FIRSTMATE_POWERS;
-    payload: Power[];
+    payload: ModifiedPower[];
 }
 
 interface SetCaptainsStats {
@@ -117,10 +124,44 @@ interface RemoveSoldiers {
 
 interface AddLoot {
     type: typeof ADD_LOOT;
-    payload: any[];
+    payload: LootItem;
 }
 
-export type Actions = AddLoot | AddSoldiers | AddXp | ModifySoldier | RemoveSoldiers |
+interface SellLoot {
+    type: typeof SELL_LOOT;
+    payload: { loot: LootItem; credits: number };
+}
+
+interface BuyLoot {
+    type: typeof BUY_LOOT;
+    payload: { loot: LootItem; credits: number };
+}
+
+interface RemoveLootFromCargoBay {
+    type: typeof REMOVE_LOOT_FROM_CARGO_BAY;
+    payload: { loot: LootItem };
+}
+interface ConvertInformation {
+    type: typeof CONVERT_INFORMATION;
+    payload: { loot: LootItem };
+}
+
+interface AddCredits {
+    type: typeof ADD_CREDITS;
+    payload: Transaction;
+}
+
+interface RemoveCredits {
+    type: typeof REMOVE_CREDITS;
+    payload: Transaction;
+}
+
+interface UpgradeShip {
+    type: typeof SHIP_UPGRADE;
+    payload: ShipUpgrade;
+}
+
+export type Actions = AddCredits | AddLoot | AddSoldiers | AddXp | BuyLoot | ConvertInformation | ModifySoldier | SellLoot | RemoveLootFromCargoBay | RemoveCredits | RemoveSoldiers |
     RewindXp | SetCrew | SetCrewName | SetCaptainsBackground | SetCaptainsGear | SetCaptainsName | SetCaptainsPowers |
     SetCaptainsStats | SetCaptain | SetFirstMate | SetFirstMateBackground | SetFirstMateGear | SetFirstMateStats | SetFirstMatePowers |
-    SetFirstMateName | SpendXp;
+    SetFirstMateName | SpendXp | UpgradeShip;

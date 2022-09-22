@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { DropdownOptions } from "../../types";
+import { StringDropdownOptions } from "../../types";
 import { useComponentVisible } from "../../UseComponentVisible";
 
-export const XPDropDown = ({ list, dropdownOptions, callbackFn }: { list: string[]; dropdownOptions: DropdownOptions; callbackFn(item: string): void }) => {
-    const [selectedItem, setSelectedItem] = useState<string>(dropdownOptions.placeholder as string);
+export const XPDropDown = ({ list, dropdownOptions, callbackFn }: { list: string[]; dropdownOptions: StringDropdownOptions; callbackFn(item: string): void }) => {
+    const [selectedItem, setSelectedItem] = useState<string>(dropdownOptions.placeholder);
     const getCssProps = () => {
         const position = document.getElementById(`dropdown-container-${dropdownOptions.id}`)?.getBoundingClientRect();
         return { top: (position?.top || 0) + 42, left: (position?.left || 0), width: (position?.width || 0) };

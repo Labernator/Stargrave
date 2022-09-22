@@ -1,0 +1,44 @@
+{
+    "upgrades": [
+        {
+            "name": "Advanced Medical Suite",
+            "cost": 500,
+            "notes": "If the crew contains a medic, it may re-roll a Survival roll for one soldier after each game."
+        },
+        {
+            "name": "Armament Workshop",
+            "cost": 500,
+            "notes": "When successfully using the 'Armoury' power before a game, the crew can field 2 combat armours without paying the upkeep. Alternatively two weapons gain +1 dmg or one of each option is taken."
+        },
+        {
+            "name": "Communications Array",
+            "cost": 300,
+            "notes": "Grants +2 to the activation roll for the 'Bribe' power."
+        },
+        {
+            "name": "External Cargo Pods",
+            "cost": 300,
+            "notes": "Anytime the crew sells trade goods, it gets an extra 20% of the listed value."
+        },
+        {
+            "name": "Extra Quarters",
+            "cost": 1000,
+            "notes": "The crew may hire up to 5 Specialists instead of 4."
+        },
+        {
+            "name": "Meditation Chamber",
+            "cost": 400,
+            "notes": "Grants +2 to the activation roll for the 'Mystic Trance' power."
+        },
+        {
+            "name": "Robotics Workshop",
+            "cost": 650,
+            "notes": "Grants +1 to the activation roll for either the 'Create Robot', 'Remote Guidance' or 'Re-wire Robot' powers when used out of Game."
+        },
+        {
+            "name": "Weapon Locker",
+            "cost": 600,
+            "notes": "One soldier gains a pistol, carbine or shotgun with +1 dmg before each game. This weapon is indestructible and takes up the soldiers gear slot."
+        }
+    ]
+}

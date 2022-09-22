@@ -8,7 +8,7 @@ export const AdvanceComponent = () => {
     const { store } = useContext(ReactReduxContext);
     const state = store.getState() as CrewState;
     const history = useHistory();
-    return <div className="statusbar-tiles" onClick={() => history.push("/PostGameSequence")} title="Click to open the post game sequence">
+    return <div className="statusbar-component" onClick={() => history.push("/PostGameSequence")} title="Click to open the post game sequence">
         <img
             src={PostGameIcon}
             style={{ paddingLeft: "0.2rem" }}

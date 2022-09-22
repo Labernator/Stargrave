@@ -3,11 +3,10 @@ import { SaveIcon } from "../../images";
 
 export const FileComponent = () => {
     const history = useHistory();
-    return <div className="statusbar-tiles" onClick={() => history.push("/FileOperations")} title="Click to open dialog to save/load a crew">
+    return <div className="statusbar-component" onClick={() => history.push("/FileOperations")} title="Click to open dialog to save/load a crew">
         <img
             src={SaveIcon}
-            style={{ paddingLeft: "0.2rem", placeSelf: "center" }}
-            className="toolbar-icon"
+            className="toolbar-compact-icon"
             id={"SaveIcon"}
             alt={"SaveIcon"}>
         </img>

@@ -1,0 +1,21 @@
+{
+    "creatures": [
+        {
+            "name": "Drone",
+            "stats": {
+                "Move": 6,
+                "Fight": 0,
+                "Shoot": 0,
+                "Armour": 10,
+                "Will": 2,
+                "Health": 8
+            },
+            "gear": [
+                "Pistol"
+            ],
+            "notes": [
+                "Fly"
+            ]
+        }
+    ]
+}

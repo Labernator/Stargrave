@@ -69,23 +69,25 @@ export const LevelUpPage = () => {
             <div>Level up {state.Captain.name} ({state.Captain.level})</div>
             <XPDropDown list={x} dropdownOptions={{ id: "captainLevels", placeholder: "0" }} callbackFn={(nr) => setCaptainLevels(parseInt(nr, 10))} />
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="flex-container">
             {renderImprovements(true)}
         </div>
         <div className="xp-btn">
             <div>Level up {state.FirstMate.name} ({state.FirstMate.level})</div>
             <XPDropDown list={y} dropdownOptions={{ id: "firstMateLevels", placeholder: "0" }} callbackFn={(nr) => setfirstMateLevels(parseInt(nr, 10))} />
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="flex-container" >
             {renderImprovements(false)}
-        </div>
+        </div >
         <button
             onClick={() => {
                 dispatch({ type: SPEND_XP, payload: ((captainLevels + firstMateLevels) * 100) });
-                history.push(captainLevels > 0 ? "/LevelUpCaptain" : firstMateLevels > 0 ? "/LevelUpFirstMate" : "/LootDeclaration", { captainLevels, firstMateLevels, choice: deciChoice ? LevelImprovements.NewPower : LevelImprovements.ImproveStat });
+                history.push(captainLevels > 0 ? "/LevelUpCaptain" :
+                    firstMateLevels > 0 ? "/LevelUpFirstMate" :
+                        "/PhysicalLootDeclaration", { captainLevels, firstMateLevels, choice: deciChoice ? LevelImprovements.NewPower : LevelImprovements.ImproveStat });
             }}
             className={"dialog-btn confirm-btn"}
         >Confirm</button>
         <CustomBackButtonComponent dispatchFunction={() => dispatch({ type: REWIND_XP })} />
-    </React.Fragment>;
+    </React.Fragment >;
 };

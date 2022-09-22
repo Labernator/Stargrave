@@ -8,7 +8,7 @@ export const CrewSizeComponent = ({ externalStyles, virtualCrewSize }: { externa
     return <div
         style={externalStyles}
         onClick={() => history.push("/SoldierSelection")}
-        className="statusbar-tiles"
+        className="statusbar-component"
         title={"Current size of your crew"}>
         <img
             src={CrewIcon}
@@ -16,6 +16,6 @@ export const CrewSizeComponent = ({ externalStyles, virtualCrewSize }: { externa
             id={"CrewIcon"}
             alt={"CrewIcon"}>
         </img>
-        <div className={"toolbar-compact-text"}>{virtualCrewSize || numberOfCrewMembers()} / 7</div>
+        <div className={"toolbar-compact-text"}>{virtualCrewSize || numberOfCrewMembers()}/7</div>
     </div>;
 };

@@ -1,7 +1,14 @@
-import { BackgroundEnum, SoldierEnum } from "../types";
+import { BackgroundEnum, ShipUpgrade, SoldierEnum } from "../types";
+import AdvancedTech1Png from "./AdvTech1.png";
+import AdvancedTech2Png from "./AdvTech2.png";
+import AdvancedWeaponsPng from "./AdvWeapons.png";
+import AlienArtefactsPng from "./Alien.png";
+import AristocratPng from "./Aristocrat.png";
 import BiomorphPng from "./Biomorph.png";
+import CargoBayPng from "./CargoBay.png";
 import CreateCrewPng from "./CreateCrew.png";
 import CyborgPng from "./Cyborg.png";
+import HunterPng from "./Hunter.png";
 import AddPng from "./icons/Add.png";
 import CaptainPng from "./icons/Captain.png";
 import CreditsPng from "./icons/Credits.png";
@@ -15,6 +22,8 @@ import SavePng from "./icons/Save.png";
 import PdfPng from "./icons/SavePdf.png";
 import TreasuryPng from "./icons/Treasury.png";
 import ImportCrewPng from "./ImportCrew.png";
+import InformationPng from "./Information.png";
+import MaintenancePng from "./Maintenance.png";
 import MysticPng from "./Mystic.png";
 import PostGamePng from "./PostGame.png";
 import PsionicistPng from "./Psionicist.png";
@@ -22,6 +31,9 @@ import QuickReferenceSheet1Png from "./resources/Stargrave_Reference-1.png";
 import QuickReferenceSheet2Png from "./resources/Stargrave_Reference-2.png";
 import RoboticsExpertPng from "./RoboticsExpert.png";
 import RoguePng from "./Rogue.png";
+import SecretPng from "./Secret.png";
+import ShipUpgradesPng from "./ShipUpgrades.png";
+import ShoppingPng from "./Shopping.png";
 import ArmouredTrooperPng from "./soldiers/ArmouredTrooper.png";
 import BurnerPng from "./soldiers/Burner.png";
 import CasecrackerPng from "./soldiers/Casecracker.png";
@@ -41,7 +53,17 @@ import SniperPng from "./soldiers/Sniper.png";
 import TrooperPng from "./soldiers/Trooper.png";
 import StarshipPng from "./Starship.png";
 import TekkerPng from "./Tekker.png";
+import TradeGoodsPng from "./TradeGoods.png";
+import TransactionLogPng from "./TransactionLog.png";
 import UnknownPng from "./Unknown.png";
+import AdvancedMedicalSuitePng from "./upgrades/AdvancedMedicalSuite.png";
+import ArmamentWorkshopPng from "./upgrades/ArmamentWorkshop.png";
+import CommunicationsArrayPng from "./upgrades/CommunicationsArray.png";
+import ExternalCargoPodsPng from "./upgrades/ExternalCargoPods.png";
+import ExtraQuartersPng from "./upgrades/ExtraQuarters.png";
+import MeditationChamberPng from "./upgrades/MeditationChamber.png";
+import RoboticsWorkshopPng from "./upgrades/RoboticsWorkshop.png";
+import WeaponsLockerPng from "./upgrades/WeaponsLocker.png";
 import UseSamplePng from "./UseSample.png";
 import VeteranPng from "./Veteran.png";
 
@@ -56,6 +78,8 @@ export const RogueIcon = RoguePng;
 export const StarshipIcon = StarshipPng;
 export const TekkerIcon = TekkerPng;
 export const VeteranIcon = VeteranPng;
+export const AristocratIcon = AristocratPng;
+export const HunterIcon = HunterPng;
 
 export const BurnerIcon = BurnerPng;
 export const GrenadierIcon = GrenadierPng;
@@ -75,6 +99,11 @@ export const HackerIcon = HackerPng;
 export const ChiselerIcon = ChiselerPng;
 export const CommandoIcon = CommandoPng;
 
+export const AdvancedTech1Icon = AdvancedTech1Png;
+export const AdvancedTech2Icon = AdvancedTech2Png;
+export const AlienArtefactsIcon = AlienArtefactsPng;
+export const AdvancedWeaponsIcon = AdvancedWeaponsPng;
+
 export const getBackgroundImage = (background: string | undefined) => {
     switch (background) {
         case BackgroundEnum.Biomorph: return BiomorphIcon;
@@ -85,6 +114,8 @@ export const getBackgroundImage = (background: string | undefined) => {
         case BackgroundEnum.Rogue: return RogueIcon;
         case BackgroundEnum.Tekker: return TekkerIcon;
         case BackgroundEnum.Veteran: return VeteranIcon;
+        case BackgroundEnum.Hunter: return HunterIcon;
+        case BackgroundEnum.Aristocrat: return AristocratIcon;
         default:
             return UnknownPng;
     }
@@ -119,6 +150,9 @@ export const UseSampleIcon = UseSamplePng;
 export const CreateCrewIcon = CreateCrewPng;
 export const ImportCrewIcon = ImportCrewPng;
 export const CreditsIcon = CreditsPng;
+export const InformationIcon = InformationPng;
+export const TradeGoodsIcon = TradeGoodsPng;
+export const SecretIcon = SecretPng;
 export const TreasuryIcon = TreasuryPng;
 export const CrewIcon = CrewPng;
 export const LeaveIcon = LeavePng;
@@ -130,3 +164,32 @@ export const MinusIcon = MinusPng;
 export const PdfIcon = PdfPng;
 export const DeleteItemIcon = DeletePng;
 export const PostGameIcon = PostGamePng;
+export const ShipUpgradesIcon = ShipUpgradesPng;
+export const CargoBayIcon = CargoBayPng;
+export const ShoppingIcon = ShoppingPng;
+export const TransactionLogIcon = TransactionLogPng;
+export const MaintenanceIcon = MaintenancePng;
+
+export const MeditationChamberIcon = MeditationChamberPng;
+export const ExternalCargoPodsIcon = ExternalCargoPodsPng;
+export const WeaponsLockerIcon = WeaponsLockerPng;
+export const RoboticsWorkshopIcon = RoboticsWorkshopPng;
+export const ExtraQuartersIcon = ExtraQuartersPng;
+export const CommunicationsArrayIcon = CommunicationsArrayPng;
+export const ArmamentWorkshopIcon = ArmamentWorkshopPng;
+export const AdvancedMedicalSuiteIcon = AdvancedMedicalSuitePng;
+
+export const getUpgradeImage = (upgrade: ShipUpgrade) => {
+    switch (upgrade.name) {
+        case "Armament Workshop": return ArmamentWorkshopIcon;
+        case "Advanced Medical Suite": return AdvancedMedicalSuiteIcon;
+        case "Communications Array": return CommunicationsArrayIcon;
+        case "External Cargo Pods": return ExternalCargoPodsIcon;
+        case "Extra Quarters": return ExtraQuartersIcon;
+        case "Meditation Chamber": return MeditationChamberIcon;
+        case "Robotics Workshop": return RoboticsWorkshopIcon;
+        case "Weapon Locker": return WeaponsLockerIcon;
+        default:
+            return UnknownPng;
+    }
+};

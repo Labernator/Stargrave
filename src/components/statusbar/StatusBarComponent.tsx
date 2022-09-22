@@ -7,8 +7,8 @@ import { TreasuryComponent } from "./TreasuryComponent";
 export const StatusbarComponent = () =>
     <div key="statusbar" id="statusbar" className="statusbar">
         <ShipnameComponent />
-        <div style={{ float: "left", flex: "1 1 auto", display: "flex" }}><FileComponent />
-
+        <div style={{ display: "flex", width: "-webkit-fill-available", justifyContent: "space-around" }}>
+            <FileComponent />
             <TreasuryComponent />
             <CrewSizeComponent />
             <AdvanceComponent />

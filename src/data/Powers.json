@@ -46,6 +46,62 @@
             "effect": "Immediately unlock a physical loot counter."
         },
         {
+            "name": "Beast Call",
+            "activation": 12,
+            "strain": 1,
+            "category": "Touch",
+            "effect": "Roll on the random encounter table and place a creature at a randomly determined table edge. The roll for the table edge may be re-rolled. The power cannot be used while a summoned creature is still on the table."
+        },
+        {
+            "name": "Crack Shot",
+            "activation": 10,
+            "strain": 1,
+            "category": "Self-only",
+            "effect": "The figure never suffers from weapons jam and does critical hits on a roll of 19 and 20."
+        },
+        {
+            "name": "Contacts",
+            "activation": 12,
+            "strain": 0,
+            "category": "Out of Game (A)",
+            "effect": "Select one item from any 'Advanced Technology' table. The crew may purchase that item until the start of the next game."
+        },
+        {
+            "name": "Indifference",
+            "activation": 12,
+            "strain": 1,
+            "category": "Self-only",
+            "effect": "The target figure never counts as wounded and can choose whether it becomes stunned or not."
+        },
+        {
+            "name": "Inspiring",
+            "activation": 10,
+            "strain": 0,
+            "category": "Line of Sight",
+            "effect": "The target figure gains +1 Fight for the remainder of the game (cannot get more than +1 this way). Or the target figure immediately recovers from being stunned."
+        },
+        {
+            "name": "Study Prey",
+            "activation": 12,
+            "strain": 0,
+            "category": "Out of Game (A)",
+            "effect": "For every uncontrolled creature the crew killed during the previous game, they receive +5xp on top of any other xp this kill would get them. A maximum of +25xp can be gained that way and this can exceed the 300xp cap."
+        },
+        {
+            "name": "Investments",
+            "activation": 12,
+            "strain": 0,
+            "category": "Out of Game (A)",
+            "effect": "The crew gains 50 credits."
+        },
+        {
+            "name": "Weapon Maintenance",
+            "activation": 10,
+            "strain": 0,
+            "category": "Out of Game (B)",
+            "effect": "Select a pistol, carbine or shotgun. That weapon becomes indestructable, gains +1 dmg and never jams for the duration of the next game."
+        },
+        {
             "name": "Bribe",
             "activation": 14,
             "strain": 0,

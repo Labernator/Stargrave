@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { ReactReduxContext, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { CustomBackButtonComponent } from "../../components/common/CustomBackButton";
-import { CharacterStatsHeader } from "../../components/statusbar/CharacterStatsHeader";
+import { CustomStatsHeader } from "../../components/statusbar/CharacterStatsHeader";
 import { SET_CAPTAINS_BACKGROUND, SET_CAPTAINS_STATS, SET_FIRSTMATE_BACKGROUND, SET_FIRSTMATE_STATS } from "../../redux/actions";
 import { BackgroundEnum, CharactersEnum, CrewState, Stats, StatsEnum } from "../../types";
 import { getBackgroundInfos } from "../../Utils";
@@ -25,39 +25,41 @@ export const CharacterStatsSelectionPage = () => {
         return Object.entries(statModificationsForBackground.mandatory).reduce((newStats, [key, value]) => ({ ...newStats, [key]: value ? newStats[key as StatsEnum] + value : newStats[key as StatsEnum] }), stats);
     };
     return <React.Fragment>
-        <CharacterStatsHeader characterType={characterType} />
-        <div style={{ marginTop: "0.5rem" }} className="modal-header">Granted Stats Improvements</div>
-        {Object.entries(statModificationsForBackground.mandatory).map(([statName, statValue]) =>
-            <div className="background-stat-selection selected" key={`add_captain_dialog_mand_stat_${statName}`}>+{statValue} {statName}</div>
-        )}
-        <div className="modal-header">{`Optional Stats Improvements \n (choose ${statModificationsForBackground.chooseOptionals} of the following)`}</div>
-        {Object.entries(statModificationsForBackground.optional).map(([statName, statValue]) =>
-            <div
-                onClick={() => {
-                    if (isStatSelected(statName)) {
-                        const { [statName as StatsEnum]: exclProp, ...rest } = selections;
-                        setSelections(rest);
-                    } else {
-                        if (maxStatsReached()) {
-                            return;
+        <CustomStatsHeader character={{ ...character, stats: calcPayload() }} />
+        <div className="flex-container">
+            <div style={{ marginTop: "0.5rem" }} className="modal-header">Granted Stats Improvements</div>
+            {Object.entries(statModificationsForBackground.mandatory).map(([statName, statValue]) =>
+                <div className="background-stat-selection selected" key={`add_captain_dialog_mand_stat_${statName}`}>+{statValue} {statName}</div>
+            )}
+            <div className="modal-header">{`Optional Stats Improvements \n (choose ${statModificationsForBackground.chooseOptionals} of the following)`}</div>
+            {Object.entries(statModificationsForBackground.optional).map(([statName, statValue]) =>
+                <div
+                    onClick={() => {
+                        if (isStatSelected(statName)) {
+                            const { [statName as StatsEnum]: exclProp, ...rest } = selections;
+                            setSelections(rest);
+                        } else {
+                            if (maxStatsReached()) {
+                                return;
+                            }
+                            setSelections({ ...selections, [statName]: statValue });
                         }
-                        setSelections({ ...selections, [statName]: statValue });
+                    }}
+                    className={isStatSelected(statName) ? "background-stat-selection selected" : maxStatsReached() ? "background-stat-selection disabled" : "background-stat-selection"}
+                    key={`add_captain_dialog_opt_stat_${statName}`}>
+                    +{statValue} {statName}
+                </div>
+            )}
+            <button
+                onClick={() => {
+                    if (maxStatsReached()) {
+                        dispatch({ type: characterType === CharactersEnum.Captain ? SET_CAPTAINS_STATS : SET_FIRSTMATE_STATS, payload: calcPayload() });
+                        history.push("/CharacterPowerSelection", characterType);
                     }
                 }}
-                className={isStatSelected(statName) ? "background-stat-selection selected" : maxStatsReached() ? "background-stat-selection disabled" : "background-stat-selection"}
-                key={`add_captain_dialog_opt_stat_${statName}`}>
-                +{statValue} {statName}
-            </div>
-        )}
-        <button
-            onClick={() => {
-                if (maxStatsReached()) {
-                    dispatch({ type: characterType === CharactersEnum.Captain ? SET_CAPTAINS_STATS : SET_FIRSTMATE_STATS, payload: calcPayload() });
-                    history.push("/CharacterPowerSelection", characterType);
-                }
-            }}
-            className={maxStatsReached() ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}
-        >Confirm</button>
-        <CustomBackButtonComponent dispatchFunction={() => dispatch({ type: characterType === CharactersEnum.Captain ? SET_CAPTAINS_BACKGROUND : SET_FIRSTMATE_BACKGROUND, payload: undefined })} />
+                className={maxStatsReached() ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}
+            >Confirm</button>
+            <CustomBackButtonComponent dispatchFunction={() => dispatch({ type: characterType === CharactersEnum.Captain ? SET_CAPTAINS_BACKGROUND : SET_FIRSTMATE_BACKGROUND, payload: undefined })} />
+        </div>
     </React.Fragment>;
 };

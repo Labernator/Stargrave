@@ -205,6 +205,58 @@
                 "Target Designation"
             ],
             "description": "The Last War saw more people take up arms than at any point in the history of the galaxy. While trillions lost their lives in the countless horrific battles, many survived to see the desolate aftermath. When the central governments of the two great empires collapsed, most of these veterans were left to their own devices. Most attempted to return home and pick up the pieces of their old lives, but many found their homes destroyed and their loved ones gone. Others knew that war had changed them so badly that they could never go home again.\n\nIn the early days after the war, it was not uncommon for veterans to band together into small armies, but most of these were wiped out by the pirate fleets. Most of the veterans that survived did so by hiding, or forming their own, small, independent crews that could move around without drawing too much attention.\n\nMany veterans continue to fight for some lost cause: their empire, their planet, or just a sense of justice. Others have abandoned any hope of a sane galaxy and have become mercenaries, bounty-hunters, and raiders. Some are just looking for a way to use the skills they have to feed their families.\n\nVeterans have been trained to fight and have come to realize that their survival depends on a combination of skill, luck, and good equipment. Veterans always wear the best armour and carry the best weapons they can find."
+        },
+        {
+            "name": "Hunter",
+            "statModifications": {
+                "mandatory": {
+                    "Shoot": 1,
+                    "Health": 1
+                },
+                "optional": {
+                    "Move": 1,
+                    "Fight": 1,
+                    "Shoot": 1
+                },
+                "chooseOptionals": 1
+            },
+            "corePowers": [
+                "Beast Call",
+                "Crack Shot",
+                "Camouflage",
+                "Control Animal",
+                "Power Spike",
+                "Study Prey",
+                "Target Designation",
+                "Weapon Maintenance"
+            ],
+            "description": ""
+        },
+        {
+            "name": "Aristocrat",
+            "statModifications": {
+                "mandatory": {
+                    "Will": 1,
+                    "Health": 1
+                },
+                "optional": {
+                    "Health": 1,
+                    "Fight": 1,
+                    "Shoot": 1,
+                    "Will": 1
+                },
+                "chooseOptionals": 1
+            },
+            "corePowers": [
+                "Bribe",
+                "Concealed Firearm",
+                "Contacts",
+                "Fortune",
+                "Indifference",
+                "Investments",
+                "Inspiring"
+            ],
+            "description": ""
         }
     ]
 }

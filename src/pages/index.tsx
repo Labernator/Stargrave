@@ -7,17 +7,22 @@ import { CharacterPowerSelectionPage } from "./Creation/CharacterPowerSelection"
 import { CharacterStatsSelectionPage } from "./Creation/CharacterStatsImprovements";
 import { ShipNamePage } from "./Creation/SetShipNamePage";
 import { SoldierSelectionPage } from "./Creation/SoldierSelectionPage";
+import { ShipsCargoPage } from "./Overview/CargoBay";
 import { CrewPage } from "./Overview/CrewPage";
+import { EquipmentPage } from "./Overview/EquipmentPage";
 import { FileOperationsPage } from "./Overview/FileOperationsPage";
 import { FileSystemPage } from "./Overview/FileSystem";
 import { LandingPage } from "./Overview/LandingPage";
 import { PdfExportPage } from "./Overview/PdfPage";
-import { TransactionHistoryPage } from "./Overview/TransactionHistoryPage";
+import { ShoppingPage } from "./Overview/ShoppingPage";
+import { SoldierEquipmentPage } from "./Overview/SoldierEquipmentPage";
+import { TransactionsPage } from "./Overview/Transactions";
 import { LevelUpPage } from "./PostGame/BuyLevels";
+import { DataLootPage } from "./PostGame/DataLoot";
 import { ExperiencePage } from "./PostGame/ExperiencePage";
 import { LevelUpCaptainPage } from "./PostGame/LevelUpCaptain";
 import { LevelUpFirstMatePage } from "./PostGame/LevelUpFirstMate";
-import { LootPage } from "./PostGame/Loot";
+import { PhysicalLootPage } from "./PostGame/PhysicalLoot";
 import { PostGameSequencePage } from "./PostGame/PostGameSequencePage";
 
 export {
@@ -33,7 +38,7 @@ export {
     PostGameSequencePage,
     ShipNamePage,
     SoldierSelectionPage,
-    TransactionHistoryPage,
+    ShoppingPage,
     CharacterNamePage,
     CharacterBackgroundPage,
     CharacterStatsSelectionPage,
@@ -41,5 +46,10 @@ export {
     CharacterNonCorePowerSelectionPage,
     CharacterPowerImprovementsPage,
     CharacterSelectGearPage,
-    LootPage
+    PhysicalLootPage,
+    DataLootPage,
+    ShipsCargoPage,
+    EquipmentPage,
+    SoldierEquipmentPage,
+    TransactionsPage
 };

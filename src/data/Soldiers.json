@@ -16,7 +16,8 @@
                 "Light Armour",
                 "Knife"
             ],
-            "group": "Standard"
+            "group": "Standard",
+            "gearSlots": 1
         },
         {
             "type": "Runner",
@@ -33,7 +34,8 @@
                 "Pistol",
                 "Knife"
             ],
-            "group": "Standard"
+            "group": "Standard",
+            "gearSlots": 1
         },
         {
             "type": "Hacker",
@@ -52,7 +54,8 @@
                 "Light Armour",
                 "Knife"
             ],
-            "group": "Standard"
+            "group": "Standard",
+            "gearSlots": 1
         },
         {
             "type": "Chiseler",
@@ -71,7 +74,8 @@
                 "Light Armour",
                 "Knife"
             ],
-            "group": "Standard"
+            "group": "Standard",
+            "gearSlots": 1
         },
         {
             "type": "Guard Dog",
@@ -85,7 +89,8 @@
                 "Health": 10
             },
             "gear": [],
-            "group": "Standard"
+            "group": "Standard",
+            "gearSlots": 1
         },
         {
             "type": "Sentry",
@@ -103,7 +108,8 @@
                 "Heavy Armour",
                 "Hand Weapon"
             ],
-            "group": "Standard"
+            "group": "Standard",
+            "gearSlots": 1
         },
         {
             "type": "Trooper",
@@ -121,7 +127,8 @@
                 "Heavy Armour",
                 "Knife"
             ],
-            "group": "Standard"
+            "group": "Standard",
+            "gearSlots": 1
         },
         {
             "type": "Medic",
@@ -139,7 +146,8 @@
                 "Light Armour",
                 "Medic Kit"
             ],
-            "group": "Standard"
+            "group": "Standard",
+            "gearSlots": 1
         },
         {
             "type": "Codebreaker",
@@ -158,7 +166,8 @@
                 "Light Armour",
                 "Knife"
             ],
-            "group": "Specialist"
+            "group": "Specialist",
+            "gearSlots": 1
         },
         {
             "type": "Casecracker",
@@ -177,7 +186,8 @@
                 "Light Armour",
                 "Knife"
             ],
-            "group": "Specialist"
+            "group": "Specialist",
+            "gearSlots": 1
         },
         {
             "type": "Commando",
@@ -192,12 +202,12 @@
             },
             "gear": [
                 "Carbine",
-                "Fragmentation Grenade",
-                "Smoke Grenade",
+                "Grenades",
                 "Heavy Armour",
                 "Hand Weapon"
             ],
-            "group": "Specialist"
+            "group": "Specialist",
+            "gearSlots": 1
         },
         {
             "type": "Pathfinder",
@@ -212,12 +222,12 @@
             },
             "gear": [
                 "Carbine",
-                "Fragmentation Grenade",
-                "Smoke Grenade",
+                "Grenades",
                 "Light Armour",
                 "Hand Weapon"
             ],
-            "group": "Specialist"
+            "group": "Specialist",
+            "gearSlots": 1
         },
         {
             "type": "Sniper",
@@ -235,7 +245,8 @@
                 "Light Armour",
                 "Hand Weapon"
             ],
-            "group": "Specialist"
+            "group": "Specialist",
+            "gearSlots": 1
         },
         {
             "type": "Grenadier",
@@ -254,7 +265,8 @@
                 "Heavy Armour",
                 "Knife"
             ],
-            "group": "Specialist"
+            "group": "Specialist",
+            "gearSlots": 1
         },
         {
             "type": "Burner",
@@ -273,7 +285,8 @@
                 "Heavy Armour",
                 "Knife"
             ],
-            "group": "Specialist"
+            "group": "Specialist",
+            "gearSlots": 1
         },
         {
             "type": "Gunner",
@@ -292,7 +305,8 @@
                 "Heavy Armour",
                 "Knife"
             ],
-            "group": "Specialist"
+            "group": "Specialist",
+            "gearSlots": 1
         },
         {
             "type": "Armoured Trooper",
@@ -309,7 +323,8 @@
                 "Carbine",
                 "Combat Armour"
             ],
-            "group": "Specialist"
+            "group": "Specialist",
+            "gearSlots": 1
         }
     ]
 }

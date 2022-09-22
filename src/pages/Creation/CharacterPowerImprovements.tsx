@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { ReactReduxContext, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { CustomBackButtonComponent } from "../../components/common/CustomBackButton";
+import { CharacterStatsHeader } from "../../components/statusbar/CharacterStatsHeader";
 import { SET_CAPTAINS_POWERS, SET_FIRSTMATE_POWERS } from "../../redux/actions";
 import { CharactersEnum, CrewState, ModifiedPower, Power } from "../../types";
 import { getPower } from "../../Utils";
@@ -41,6 +42,7 @@ export const CharacterPowerImprovementsPage = () => {
                 >Close</button>
             </React.Fragment > :
             <React.Fragment>
+                <CharacterStatsHeader characterType={characterType} />
                 <div className="modal-header">Select 2 of the following powers to lower their activation value by 1 each</div>
                 {character.powers.map((power) => {
                     const actualPower = getPower(power.name);
@@ -80,7 +82,7 @@ export const CharacterPowerImprovementsPage = () => {
                             history.push("/CharacterSelectGear", characterType);
                         }
                     }}
-                    className={selectedPowers.length === 2 ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}
+                    className={selectedPowers.length === 2 ? "page-btn selected" : "page-btn disabled"}
                 >Confirm</button>
                 <CustomBackButtonComponent
                     dispatchFunction={() => dispatch({ type: characterType === CharactersEnum.Captain ? SET_CAPTAINS_POWERS : SET_CAPTAINS_POWERS, payload: [] })}

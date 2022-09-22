@@ -3,6 +3,7 @@ import { ReactReduxContext, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Carousel } from "../../components/common/Carousel";
 import { CustomBackButtonComponent } from "../../components/common/CustomBackButton";
+import { CharacterStatsHeader } from "../../components/statusbar/CharacterStatsHeader";
 import { SET_CAPTAINS_POWERS, SET_FIRSTMATE_POWERS } from "../../redux/actions";
 import { BackgroundEnum, CharactersEnum, CrewState, Power } from "../../types";
 import { getNonCorePowers, isCorePower } from "../../Utils";
@@ -56,6 +57,7 @@ export const CharacterNonCorePowerSelectionPage = () => {
                 >Close</button>
             </React.Fragment> :
             <React.Fragment>
+                <CharacterStatsHeader characterType={characterType} />
                 <div className="modal-header">
                     {`Choose ${powersRemaining} additional ${powersRemaining === 1 ? "Power" : "Powers"}`}
                     <div className="modal-sub-header">{"Swipe or use the page buttons to see more entries"}</div>
@@ -103,7 +105,7 @@ export const CharacterNonCorePowerSelectionPage = () => {
                             history.push(characterType === CharactersEnum.Captain ? "/CharacterImprovePowers" : "/CharacterSelectGear", characterType);
                         }
                     }}
-                    className={selectedPowers.length === powersRemaining ? "dialog-btn confirm-btn" : "dialog-btn confirm-btn disabled"}
+                    className={selectedPowers.length === powersRemaining ? "page-btn selected" : "page-btn disabled"}
                 >Confirm</button>
                 <CustomBackButtonComponent dispatchFunction={() => dispatch({ type: characterType === CharactersEnum.Captain ? SET_CAPTAINS_POWERS : SET_FIRSTMATE_POWERS, payload: [] })} />
             </React.Fragment>}

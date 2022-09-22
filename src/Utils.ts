@@ -1,26 +1,29 @@
 import { store } from ".";
 import * as BackgroundList from "./data/Backgrounds.json";
-import * as GearItems from "./data/Gear.json";
+import * as Critters from "./data/Critters.json";
 import * as PowerList from "./data/Powers.json";
-import { AdvancedTech, AdvancedWeapons, BackgroundEnum, BackgroundMetadata, BackgroundOptions, Character, CharactersEnum, Gear, LevelImprovements, ModifiedGear, ModifiedPower, Power, Soldier, Stats, StatsEnum, StatStrings } from "./types";
+import * as ShipUpgrades from "./data/ShipUpgrades.json";
+import { isAdvancedTech, isAdvancedWeapon } from "./GearUtils";
+import {
+    BackgroundEnum, BackgroundMetadata, BackgroundOptions,
+    Character, CharactersEnum, Creature, Gear, Information, LevelImprovements,
+    LootCategories, ModifiedGear, ModifiedPower, Power,
+    ShipUpgrade, Soldier, SpecialGear, Stats, StatsEnum, StatStrings, TradeGoods
+} from "./types";
 
 const allPowers: Power[] = PowerList.Powers;
 const allBackgrounds: BackgroundMetadata[] = BackgroundList.backgrounds;
-const allGear: Gear[] = GearItems.general;
-const advancedWeapons: AdvancedWeapons[] = GearItems.advancedWeapons;
-const advancedTech: AdvancedTech[] = GearItems.advancedTech;
-const alienArtefacts = GearItems.alienTech;
+const upgrades: ShipUpgrade[] = ShipUpgrades.upgrades;
 
+export const getDrone = () => Critters.creatures.find((crit) => crit.name === "Drone") as Creature;
+
+export const getLootCategory = (loot: SpecialGear) => isAdvancedTech(loot) ? LootCategories.AdvancedTechnology : isAdvancedWeapon(loot) ? LootCategories.AdvancedWeapons : LootCategories.AlienTech;
+export const hasEquivalent = (gear: any) => gear.equivalent !== undefined;
 export const getBackgroundInfos = (background: BackgroundEnum) => allBackgrounds.find((bg) => bg.name === background) as BackgroundOptions;
 
 export const numberOfCrewMembers = () => {
     const state = store.getState();
-    return (state.Soldiers.reduce((acc, soldier) => soldier.amount + acc, 0) || 0) + (state.Captain ? 1 : 0) + (state.FirstMate ? 1 : 0);
-};
-
-export const numberOfSoldiers = () => {
-    const state = store.getState();
-    return state.Soldiers.reduce((acc, soldier) => soldier.amount + acc, 0);
+    return (state.Soldiers.length + (state.Captain ? 1 : 0) + (state.FirstMate ? 1 : 0));
 };
 
 export const getCurrentStatStrings = (stats: Stats, currentHealth?: number): StatStrings => ({
@@ -50,26 +53,7 @@ export const getNonCorePowers = (backgroundName: string, isCaptainCharacter: boo
     allPowers.filter((power) => !getBackground(backgroundName).corePowers.includes(power.name)).map((power) => isCaptainCharacter ? { ...power, activation: power.activation + 2 } : { ...power, activation: power.activation + 4 });
 
 export const getStatsMaximums = () => ({ "Move": 7, "Fight": 6, "Shoot": 6, "Will": 8, "Health": 25, "Armour": 14 });
-
-export const getGeneralGearDetails = (gearName: string | ModifiedGear) => {
-    const foundGear = allGear.find((gear) => (typeof (gearName) === "string" ? gearName : gearName.name) === gear.name) as Gear;
-    if (typeof (gearName) !== "string") {
-        foundGear.gearSlots = gearName.gearSlots;
-    }
-    return foundGear;
-};
-
-export const getAdvancedWeapons = () => advancedWeapons;
-export const getAdvancedTech = () => advancedTech;
-export const getAlienArtefacts = () => alienArtefacts;
-
-export const getGearByType = (gearType: string) => {
-    switch (gearType) {
-        case "Armour": return allGear.filter((gear) => gear.type === "Armour");
-        case "Weapon": return allGear.filter((gear) => gear.type === "Weapon");
-        case "Equipment": return allGear.filter((gear) => gear.type === "Equipment");
-    }
-};
+export const getShipUpgrades = () => upgrades;
 
 export const getActualNotes = (gearList: Array<string | ModifiedGear>, gearItem: Gear) => {
     let notes = gearItem.notes;
@@ -196,3 +180,30 @@ export const getBaseFirstMate = (): Character => ({
     powers: [],
     gear: [],
 });
+
+export const getTradeGoodsValue = (name: string) => {
+    const state = store.getState();
+    const multiplier: number = state.ShipUpgrades.find((upgrade) => upgrade === "External Cargo Pods") ? 1.2 : 1;
+    switch (name) {
+        case TradeGoods.TradeGoods75: return multiplier * 75;
+        case TradeGoods.TradeGoods150: return multiplier * 150;
+        case TradeGoods.TradeGoods200: return multiplier * 200;
+        case TradeGoods.TradeGoods250: return multiplier * 250;
+        case TradeGoods.TradeGoods300: return multiplier * 300;
+        case TradeGoods.TradeGoods400: return multiplier * 400;
+        default: return 0;
+    }
+};
+
+export const getInformationValue = (name: string) => {
+    switch (name) {
+        case Information.Information75: return 75;
+        case Information.Information150: return 150;
+        case Information.Information200: return 200;
+        case Information.Information125: return 125;
+        case Information.Information100: return 100;
+        default: return 0;
+    }
+};
+
+export const getUpgradeByName = (name: string) => upgrades.find((u) => u.name === name) as ShipUpgrade;

@@ -39,7 +39,7 @@ export const InputComponent = ({ currentState, tooltip, cssClass, callback }: { 
             value={name}
         /> :
         <div
-            style={{ placeSelf: "start", padding: "0.2rem 0.23rem" }}
+            style={{ padding: "0.2rem 0.23rem" }}
             className={currentState ? "input-text-div" : "input-text-div input-error"}
             onClick={() => setInputVisible(true)}>
             {currentState || tooltip}

@@ -7,6 +7,8 @@ export enum BackgroundEnum {
     Rogue = "Rogue",
     Tekker = "Tekker",
     Veteran = "Veteran",
+    Aristocrat = "Aristocrat",
+    Hunter = "Hunter",
 }
 
 export enum PowerCategory {
@@ -111,6 +113,24 @@ export interface ModifiedGear {
     name: string;
     gearSlots: number;
 }
+
+export interface Equipment extends ModifiedGear {
+    type: string;
+    notes: string;
+}
+
+export interface Weapon extends ModifiedGear {
+    type: string;
+    maxRange: string | number;
+    damageModifier?: number;
+    notes?: string;
+}
+
+export interface Armour extends ModifiedGear {
+    type: string;
+    armourModifier?: number;
+    notes?: string;
+}
 export interface Gear extends ModifiedGear {
     type: string;
     notes?: string;
@@ -122,22 +142,46 @@ export interface AdvancedWeapons extends ModifiedGear {
     type: string;
     notes?: string;
     damageModifier?: number;
-    maxRange?: string | number;
-    armourModifier?: number;
+    maxRange: string | number;
     cost: number;
     sell: number;
+    equivalent: string;
 }
 export interface AdvancedTech extends ModifiedGear {
     type: string;
-    notes?: string;
-    damageModifier?: number;
-    maxRange?: string | number;
+    notes: string;
     armourModifier?: number;
     cost: number;
     sell: number;
     shipGear?: boolean;
     characterOnly?: boolean;
+    list: number;
+    equivalent?: string;
 }
+
+export interface AlienArtefact extends ModifiedGear {
+    type: string;
+    notes: string;
+    cost: number;
+    sell: number;
+    characterOnly: boolean;
+}
+
+export interface Loot {
+    name: string;
+    type: string;
+    sell: number;
+}
+
+export type NormalGear = Equipment | Weapon | Armour;
+export type SpecialGear = AlienArtefact | AdvancedTech | AdvancedWeapons;
+
+export interface ShipUpgrade {
+    name: string;
+    notes: string;
+    cost: number;
+}
+
 export interface Character {
     name: string;
     stats: Stats;
@@ -158,9 +202,16 @@ export interface Soldier {
     gearSlots: number;
     gear: string[];
     group: SoldierGroups;
-    amount: number;
-    id: number;
+    name: string;
     currentHealth?: number;
+    isRobot?: boolean;
+}
+
+export interface Creature {
+    name: string;
+    stats: Stats;
+    gear: string[];
+    notes?: string[];
 }
 
 export interface SoldierMetadata {
@@ -191,7 +242,8 @@ export interface CrewState {
     Experience: number;
     ExperienceRecords: number[];
     CreditRecords: Transaction[];
-    ShipsHold: any[];
+    Cargo: LootItem[];
+    ShipUpgrades: string[];
 }
 
 export const InitialCrewState: CrewState = {
@@ -203,7 +255,8 @@ export const InitialCrewState: CrewState = {
     Experience: 0,
     ExperienceRecords: [0],
     CreditRecords: [{ credits: 400, sign: true, record: "Initial Crew Treasury" }],
-    ShipsHold: [],
+    Cargo: [],
+    ShipUpgrades: [],
 };
 
 export enum LevelImprovements {
@@ -220,6 +273,74 @@ export interface LevelUpState {
 }
 
 export interface DropdownOptions {
-    placeholder: string | Gear;
+    placeholder: Gear;
     id: string;
+}
+
+export interface StringDropdownOptions {
+    placeholder: string;
+    id: string;
+}
+
+export enum LootType {
+    Physical = "Physical Loot",
+    Data = "Data Loot",
+}
+
+export enum PhysicalCategories {
+    TradeGoods = "Trade Goods",
+    AdvancedTechnology = "Advanced Technology",
+    AdvancedWeapons = "Advanced Weapons",
+    AlienTech = "Alien Artefact",
+}
+
+export enum DataCategories {
+    Credits = "Credits",
+    Information = "Information",
+    AdvancedTechnology = "Advanced Technology",
+    AdvancedWeapons = "Advanced Weapons",
+    Secret = "Secret",
+}
+export interface SelectedCategory {
+    lootId: number;
+    selectedCategory: PhysicalCategories | DataCategories;
+}
+
+export enum TradeGoods {
+    TradeGoods75 = "Trade Goods 75 \xA5",
+    TradeGoods150 = "Trade Goods 150 \xA5",
+    TradeGoods200 = "Trade Goods 200 \xA5",
+    TradeGoods250 = "Trade Goods 250 \xA5",
+    TradeGoods300 = "Trade Goods 300 \xA5",
+    TradeGoods400 = "Trade Goods 400 \xA5",
+}
+
+export enum Information {
+    Information75 = "Information 75 \xA5",
+    Information100 = "Information 100 \xA5",
+    Information125 = "Information 125 \xA5",
+    Information150 = "Information 150 \xA5",
+    Information200 = "Information 200 \xA5",
+}
+
+export enum LootCategories {
+    Information,
+    TradeGoods,
+    AdvancedTechnology,
+    AdvancedWeapons,
+    Secret,
+    Credits,
+    AlienTech,
+}
+
+export interface LootItem {
+    name: string;
+    type: LootCategories;
+}
+
+export enum ShoppingCategories {
+    AlienArtefacts = "Alien Artefacts",
+    AdvancedWeapons = "Advanced Weapons",
+    AdvancedTech1 = "Advanced Tech 1",
+    AdvancedTech2 = "Advanced Tech 2",
 }

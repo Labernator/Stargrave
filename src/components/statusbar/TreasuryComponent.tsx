@@ -11,7 +11,7 @@ export const TreasuryComponent = ({ externalStyles, virtualCredits }: { external
     return <div
         style={externalStyles}
         onClick={() => history.push("/TransactionHistory")}
-        className="statusbar-tiles"
+        className="statusbar-component"
         title={"Current amount of credits in your treasury"}>
         <img
             src={TreasuryIcon}

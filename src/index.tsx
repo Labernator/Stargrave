@@ -5,12 +5,15 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { compose, createStore } from "redux";
 import "./App.css";
 import {
-  CharacterBackgroundPage, CharacterNamePage, CharacterNonCorePowerSelectionPage, CharacterPowerImprovementsPage, CharacterPowerSelectionPage, CharacterSelectGearPage, CharacterStatsSelectionPage,
-  CrewPage, ExperiencePage, FileOperationsPage,
+  CharacterBackgroundPage, CharacterNamePage, CharacterNonCorePowerSelectionPage, CharacterPowerImprovementsPage,
+  CharacterPowerSelectionPage, CharacterSelectGearPage, CharacterStatsSelectionPage,
+  CrewPage, DataLootPage, EquipmentPage, ExperiencePage, FileOperationsPage,
   FileSystemPage, LandingPage, LevelUpCaptainPage,
-  LevelUpFirstMatePage, LevelUpPage, LootPage, PdfExportPage, PostGameSequencePage,
-  ShipNamePage, SoldierSelectionPage, TransactionHistoryPage
+  LevelUpFirstMatePage, LevelUpPage, PdfExportPage, PhysicalLootPage, PostGameSequencePage,
+  ShipNamePage, ShipsCargoPage, ShoppingPage, SoldierEquipmentPage, SoldierSelectionPage, TransactionsPage
 } from "./pages";
+import { ShipUpgradesPage } from "./pages/Overview/ShipUpgradesPage";
+import { TransactionHistoryPage } from "./pages/Overview/TransactionHistoryPage";
 import { stateReducer } from "./redux/reducer";
 
 const App = () =>
@@ -33,10 +36,17 @@ const App = () =>
         <Route path="/LevelUp" component={LevelUpPage} />
         <Route path="/LevelUpCaptain" component={LevelUpCaptainPage} />
         <Route path="/LevelUpFirstMate" component={LevelUpFirstMatePage} />
-        <Route path="/LootDeclaration" component={LootPage} />
+        <Route path="/PhysicalLootDeclaration" component={PhysicalLootPage} />
+        <Route path="/DataLootDeclaration" component={DataLootPage} />
         <Route path="/PostGameSequence" component={PostGameSequencePage} />
         <Route path="/TransactionHistory" component={TransactionHistoryPage} />
         <Route path="/PdfExport" component={PdfExportPage} />
+        <Route path="/ShipsCargo" component={ShipsCargoPage} />
+        <Route path="/ShipUpgrades" component={ShipUpgradesPage} />
+        <Route path="/SoldierEquipment" component={SoldierEquipmentPage} />
+        <Route path="/Equipment" component={EquipmentPage} />
+        <Route path="/Transactions" component={TransactionsPage} />
+        <Route path="/Shopping" component={ShoppingPage} />
         <Route path="/" component={LandingPage} />
       </Switch>
     </div>

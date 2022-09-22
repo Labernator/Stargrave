@@ -3,7 +3,7 @@ import { ReactReduxContext, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { BackButtonComponent } from "../../components/common/BackButton";
 import { XPDropDown } from "../../components/dropdowns/XPDropdown";
-import { MODIFY_SOLDIER, REMOVE_SOLDIERS, SET_CAPTAIN, SET_FIRST_MATE } from "../../redux/actions";
+import { MODIFY_SOLDIER, REMOVE_CREDITS, REMOVE_SOLDIERS, SET_CAPTAIN, SET_FIRST_MATE } from "../../redux/actions";
 import { Character, CharactersEnum, CrewState, Soldier } from "../../types";
 interface CrewUpdates {
     member: Soldier | Character;
@@ -20,17 +20,20 @@ enum CharacterInjuries {
     CLOSE_CALL = "Close Call (7-8)",
     RECOVERY = "Full Recovery (9-20)",
 }
+const credits = [40, 50, 80, 90, 100, 120, 130, 140, 150, 160, 170, 180, 190, 200];
+
 export const PostGameSequencePage = () => {
     const { store } = useContext(ReactReduxContext);
     const state = store.getState() as CrewState;
     const history = useHistory();
     const dispatch = useDispatch();
     const [crewUpdates, setCrewUpdates] = useState<CrewUpdates[]>([]);
+    const [randsom, setRandsom] = useState<number>(0);
     const updateCrewMan = (crewman: Soldier, value: string) => {
         const filteredList = crewUpdates.filter((member) => {
             if (member.member.hasOwnProperty("amount")) {
                 const crewmember = (member.member as Soldier);
-                return !(crewmember.id === crewman.id && crewmember.type === crewman.type);
+                return !(crewmember.name === crewman.name && crewmember.type === crewman.type);
             }
             return true;
         });
@@ -49,7 +52,7 @@ export const PostGameSequencePage = () => {
     const aftermath = () => {
         const deadSoldiers: Soldier[] = [];
         crewUpdates.forEach((update) => {
-            const crewman = state.Soldiers.find((sol) => sol.id === (update.member as Soldier).id && sol.type === update.member.type);
+            const crewman = state.Soldiers.find((sol) => sol.name === (update.member as Soldier).name && sol.type === update.member.type);
             switch (update.change) {
                 case CrewInjuries.DEAD:
                     if (crewman) {
@@ -82,6 +85,16 @@ export const PostGameSequencePage = () => {
                 case CrewInjuries.RECOVERY:
             }
         });
+        if (randsom) {
+            dispatch({
+                type: REMOVE_CREDITS,
+                payload: {
+                    credits: randsom,
+                    sign: false,
+                    record: `Paid upkeep/randsom of ${randsom}`,
+                },
+            });
+        }
         dispatch({
             type: REMOVE_SOLDIERS,
             payload: deadSoldiers,
@@ -89,8 +102,8 @@ export const PostGameSequencePage = () => {
     };
     const renderInjuryAndDeathCrew = (crewman: Soldier) => <React.Fragment>
         <div className="injuries-btn">
-            <div>{crewman.type} #{crewman.id}</div>
-            <XPDropDown list={Object.values(CrewInjuries)} dropdownOptions={{ id: `${crewman.type}#${crewman.id}`, placeholder: CrewInjuries.RECOVERY }} callbackFn={(val) => updateCrewMan(crewman, val)} />
+            <div>{crewman.type} #{crewman.name}</div>
+            <XPDropDown list={Object.values(CrewInjuries)} dropdownOptions={{ id: `${crewman.name}${crewman.type}`, placeholder: CrewInjuries.RECOVERY }} callbackFn={(val) => updateCrewMan(crewman, val)} />
         </div>
     </React.Fragment>;
     const renderInjuryAndDeathCharacter = (char: Character) => <React.Fragment>
@@ -108,6 +121,13 @@ export const PostGameSequencePage = () => {
         {renderInjuryAndDeathCharacter(state.Captain)}
         {renderInjuryAndDeathCharacter(state.FirstMate)}
         {state.Soldiers.map(renderInjuryAndDeathCrew)}
+        <div className="modal-header">Did you have to pay randsom or upkeep?</div>
+        {credits.map((choice) => <div
+            className={choice === randsom ? "credits-selection selected" : "credits-selection"}
+            onClick={() => setRandsom(choice)}
+        >
+            {`${choice} \xA5`}
+        </div>)}
         <button
             onClick={() => {
                 aftermath();
