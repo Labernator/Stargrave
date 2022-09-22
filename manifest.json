@@ -1,13 +1,13 @@
 {
-  "short_name": "MordheimRosterViewer",
-  "name": "Mordheim Roster Viewer",
+  "short_name": "Stargrave",
+  "name": "Stargrave Configuration App",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "icons": [
     {
-      "src": "Mordheim-Icon.png",
+      "src": "Stargrave-Icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }
