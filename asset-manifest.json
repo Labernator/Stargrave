@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Stargrave/static/css/main.5c5f409a.chunk.css",
-    "main.js": "/Stargrave/static/js/main.ab12ae77.chunk.js",
-    "main.js.map": "/Stargrave/static/js/main.ab12ae77.chunk.js.map",
+    "main.js": "/Stargrave/static/js/main.b9215d40.chunk.js",
+    "main.js.map": "/Stargrave/static/js/main.b9215d40.chunk.js.map",
     "runtime-main.js": "/Stargrave/static/js/runtime-main.4b2e6b2e.js",
     "runtime-main.js.map": "/Stargrave/static/js/runtime-main.4b2e6b2e.js.map",
     "static/js/2.8a7b3d60.chunk.js": "/Stargrave/static/js/2.8a7b3d60.chunk.js",
@@ -83,6 +83,6 @@
     "static/js/runtime-main.4b2e6b2e.js",
     "static/js/3.a69c3696.chunk.js",
     "static/css/main.5c5f409a.chunk.css",
-    "static/js/main.ab12ae77.chunk.js"
+    "static/js/main.b9215d40.chunk.js"
   ]
 }
