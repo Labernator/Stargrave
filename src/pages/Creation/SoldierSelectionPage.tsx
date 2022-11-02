@@ -63,9 +63,9 @@ export const SoldierSelectionPage = () => {
                 event.preventDefault();
                 event.stopPropagation();
             }}
-            className={"dialog-btn back-btn foreground"}
+            className={"page-btn back-btn foreground"}
         >Back</button> :
-            <button
+            <React.Fragment><button
                 onClick={(e) => {
                     if (canSubmit()) {
                         dispatch({ type: ADD_SOLDIERS, payload: soldiers });
@@ -76,7 +76,9 @@ export const SoldierSelectionPage = () => {
                 }}
                 className={canSubmit() ? "page-btn selected" : "dialog-btn confirm-btn disabled"}>
                 Confirm Staffing</button>
+                <CustomBackButtonComponent dispatchFunction={() => undefined} customHistory={() => history.push("/CrewOverview")} />
+            </React.Fragment>
         }
-        <CustomBackButtonComponent dispatchFunction={() => undefined} customHistory={() => history.push("/CrewOverview")} />
+
     </React.Fragment>;
 };

@@ -16,6 +16,6 @@ export const CrewSizeComponent = ({ externalStyles, virtualCrewSize }: { externa
             id={"CrewIcon"}
             alt={"CrewIcon"}>
         </img>
-        <div className={"toolbar-compact-text"}>{virtualCrewSize || numberOfCrewMembers()}/7</div>
+        <div className={"toolbar-compact-text"}>{virtualCrewSize || numberOfCrewMembers()}/10</div>
     </div>;
 };

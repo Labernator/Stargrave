@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
-import { ReactReduxContext } from "react-redux";
-import { Character, Creature, CrewState, Soldier, StatsEnum } from "../../types";
+import React from "react";
+import { Character, Creature, Soldier, StatsEnum } from "../../types";
 import { getBaseCaptain, getBaseFirstMate, getCurrentStatStrings, getDrone, getPower, getStatsWithGear, isCaptain, isCharacter } from "../../Utils";
 
-const hasDronePower = (state: CrewState) => !!state.Captain.powers.find((pwr) => pwr.name === "Drone") || !!state.FirstMate.powers.find((pwr) => pwr.name === "Drone");
 const renderHeader = (character: Character) =>
     <div className="pdf-crew-manifest-boxes" style={{ padding: "0.5rem", fontSize: "1.5rem", display: "flex", justifyContent: "space-between" }}>
         <div>{`${isCaptain(character.type) ? "Cpt." : "Ltn."} ${character.name} (${character.background})`}</div>
@@ -160,19 +158,13 @@ const PdfDrone = (creature: Creature) => <React.Fragment>
     {renderDroneStats(creature)}
 </React.Fragment>;
 
-export const PdfCharacters = () => {
-    const { store } = useContext(ReactReduxContext);
-    const state = store.getState() as CrewState;
-    return <div className={"pdf-divider"}>
-        {PdfCharacter(state.Captain)}
-        {PdfCharacter(state.FirstMate)}
+export const PdfCharacters = ({ characters }: { characters: Character[] }) =>
+    <div className={"pdf-divider"}>
+        {characters.map(PdfCharacter)}
     </div>;
-};
-export const PdfSoldiers = () => {
-    const { store } = useContext(ReactReduxContext);
-    const state = store.getState() as CrewState;
-    return <div className={"pdf-divider"}>
-        {state.Soldiers.map(PdfSoldier)}
-        {hasDronePower(state) ? PdfDrone(getDrone()) : undefined}
+
+export const PdfSoldiers = ({ soldiers, hasDrone }: { soldiers: Soldier[]; hasDrone: boolean }) =>
+    <div className={"pdf-divider"}>
+        {soldiers.map(PdfSoldier)}
+        {hasDrone ? PdfDrone(getDrone()) : undefined}
     </div>;
-};
