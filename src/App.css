@@ -22,32 +22,11 @@ code {
 .app-body {
   height: calc(100vh);
   /* width: calc(100vw - 1rem); */
+  max-width: 30rem;
   font-family: Montserrat;
   position: relative;
   background-color: var(--background-color);
   color: var(--black-color);
-}
-
-.landing-page {
-  text-align: center;
-  font-weight: bold;
-  display: grid;
-  max-width: 30rem;
-}
-
-.landing-page-tile {
-  padding: 1rem;
-  border: 0.15rem solid var(--black-color);
-  border-radius: 0.35rem;
-  margin: 1rem;
-}
-
-.landing-page-header {
-  font-size: 1.3rem;
-}
-
-.landing-page-icon {
-  width: 48%;
 }
 
 .chapter-header {
@@ -687,6 +666,7 @@ code {
 .landing-page-tile {
   height: 13rem;
   border: 2px solid;
+  border-radius: 0.35rem;
   margin: 1rem 1rem 0rem;
   display: flex;
   flex-direction: column;
