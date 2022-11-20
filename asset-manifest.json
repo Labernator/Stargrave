@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Stargrave/static/css/main.5c5f409a.chunk.css",
+    "main.css": "/Stargrave/static/css/main.0cd3dfcc.chunk.css",
     "main.js": "/Stargrave/static/js/main.93ecbb1e.chunk.js",
     "main.js.map": "/Stargrave/static/js/main.93ecbb1e.chunk.js.map",
     "runtime-main.js": "/Stargrave/static/js/runtime-main.4b2e6b2e.js",
@@ -12,7 +12,7 @@
     "static/js/4.1c48ef35.chunk.js": "/Stargrave/static/js/4.1c48ef35.chunk.js",
     "static/js/4.1c48ef35.chunk.js.map": "/Stargrave/static/js/4.1c48ef35.chunk.js.map",
     "index.html": "/Stargrave/index.html",
-    "static/css/main.5c5f409a.chunk.css.map": "/Stargrave/static/css/main.5c5f409a.chunk.css.map",
+    "static/css/main.0cd3dfcc.chunk.css.map": "/Stargrave/static/css/main.0cd3dfcc.chunk.css.map",
     "static/js/2.8a7b3d60.chunk.js.LICENSE.txt": "/Stargrave/static/js/2.8a7b3d60.chunk.js.LICENSE.txt",
     "static/js/3.a69c3696.chunk.js.LICENSE.txt": "/Stargrave/static/js/3.a69c3696.chunk.js.LICENSE.txt",
     "static/js/4.1c48ef35.chunk.js.LICENSE.txt": "/Stargrave/static/js/4.1c48ef35.chunk.js.LICENSE.txt",
@@ -82,7 +82,7 @@
   "entrypoints": [
     "static/js/runtime-main.4b2e6b2e.js",
     "static/js/3.a69c3696.chunk.js",
-    "static/css/main.5c5f409a.chunk.css",
+    "static/css/main.0cd3dfcc.chunk.css",
     "static/js/main.93ecbb1e.chunk.js"
   ]
 }
